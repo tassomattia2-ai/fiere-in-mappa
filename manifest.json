@@ -1,6 +1,6 @@
 {
-  "name": "Fiere in Italia",
-  "short_name": "Fiere Italia",
+  "name": "Fiere in Mappa",
+  "short_name": "Fiere in Mappa",
   "description": "Le fiere in Italia in corso e dei prossimi 30 giorni, su una mappa interattiva.",
   "lang": "it",
   "start_url": "./index.html?app=1",

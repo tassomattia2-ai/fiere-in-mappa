@@ -1,4 +1,6 @@
-# Mappa delle Fiere in Italia
+# Fiere in Mappa
+
+Sito: https://fiereinmappa.it
 
 Sito web con la mappa interattiva delle fiere in Italia **in corso o che iniziano
 entro 30 giorni**, filtrabile per regione, settore, tipologia e periodo
@@ -31,7 +33,7 @@ Il sito ha due pagine:
 | `REGISTRO-LAVORI.md` | Tutti i passaggi fatti sul progetto, giorno per giorno |
 | `catture/` | Catture dello schermo usate durante il lavoro (non fanno parte del sito) |
 | `strumenti/cache_schede.json` | Memoria del programma, per essere più veloce la volta dopo |
-| `.github/workflows/aggiornamento-settimanale.yml` | L'aggiornamento automatico di ogni lunedì |
+| `.github/workflows/aggiorna-e-pubblica.yml` | L'aggiornamento automatico di ogni giorno e la pubblicazione del sito |
 
 ## Vedere il sito sul proprio computer
 
@@ -80,24 +82,20 @@ Nelle pagine HTML, `style.css` e i file `.js` sono richiamati con un numero di v
 (es. `app.js?v=2026-10-07-parallax`). Dopo una modifica conviene cambiare quel numero
 in **tutte e due** le pagine: così chi visita il sito scarica subito la versione nuova.
 
-## Metterlo online (GitHub Pages, gratis)
+## Online e aggiornamento automatico
 
-1. Crea un account su https://github.com
-2. Crea un nuovo repository pubblico (pulsante **New**), per esempio `mappa-fiere`
-3. Carica tutti i file di questa cartella (pulsante **Add file → Upload files**, trascinando
-   dentro il contenuto della cartella, compresa la cartella `.github`)
-4. Vai in **Settings → Pages**, alla voce *Branch* scegli `main` e la cartella `/ (root)`, poi **Save**
-5. Dopo un paio di minuti il sito sarà online su `https://TUO-NOME.github.io/mappa-fiere/`
+Il sito è pubblicato con **GitHub Pages** dall'automatismo `.github/workflows/aggiorna-e-pubblica.yml`:
 
-### Attivare l'aggiornamento settimanale
+- **ogni giorno** (alle 4:00 di Greenwich) raccoglie le fiere da AEFI, salva il nuovo
+  `data/fiere.json` nell'archivio e ripubblica il sito, senza bisogno di approvazioni;
+- **ogni volta che si caricano modifiche** (push) ripubblica subito il sito;
+- si può avviare anche a mano: scheda **Actions → Aggiorna fiere e pubblica il sito → Run workflow**.
 
-1. Vai in **Settings → Actions → General**
-2. In fondo, sotto *Workflow permissions*, scegli **Read and write permissions**
-   e spunta **Allow GitHub Actions to create and approve pull requests**, poi **Save**
-3. Per provarlo subito: scheda **Actions → Aggiornamento settimanale fiere → Run workflow**
+Sul sito vanno solo i file delle pagine (html, css, js, `data/`, `icone/`), non `strumenti/`.
+Se AEFI non risponde o trova meno della metà delle fiere del giorno prima, il programma
+si ferma senza toccare l'elenco e GitHub manda un'email di avviso.
 
-Da quel momento, ogni lunedì comparirà nella scheda **Pull requests** una proposta di aggiornamento.
-Controllala e premi **Merge pull request** per pubblicarla.
+L'app Android non ha dati suoi: scarica `data/fiere.json` da https://fiereinmappa.it.
 
 ## Nota sui dati
 

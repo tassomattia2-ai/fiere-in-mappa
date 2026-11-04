@@ -1163,6 +1163,19 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
 
 
 /* =========================================================
+   Pagina di solo testo (Privacy e contatti, 4/11/2026)
+   ========================================================= */
+.pagina-testo {
+  max-width: 760px;
+  padding-top: 110px;   /* spazio per la barra in alto, che è fissa */
+}
+.pagina-testo h3 { font-size: 1.35rem; margin: 32px 0 8px; }
+.pagina-testo ul { padding-left: 22px; }
+.pagina-testo li { margin: 6px 0; }
+.pagina-testo .nota-pagina { margin-top: 36px; font-size: 0.9rem; color: var(--testo-tenue); }
+
+
+/* =========================================================
    Piè di pagina
    ========================================================= */
 .piede {

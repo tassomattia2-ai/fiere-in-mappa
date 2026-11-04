@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mappa – Fiere in Italia</title>
+  <title>Mappa – Fiere in Mappa</title>
   <meta name="description" content="Mappa interattiva delle fiere in Italia in corso e dei prossimi 30 giorni, filtrabile per regione, settore, tipologia e periodo.">
 
   <!-- Caratteri: "Fredoka" per i titoli e "Nunito" per i testi, entrambi dalle forme arrotondate -->
@@ -17,20 +17,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
 
   <!-- Il nostro stile (il "?v=..." è il numero di versione, vedi index.html) -->
-  <link rel="stylesheet" href="style.css?v=2026-10-13-app2">
+  <link rel="stylesheet" href="style.css?v=2026-11-04-privacy">
 
   <!-- App per smartphone (vedi index.html) -->
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icone/favicon-48.png" type="image/png">
   <link rel="apple-touch-icon" href="icone/apple-touch-icon.png">
   <meta name="theme-color" content="#2563eb">
-  <meta name="apple-mobile-web-app-title" content="Fiere Italia">
+  <meta name="apple-mobile-web-app-title" content="Fiere in Mappa">
 </head>
 <body>
 
   <!-- ===== Barra in alto (diventa "piena" quando si scorre) ===== -->
   <header class="barra-alta" id="barra-alta">
-    <a class="logo" href="index.html">Fiere in Italia</a>
+    <a class="logo" href="index.html">Fiere in Mappa</a>
     <nav class="menu" aria-label="Sezioni">
       <a href="index.html">Home</a>
       <a href="#esplora">Mappa</a>
@@ -217,14 +217,15 @@
       complete o esatte. Date e dettagli possono cambiare: verifica sempre sul sito ufficiale della fiera prima di partire.
     </p>
     <!-- Avviso richiesto: il sito non deve sembrare "ufficiale" -->
+    <p><a href="privacy.html">Privacy e contatti</a> · <a href="mailto:info@fiereinmappa.it">info@fiereinmappa.it</a></p>
     <p class="avviso-non-ufficiale">Sito amatoriale e non ufficiale, non collegato ad AEFI né agli organizzatori delle fiere. Verifica sempre sui siti ufficiali.</p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
-  <script src="comune.js?v=2026-10-13-app2"></script>
-  <script src="app.js?v=2026-10-13-app2"></script>
-  <script src="news.js?v=2026-10-13-app2"></script>
-  <script src="banda.js?v=2026-10-13-app2"></script>
+  <script src="comune.js?v=2026-11-04-privacy"></script>
+  <script src="app.js?v=2026-11-04-privacy"></script>
+  <script src="news.js?v=2026-11-04-privacy"></script>
+  <script src="banda.js?v=2026-11-04-privacy"></script>
 </body>
 </html>

@@ -16,3 +16,6 @@ strumenti/cache_schede.json
 # File temporanei di Python
 __pycache__/
 *.pyc
+
+# Materiale per il Play Store (pacchetti dell'app, immagini): resta solo sul computer
+negozio/

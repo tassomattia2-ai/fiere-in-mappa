@@ -119,13 +119,46 @@ function oggiPiuGiorni(giorni) {
   return comeTesto(d);
 }
 
+// Siamo dentro l'app Android? (l'app è fatta con Capacitor, che aggiunge "window.Capacitor")
+const NELL_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+
+// Nell'app le pagine stanno DENTRO l'app, ma questi dati cambiano ogni giorno:
+// li prendiamo sempre dal sito (deciso il 2/11/2026), così l'app è aggiornata
+// senza dover pubblicare nuove versioni sul Play Store
+const SITO = "https://fiereinmappa.it/";
+const DATI_DAL_SITO = ["data/fiere.json", "data/news.json"];
+
 // Scarica un file JSON (es. data/fiere.json). "no-cache": il browser deve
 // sempre controllare se il file è cambiato, invece di usare una copia vecchia
 function caricaJSON(indirizzo) {
+  if (NELL_APP && DATI_DAL_SITO.includes(indirizzo)) return caricaDalSito(indirizzo);
   return fetch(indirizzo, { cache: "no-cache" }).then((risposta) => {
     if (!risposta.ok) throw new Error(`${indirizzo}: errore ${risposta.status}`);
     return risposta.json();
   });
+}
+
+// Solo nell'app: scarica i dati dal sito e ne tiene una copia sul telefono.
+// Senza internet usa l'ultima copia scaricata; se non c'è ancora (primo avvio
+// senza rete) usa i dati messi dentro l'app quando è stata creata.
+function caricaDalSito(indirizzo) {
+  const chiave = "copia:" + indirizzo;
+  return fetch(SITO + indirizzo, { cache: "no-cache" })
+    .then((risposta) => {
+      if (!risposta.ok) throw new Error(`${indirizzo}: errore ${risposta.status}`);
+      return risposta.json();
+    })
+    .then((dati) => {
+      try { localStorage.setItem(chiave, JSON.stringify(dati)); } catch (e) { /* memoria piena: pazienza */ }
+      return dati;
+    })
+    .catch(() => {
+      try {
+        const copia = localStorage.getItem(chiave);
+        if (copia) return JSON.parse(copia);
+      } catch (e) { /* copia rovinata: usiamo quella dentro l'app */ }
+      return fetch(indirizzo).then((risposta) => risposta.json());
+    });
 }
 
 // Carica le fiere e tiene solo quelle non ancora finite che iniziano entro GIORNI_MASSIMI
@@ -155,7 +188,8 @@ function testoAggiornamento(dati) {
 // Il sito si può "installare" sul telefono: compare un'icona nella schermata Home
 // e si apre a schermo intero come un'app. Il file sw.js lo fa funzionare anche senza rete.
 // (Funziona solo su un sito "https" o su localhost: altrove il telefono lo ignora.)
-if ("serviceWorker" in navigator) {
+// Nell'app Android non serve: le pagine sono già dentro l'app.
+if ("serviceWorker" in navigator && !NELL_APP) {
   navigator.serviceWorker.register("sw.js").catch(() => { /* niente https: il sito funziona lo stesso */ });
 }
 
@@ -166,7 +200,8 @@ const giaInstallata = matchMedia("(display-mode: standalone)").matches || naviga
 const suIphone = /iphone|ipad|ipod/i.test(navigator.userAgent);
 let richiestaInstallazione = null;   // la "domanda di installazione" preparata da Android/Chrome
 
-if (pulsanteInstalla && !giaInstallata) {
+// (Nell'app Android il pulsante resta nascosto: l'app è già installata)
+if (pulsanteInstalla && !giaInstallata && !NELL_APP) {
   // Android e computer (Chrome, Edge): il browser ci avvisa quando l'app si può installare
   addEventListener("beforeinstallprompt", (evento) => {
     evento.preventDefault();           // la domanda la mostriamo noi, quando si clicca il pulsante

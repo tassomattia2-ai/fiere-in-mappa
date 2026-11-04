@@ -7,7 +7,7 @@
      2. far aprire l'app anche senza rete, mostrando gli ultimi dati scaricati.
 
    Regola scelta: "prima la rete". Se c'è internet si scarica SEMPRE la
-   versione nuova (così le fiere sono quelle aggiornate ogni settimana)
+   versione nuova (così le fiere sono quelle aggiornate ogni giorno)
    e se ne tiene una copia; solo se manca la rete si usa la copia.
 
    Le tessere della cartina di OpenStreetMap NON vengono conservate:
@@ -15,13 +15,14 @@
    ============================================================ */
 
 // Quando cambia l'elenco qui sotto, cambia anche questo nome: le copie vecchie vengono buttate
-const NOME_CACHE = "fiere-in-italia-v1";
+const NOME_CACHE = "fiere-in-mappa-v3";
 
 // I file da tenere pronti fin dall'installazione
 const FILE_DEL_SITO = [
   "./",
   "index.html",
   "mappa.html",
+  "privacy.html",
   "style.css",
   "comune.js",
   "home.js",

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fiere in Italia</title>
-  <meta name="description" content="Le fiere in Italia in corso e dei prossimi 30 giorni, su una mappa interattiva semplice e pratica. Aggiornata ogni settimana.">
+  <title>Fiere in Mappa</title>
+  <meta name="description" content="Le fiere in Italia in corso e dei prossimi 30 giorni, su una mappa interattiva semplice e pratica. Aggiornata ogni giorno.">
 
   <!-- Caratteri: "Fredoka" per i titoli e "Nunito" per i testi, entrambi dalle forme arrotondate -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,20 +13,20 @@
 
   <!-- Il nostro stile. Il "?v=..." è il numero di versione: quando cambiamo il file
        lo aggiorniamo, così il browser scarica la versione nuova invece di quella vecchia -->
-  <link rel="stylesheet" href="style.css?v=2026-10-13-app2">
+  <link rel="stylesheet" href="style.css?v=2026-11-04-privacy">
 
   <!-- App per smartphone: "carta d'identità" dell'app, icone e colore della barra del telefono -->
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icone/favicon-48.png" type="image/png">
   <link rel="apple-touch-icon" href="icone/apple-touch-icon.png">
   <meta name="theme-color" content="#2563eb">
-  <meta name="apple-mobile-web-app-title" content="Fiere Italia">
+  <meta name="apple-mobile-web-app-title" content="Fiere in Mappa">
 </head>
 <body class="pagina-iniziale">
 
   <!-- ===== Barra in alto (diventa "piena" quando si scorre) ===== -->
   <header class="barra-alta" id="barra-alta">
-    <a class="logo" href="#inizio">Fiere in Italia</a>
+    <a class="logo" href="#inizio">Fiere in Mappa</a>
     <nav class="menu" aria-label="Sezioni">
       <a href="#cosa-offre">Cosa offre</a>
       <a href="mappa.html" class="menu-evidenza">Apri la mappa</a>
@@ -64,7 +64,7 @@
     </svg>
 
     <div class="apertura-testo" data-velocita="0.35">
-      <p class="occhiello" id="aggiornamento">Aggiornata ogni settimana</p>
+      <p class="occhiello" id="aggiornamento">Aggiornata ogni giorno</p>
       <h1>Le fiere d'Italia,<br>a portata di mappa</h1>
       <p>Trova in pochi secondi le fiere in corso e dei prossimi 30 giorni,
          in tutta Italia. <span id="numero-fiere"></span></p>
@@ -133,7 +133,7 @@
             <span class="vantaggio-icona" aria-hidden="true">🔄</span>
             <div>
               <h3>Sempre aggiornata</h3>
-              <p>Ogni settimana l'elenco si rinnova dal calendario ufficiale AEFI.</p>
+              <p>Ogni giorno l'elenco si rinnova dal calendario ufficiale AEFI.</p>
             </div>
           </article>
         </div>
@@ -194,10 +194,11 @@
       complete o esatte. Date e dettagli possono cambiare: verifica sempre sul sito ufficiale della fiera prima di partire.
     </p>
     <!-- Avviso richiesto: il sito non deve sembrare "ufficiale" -->
+    <p><a href="privacy.html">Privacy e contatti</a> · <a href="mailto:info@fiereinmappa.it">info@fiereinmappa.it</a></p>
     <p class="avviso-non-ufficiale">Sito amatoriale e non ufficiale, non collegato ad AEFI né agli organizzatori delle fiere. Verifica sempre sui siti ufficiali.</p>
   </footer>
 
-  <script src="comune.js?v=2026-10-13-app2"></script>
-  <script src="home.js?v=2026-10-13-app2"></script>
+  <script src="comune.js?v=2026-11-04-privacy"></script>
+  <script src="home.js?v=2026-11-04-privacy"></script>
 </body>
 </html>
