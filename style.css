@@ -1,0 +1,1228 @@
+/* =========================================================
+   Stile del sito "Fiere in Italia" – ispirato al Parallax scrolling
+   Usato da entrambe le pagine: index.html (iniziale) e mappa.html (cartina).
+
+   I colori sono definiti una volta sola qui sotto ("variabili"):
+   per cambiarli basta modificare queste righe. Anche i colori della
+   mappa (mare, regioni, confini) sono qui: app.js li legge da qui.
+   ========================================================= */
+
+:root {
+  /* Pagina */
+  --sfondo: #f3f6fb;
+  --superficie: #ffffff;
+  --vetro: rgba(255, 255, 255, 0.72);      /* superfici "di vetro" semitrasparenti */
+  --testo: #172033;
+  --testo-tenue: #5d6b82;
+  --bordo: #e2e8f2;
+  --accento: #2563eb;                      /* blu: colore principale */
+  --accento-2: #7c3aed;                    /* viola: per le sfumature */
+  --accento-tenue: #e7eefe;
+  --in-corso: #f97316;                     /* arancio: fiere in corso */
+  --ombra: 0 10px 30px rgba(23, 32, 51, 0.08), 0 2px 6px rgba(23, 32, 51, 0.05);
+  --ombra-forte: 0 24px 50px rgba(23, 32, 51, 0.16);
+  --raggio: 28px;                          /* quanto sono arrotondati gli angoli */
+
+  /* Paesaggio della testata (dal più lontano al più vicino) */
+  --cielo-alto: #cfe0ff;
+  --cielo-basso: #f3f6fb;
+  /* Bandiera italiana, sfondo delle testate (colori ufficiali) */
+  --bandiera-verde: #009246;
+  --bandiera-bianco: #ffffff;
+  --bandiera-rosso: #ce2b37;
+  --sole: #ffd27a;
+  --strato-1: #b9cff7;
+  --strato-2: #8fb2f2;
+  --strato-3: #5f8fea;
+
+  /* Mappa */
+  --mare-1: #e3edfb;
+  --mare-2: #c9dcf6;
+  --mare-piatto: #d7e5f7;                  /* il mare intorno all'Italia */
+  --velo: #f3f6fb;                         /* "velo" sulle regioni non scelte */
+  --terra: #ffffff;
+  --terra-vuota: #eef2f8;                  /* regioni senza fiere nel periodo */
+  --terra-attiva: #d6e3ff;                 /* regione sotto il mouse o scelta */
+  --confine: #c3d2ea;
+  --rilievo: #a9bfe6;                      /* il "bordo spesso" sotto l'Italia (effetto 3D) */
+  --ombra-terra: rgba(37, 99, 235, 0.25);
+
+  color-scheme: light;
+}
+
+/* Tema scuro automatico, se il computer/telefono è impostato così */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sfondo: #0d1320;
+    --superficie: #162033;
+    --vetro: rgba(22, 32, 51, 0.72);
+    --testo: #e7ecf5;
+    --testo-tenue: #9aa7bd;
+    --bordo: #24324a;
+    --accento: #6d9bff;
+    --accento-2: #a78bfa;
+    --accento-tenue: #1c2b4a;
+    --in-corso: #fb923c;
+    --ombra: 0 10px 30px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.3);
+    --ombra-forte: 0 24px 50px rgba(0, 0, 0, 0.5);
+
+    --cielo-alto: #0b1222;
+    --cielo-basso: #0d1320;
+    /* Bandiera con toni più scuri per il tema notturno */
+    --bandiera-verde: #0b5e34;
+    --bandiera-bianco: #d9dee6;
+    --bandiera-rosso: #8e1f28;
+    --sole: #e9eefc;                       /* di notte il sole diventa la luna */
+    --strato-1: #18253d;
+    --strato-2: #1e2f4f;
+    --strato-3: #253a62;
+
+    --mare-1: #101a2c;
+    --mare-2: #0b1322;
+    --mare-piatto: #0d1522;
+    --velo: #0d1320;
+    --terra: #22304a;
+    --terra-vuota: #1a2539;
+    --terra-attiva: #2f4a7a;
+    --confine: #31425f;
+    --rilievo: #0a101c;
+    --ombra-terra: rgba(0, 0, 0, 0.55);
+
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+/* scroll-padding-top: i link interni (es. "Mappa", "Elenco") fermano la pagina sotto
+   la barra in alto e la fascia dei filtri, così il titolo della sezione resta visibile */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 150px;
+  scrollbar-gutter: stable;   /* lo spazio della barra di scorrimento resta: niente "salti" */
+  overflow-x: clip;           /* sul telefono la pagina non deve mai spostarsi di lato (cerchi decorativi) */
+}
+/* Finestra "Info fiera" aperta (richiesta dell'utente): la pagina dietro resta FERMA,
+   la rotellina del mouse scorre solo la finestra */
+html:has(.info-fiera[open]) { overflow: hidden; }
+
+body {
+  margin: 0;
+  background: var(--sfondo);
+  color: var(--testo);
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: "Fredoka", "Nunito", sans-serif; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
+
+a { color: var(--accento); font-weight: 700; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+
+/* =========================================================
+   Barra in alto
+   ========================================================= */
+.barra-alta {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 28px;
+  /* Un leggero velo chiaro anche in cima alla pagina: logo e link si leggono bene
+     sopra il verde e il rosso della bandiera */
+  background: color-mix(in srgb, var(--superficie) 55%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
+}
+/* Quando si scorre la pagina la barra diventa "di vetro" */
+.barra-alta.piena {
+  background: var(--vetro);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--bordo);
+  padding: 10px 28px;
+}
+.logo {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--testo);
+}
+.logo:hover { text-decoration: none; }
+.menu { display: flex; gap: 4px; margin-left: auto; }
+.menu a {
+  color: var(--testo);
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+.menu a:hover { background: var(--accento-tenue); text-decoration: none; }
+.menu a.menu-evidenza { background: var(--accento); color: #fff; }
+.menu a.menu-evidenza:hover { filter: brightness(1.08); }
+
+/* Pulsante "Installa l'app" (compare solo sui dispositivi dove si può installare) */
+.installa-app {
+  font: inherit;
+  font-weight: 700;
+  color: var(--accento);
+  background: var(--superficie);
+  border: 2px solid var(--accento);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+.installa-app[hidden] { display: none; }
+.installa-app, .menu a { white-space: nowrap; }   /* le scritte del menu non vanno mai a capo */
+.solo-telefono { display: none; }
+.installa-app:hover { background: var(--accento-tenue); }
+/* Istruzioni per iPhone: un riquadro sotto la barra in alto */
+.aiuto-installa {
+  position: fixed;
+  top: calc(var(--altezza-barra, 64px) + 8px); left: 16px; right: 16px;
+  max-width: 380px; margin-left: auto;
+  z-index: 2000;
+  padding: 16px 18px;
+  background: var(--superficie);
+  color: var(--testo);
+  border-radius: 20px;
+  box-shadow: var(--ombra-forte);
+  line-height: 1.5;
+  cursor: pointer;
+}
+.aiuto-installa[hidden] { display: none; }
+.aiuto-installa strong { display: block; font-family: "Fredoka", sans-serif; font-size: 1.1rem; margin-bottom: 4px; }
+.aiuto-installa small { display: block; margin-top: 8px; color: var(--testo-tenue); }
+.aggiornamento {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--testo-tenue);
+  background: var(--vetro);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   Apertura con paesaggio in parallax
+   ========================================================= */
+.apertura {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Nella pagina della cartina la testata è bassa: la mappa deve vedersi subito */
+.apertura-bassa { height: 46vh; min-height: 360px; }
+
+/* Lo sfondo delle testate è la BANDIERA ITALIANA: tre fasce verticali (verde, bianco,
+   rosso) con il passaggio tra un colore e l'altro appena sfumato */
+.cielo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    var(--bandiera-verde) 0%, var(--bandiera-verde) 32.5%,
+    var(--bandiera-bianco) 34%, var(--bandiera-bianco) 65.8%,
+    var(--bandiera-rosso) 67.3%, var(--bandiera-rosso) 100%);
+}
+
+/* Gli strati: il codice in comune.js li sposta mentre si scorre */
+.strato { position: absolute; will-change: transform; }
+svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
+.apertura-bassa svg.strato { height: 62%; }
+.monti-lontani { fill: var(--strato-1); }
+.colline-medie { fill: var(--strato-2); }
+.colline-vicine { fill: var(--strato-3); }
+
+.sole {
+  top: 16%;
+  right: 13%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff8e6, var(--sole) 60%);
+  box-shadow: 0 0 80px 20px color-mix(in srgb, var(--sole) 45%, transparent);
+}
+
+/* Nuvole: forme arrotondate che scivolano piano da sole */
+.nuvole { inset: 0; pointer-events: none; }
+.nuvola {
+  position: absolute;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  animation: scivola 40s linear infinite alternate;
+}
+.nuvola::before {
+  content: "";
+  position: absolute;
+  left: 22%;
+  bottom: 40%;
+  width: 46%;
+  height: 160%;
+  border-radius: 50%;
+  background: inherit;
+}
+.n1 { top: 20%; left: 8%; width: 130px; }
+.n2 { top: 32%; left: 58%; width: 100px; animation-duration: 55s; opacity: 0.8; }
+.n3 { top: 12%; left: 36%; width: 80px; animation-duration: 48s; opacity: 0.6; }
+@keyframes scivola { to { translate: 120px 0; } }
+@media (prefers-color-scheme: dark) { .nuvola { background: rgba(160, 180, 220, 0.12); } }
+
+.apertura-testo {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  padding: 28px 36px 32px;
+  margin: -6vh 16px 0;
+  text-align: center;
+  will-change: transform;
+  /* Riquadro "di vetro" chiaro: il testo si legge bene anche sopra il verde e il rosso */
+  background: var(--vetro);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 36px;
+  box-shadow: var(--ombra-forte);
+}
+.apertura-testo h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); margin: 0 0 16px; }
+.apertura-bassa .apertura-testo { padding: 18px 30px 22px; margin-top: 40px; }
+.apertura-bassa .apertura-testo h1 { font-size: clamp(1.8rem, 4.5vw, 3rem); margin: 0 0 14px; }
+.apertura-bassa .bolla { width: 110px; height: 110px; }
+.apertura-bassa .bolla strong { font-size: 1.9rem; }
+.apertura-testo > p { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--testo-tenue); margin: 0 auto 28px; max-width: 600px; }
+
+.occhiello {
+  display: inline-block;
+  margin: 0 0 18px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--vetro);
+  backdrop-filter: blur(8px);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accento);
+}
+
+/* Bottone principale: una "pillola" colorata */
+.bottone-principale {
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accento), var(--accento-2));
+  color: #fff;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--accento) 40%, transparent);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.bottone-principale:hover {
+  text-decoration: none;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 18px 40px color-mix(in srgb, var(--accento) 50%, transparent);
+}
+.bottone-grande { padding: 18px 42px; font-size: 1.3rem; }
+
+/* Bolle con i numeri (pagina della cartina) */
+.bolle { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+.bolla {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: none;
+  background: var(--vetro);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--ombra);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--testo);
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.25s, background 0.25s, color 0.25s;
+}
+.bolla:hover { transform: translateY(-4px) scale(1.05); text-decoration: none; }
+.bolla strong { font-family: "Fredoka", sans-serif; font-size: 2.2rem; line-height: 1; }
+.bolla span { font-size: 0.8rem; font-weight: 700; color: var(--testo-tenue); margin-top: 4px; }
+.bolla.attiva { background: var(--accento); color: #fff; }
+.bolla.attiva span { color: rgba(255, 255, 255, 0.85); }
+
+/* Invito a scorrere: una "rotellina" che va su e giù */
+.scorri {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 3;
+  width: 28px;
+  height: 46px;
+  border: 2px solid var(--testo-tenue);
+  border-radius: 999px;
+  transition: opacity 0.3s;
+}
+/* Appena si comincia a scorrere, l'invito sparisce */
+.scorsa .scorri { opacity: 0; pointer-events: none; }
+.scorri span {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: var(--testo-tenue);
+  animation: rotellina 1.8s ease-in-out infinite;
+}
+@keyframes rotellina { 50% { transform: translateY(16px); opacity: 0.3; } }
+
+/* Onda finale dello stesso colore della pagina */
+.onda { position: absolute; left: 0; bottom: -1px; width: 100%; height: 80px; z-index: 3; }
+.onda path { fill: var(--sfondo); }
+
+
+/* =========================================================
+   Sezioni
+   ========================================================= */
+.sezione {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 80px 28px;
+}
+/* Tutto sopra ai cerchi decorativi */
+.sezione > :not(.cerchio-deco) { position: relative; z-index: 1; }
+
+.titolo-sezione { text-align: center; margin-bottom: 36px; }
+#esplora { padding-top: 36px; }
+#esplora .titolo-sezione { margin-bottom: 20px; }
+.titolo-sezione h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); margin: 0 0 8px; }
+.titolo-sezione p { margin: 0; color: var(--testo-tenue); font-size: 1.05rem; }
+.titolo-a-sinistra { text-align: left; }
+
+/* Cerchi sfumati decorativi (si muovono in parallax) */
+.cerchio-deco {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(4px);
+}
+.cerchio-deco.c1 {
+  width: 340px; height: 340px; top: 40px; left: -120px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accento) 22%, transparent), transparent 70%);
+}
+.cerchio-deco.c2 {
+  width: 420px; height: 420px; bottom: -60px; right: -140px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accento-2) 20%, transparent), transparent 70%);
+}
+
+/* Elementi che compaiono durante lo scorrimento (vedi comune.js) */
+.rivela {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--ritardo, 0s);
+}
+.rivela.visibile { opacity: 1; transform: none; }
+
+
+/* =========================================================
+   Pagina iniziale: cosa offre la cartina
+   ========================================================= */
+.cosa-offre-griglia {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.vantaggi { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.vantaggio {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 24px;
+  background: var(--superficie);
+  box-shadow: var(--ombra);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.vantaggio:hover { transform: translateY(-4px); box-shadow: var(--ombra-forte); }
+.vantaggio:nth-child(2n) { --ritardo: 90ms; }
+.vantaggio h3 { margin: 2px 0 4px; font-size: 1.15rem; }
+.vantaggio p { margin: 0; color: var(--testo-tenue); font-size: 0.95rem; }
+.vantaggio-icona {
+  flex: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  background: var(--accento-tenue);
+}
+
+/* L'Italia che "galleggia" (disegnata da home.js) */
+.italia-galleggiante { will-change: transform; }
+.italia-galleggiante svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  animation: galleggia 6s ease-in-out infinite;
+  filter: drop-shadow(-6px 10px 0 var(--rilievo)) drop-shadow(0 30px 30px var(--ombra-terra));
+}
+.italia-galleggiante path {
+  fill: var(--terra);
+  stroke: var(--confine);
+  stroke-width: 0.25;
+  stroke-linejoin: round;
+  transition: fill 0.3s;
+}
+.italia-galleggiante path:hover { fill: var(--terra-attiva); }
+@keyframes galleggia { 50% { transform: translateY(-14px) rotate(-1deg); } }
+
+.invito { text-align: center; padding-top: 40px; padding-bottom: 110px; }
+.invito h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin: 0 0 8px; }
+.invito p { color: var(--testo-tenue); font-size: 1.1rem; margin: 0 0 28px; }
+
+/* "Come si usa la mappa": tre passi brevi, in colonna e centrati */
+.come-si-usa {
+  list-style: none;
+  margin: -8px auto 30px;
+  padding: 0;
+  max-width: 560px;
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+.come-si-usa li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--testo-tenue);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.come-si-usa strong { color: var(--testo); }
+/* Il verbo di ogni passo (TROVA / SCEGLI / APPROFONDISCI) su una riga a sé, sopra la frase */
+.come-si-usa .passo {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85em;
+}
+/* A sinistra di ogni passo, la stessa icona che si vede sulla mappa (solo da guardare) */
+.come-si-usa .esempio {
+  flex: none;
+  width: 86px;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.come-si-usa .esempio .gruppo { width: 38px; height: 38px; }
+.come-si-usa .esempio .punto { display: block; position: relative; width: 20px; height: 20px; }
+.come-si-usa .esempio .link-info { cursor: default; white-space: nowrap; }
+
+
+/* =========================================================
+   Fascia intermedia in parallax
+   ========================================================= */
+.intermezzo {
+  position: relative;
+  overflow: hidden;
+  margin: 40px 28px;
+  padding: 130px 24px;
+  border-radius: 48px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accento), var(--accento-2));
+}
+.intermezzo-testo {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(1.7rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+.forma { position: absolute; border-radius: 50%; will-change: transform; }
+.forma.f1 { width: 300px; height: 300px; top: -120px; left: -60px; background: rgba(255, 255, 255, 0.12); }
+.forma.f2 { width: 220px; height: 220px; bottom: -110px; right: 8%; border: 26px solid rgba(255, 255, 255, 0.14); }
+.forma.f3 { width: 70px; height: 70px; top: 30%; right: 22%; background: rgba(255, 255, 255, 0.2); }
+
+
+/* =========================================================
+   Pagina della cartina: filtri "attaccati" in alto
+   ========================================================= */
+.contenitore-filtri { position: relative; }
+
+/* La fascia dei filtri: piena, a tutta larghezza, resta attaccata subito sotto la barra
+   in alto (--altezza-barra la calcola comune.js). Ciò che scorre sotto NON si vede. */
+.fascia-filtri {
+  position: sticky;
+  top: var(--altezza-barra, 60px);
+  z-index: 1500;
+  padding: 10px 28px 12px;
+  background: var(--sfondo);
+  box-shadow: 0 10px 14px -12px rgba(23, 32, 51, 0.25);
+}
+
+.filtri {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 1184px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 999px;
+  background: var(--vetro);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--ombra);
+}
+.filtri input,
+.filtri select,
+.filtri button {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.93rem;
+  padding: 10px 16px;
+  border: 1px solid var(--bordo);
+  border-radius: 999px;
+  background: var(--superficie);
+  color: var(--testo);
+  min-width: 0;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.filtri select { cursor: pointer; flex: 0 1 190px; }
+.filtri input { flex: 1 1 220px; }
+.filtri input:hover,
+.filtri select:hover { border-color: var(--accento); }
+.filtri input:focus,
+.filtri select:focus { outline: none; border-color: var(--accento); box-shadow: 0 0 0 4px var(--accento-tenue); }
+.bottone-secondario { cursor: pointer; color: var(--testo-tenue); }
+.bottone-secondario:hover { color: var(--accento); border-color: var(--accento); }
+
+.conteggio { font-weight: 700; }
+
+
+/* =========================================================
+   La scheda della mappa
+   ========================================================= */
+.scheda-mappa {
+  position: relative;
+  isolation: isolate;              /* i livelli interni di Leaflet restano "dentro" la scheda */
+  height: min(88vh, 980px);          /* scheda alta: l'Italia (lunga e stretta) si vede grande */
+  min-height: 520px;
+  border-radius: 36px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 30% 20%, var(--mare-1), var(--mare-2) 75%);
+  box-shadow: var(--ombra-forte);
+}
+.scheda-mappa .cerchio-deco.c1 { top: -80px; left: -80px; }
+.scheda-mappa .cerchio-deco.c2 { bottom: -120px; right: -100px; }
+
+.mappa { position: absolute; inset: 0; z-index: 1; }
+.leaflet-container { background: transparent; font-family: inherit; }
+
+/* La mappa stradale, sempre visibile sotto le regioni (solo dentro l'Italia).
+   I colori cambiano con lo zoom (classi impostate da app.js):
+   - da LONTANO (Italia intera): grigia con una leggera sfumatura azzurra, spenta,
+     così le bolle blu/arancioni risaltano;
+   - a metà strada: colori tenui e più contrasto;
+   - da VICINO: colori quasi naturali e ben contrastati, strade e nomi leggibili. */
+.cartina-strade { transition: filter 0.5s; }
+.cartina-lontana .cartina-strade {
+  filter: grayscale(1) sepia(0.2) hue-rotate(180deg) saturate(0.7) brightness(1.06) contrast(0.82);
+}
+.cartina-media .cartina-strade { filter: grayscale(0.45) saturate(0.85) brightness(1.02) contrast(0.95); }
+.cartina-vicina .cartina-strade { filter: grayscale(0.1) saturate(0.95) contrast(1.02); }
+
+@media (prefers-color-scheme: dark) {
+  /* Di notte la cartina si "inverte": sfondo scuro e strade chiare */
+  .cartina-lontana .cartina-strade { filter: grayscale(1) invert(0.9) hue-rotate(180deg) sepia(0.2) saturate(0.6) brightness(0.85) contrast(0.85); }
+  .cartina-media .cartina-strade { filter: grayscale(0.5) invert(0.9) hue-rotate(180deg) saturate(0.8) brightness(0.9) contrast(0.95); }
+  .cartina-vicina .cartina-strade { filter: grayscale(0.2) invert(0.9) hue-rotate(180deg) saturate(0.9) brightness(0.95) contrast(1); }
+}
+
+/* --- Solo la selezione resta visibile (albero aperto o cartellino di un pallino) --- */
+.leaflet-marker-pane > .gruppo,
+.leaflet-marker-pane > .punto { transition: opacity 0.2s; }
+.scheda-mappa.solo-selezione .leaflet-marker-pane > :not(.in-evidenza) {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+.scheda-mappa.solo-selezione .filo,
+.scheda-mappa.solo-selezione .filo-punto { opacity: 0; }
+
+/* Riga dell'elenco cliccata: resta visibile SOLO lei (con il suo cartellino);
+   spariscono le altre righe, la bolla e le linee dell'albero */
+.scheda-mappa.solo-voce .leaflet-marker-pane > :not(.voce-scelta) {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+.scheda-mappa.solo-voce .gamba-albero,
+.scheda-mappa.solo-voce .filo-albero { opacity: 0; }
+.leaflet-marker-pane > .voce-albero { transition: opacity 0.2s; }
+
+/* --- L'albero "ad elenco": ogni riga = pallino + didascalia --- */
+.voce-albero {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.voce-albero.voce-sinistra { flex-direction: row-reverse; text-align: right; }
+.voce-albero .punto {                  /* il pallino dentro la riga */
+  position: relative;
+  flex: none;
+  width: 26px;
+  height: 26px;
+}
+.voce-testo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 232px;
+  padding: 4px 11px;
+  border-radius: 11px;
+  background: var(--superficie);
+  box-shadow: var(--ombra);
+  line-height: 1.2;
+  transition: background 0.15s;
+}
+.voce-testo strong,
+.voce-testo small {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;      /* nomi troppo lunghi finiscono con "…" */
+}
+.voce-testo strong { font-size: 0.86rem; font-weight: 800; color: var(--testo); }
+.voce-testo small { font-size: 0.74rem; color: var(--testo-tenue); }
+.voce-albero:hover .voce-testo { background: var(--accento-tenue); }
+
+/* Le "gambe" dell'albero e la linea verso la bolla vera (se l'albero è stato spostato) */
+.gamba-albero { stroke: var(--accento); stroke-opacity: 0.55; fill: none; }
+.gamba-albero.in-corso { stroke: var(--in-corso); }
+.filo-albero { stroke: var(--accento); stroke-opacity: 0.6; stroke-dasharray: 5 5; fill: none; }
+.filo-albero.in-corso { stroke: var(--in-corso); }
+
+/* Un'ombra leggera del "mare" sulla costa dà profondità all'Italia senza coprirla */
+.scheda-mappa .leaflet-maschera-pane svg { filter: drop-shadow(0 3px 6px var(--ombra-terra)); }
+
+/* Le regioni cambiano colore dolcemente. Il cursore resta una freccia normale:
+   cliccare una regione non fa nulla (si sceglie dal menu a tendina "Regione") */
+.leaflet-interactive.regione { transition: fill 0.3s, fill-opacity 0.3s, stroke-width 0.3s; cursor: default; }
+
+.suggerimento {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 16px;
+  translate: -50% 0;
+  margin: 0;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: var(--vetro);
+  backdrop-filter: blur(8px);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--testo-tenue);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.suggerimento.nascosto { opacity: 0; }
+
+/* Pallini delle fiere */
+/* Pallini delle singole fiere: ben visibili ma in proporzione alla cartina (26 px, vedi app.js) */
+.punto {
+  background: var(--accento);
+  border: 3px solid var(--superficie);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: filter 0.2s;
+}
+/* Passando il cursore il pallino NON cambia dimensione (altrimenti "tremola" sotto il
+   cursore): resta fermo, si mette sopra agli altri e diventa un po' più luminoso */
+.punto:hover { z-index: 1000 !important; filter: brightness(1.15); }
+.punto.in-corso { background: var(--in-corso); }
+/* Le fiere in corso "pulsano" (un anello che si allarga e svanisce) */
+.punto.in-corso::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 3px solid var(--in-corso);
+  animation: pulsa 2s ease-out infinite;
+}
+@keyframes pulsa { to { transform: scale(1.8); opacity: 0; } }
+
+/* Linea sottile che collega una bolla spostata alla sua regione */
+.filo { stroke: var(--accento); stroke-opacity: 0.55; stroke-dasharray: 4 4; fill: none; }
+.filo-in-corso { stroke: var(--in-corso); }
+.filo-punto { stroke: var(--superficie); stroke-width: 2; fill: var(--accento); fill-opacity: 1; }
+
+/* Gruppi di fiere vicine: bolle sfumate con il numero */
+.gruppo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accento), var(--accento-2));
+  color: #fff;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accento) 20%, transparent), 0 8px 18px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+.gruppo:hover { filter: brightness(1.12); }
+
+/* Bolle della vista "Italia intera": più piccole, con testo e alone in proporzione */
+.gruppo.gruppo-piccolo {
+  font-size: 0.82rem;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accento) 20%, transparent), 0 5px 12px rgba(0, 0, 0, 0.22);
+}
+
+/* Bolla di fiere in corso (periodo "In corso"): arancione */
+.gruppo.in-corso {
+  background: linear-gradient(135deg, #fdba74, var(--in-corso));
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--in-corso) 25%, transparent), 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+.gruppo.gruppo-piccolo.in-corso {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--in-corso) 25%, transparent), 0 5px 12px rgba(0, 0, 0, 0.22);
+}
+
+/* Pulsanti dello zoom arrotondati */
+.leaflet-bar { border: none !important; border-radius: 18px !important; box-shadow: var(--ombra) !important; overflow: hidden; }
+.leaflet-bar a {
+  background: var(--superficie) !important;
+  color: var(--testo) !important;
+  border-color: var(--bordo) !important;
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+.leaflet-top.leaflet-right { margin: 8px; }
+
+/* Finestrelle (popup) e suggerimenti (tooltip) arrotondati */
+.leaflet-popup-content-wrapper,
+.leaflet-tooltip {
+  background: var(--superficie);
+  color: var(--testo);
+  border-radius: 20px;
+  box-shadow: var(--ombra-forte);
+  border: none;
+}
+.leaflet-tooltip { border-radius: 999px; padding: 5px 14px; font-weight: 700; }
+.leaflet-tooltip-top::before { border-top-color: var(--superficie); }
+.leaflet-popup-tip { background: var(--superficie); }
+.leaflet-popup-content { font-size: 0.92rem; line-height: 1.45; margin: 18px 22px; }
+.leaflet-container a.leaflet-popup-close-button { color: var(--testo-tenue); top: 8px; right: 8px; }
+/* Cartellino aperto SOTTO il pallino (perché sopra non c'era spazio): la punta va in alto */
+.cartellino-sotto .leaflet-popup-tip-container { top: -20px; transform: rotate(180deg); }
+/* Cartellino spostato di lato per restare dentro la mappa: la punta non indicherebbe
+   più il pallino, quindi la nascondiamo */
+.cartellino-spostato .leaflet-popup-tip-container { display: none; }
+
+.popup h3 { margin: 0 0 6px; font-size: 1.1rem; }
+.popup p { margin: 3px 0; }
+.popup .link { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+
+/* Il link "Info fiera" nel cartellino: una piccola pillola colorata */
+.link-info {
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accento), var(--accento-2));
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.link-info:hover { transform: scale(1.06); }
+
+
+/* =========================================================
+   Finestrella "Info fiera"
+   ========================================================= */
+.info-fiera {
+  width: min(580px, calc(100% - 32px));
+  max-height: 86vh;
+  padding: 0;                       /* il contenuto riempie tutto: un clic fuori la chiude */
+  border: none;
+  border-radius: 32px;
+  background: var(--superficie);
+  color: var(--testo);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+  overflow-y: auto;                 /* la finestra scorre da sola con la rotellina */
+  overscroll-behavior: contain;     /* arrivati in fondo, lo scorrimento non passa alla pagina */
+}
+.info-fiera[open] { animation: apri-finestra 0.35s cubic-bezier(0.2, 0.8, 0.2, 1.1); }
+@keyframes apri-finestra { from { opacity: 0; transform: translateY(24px) scale(0.96); } }
+
+/* Lo sfondo dietro la finestrella: scuro e sfocato */
+.info-fiera::backdrop {
+  background: rgba(13, 19, 32, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.info-chiudi {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.info-chiudi:hover { background: rgba(255, 255, 255, 0.35); transform: rotate(90deg); }
+
+.info-testata {
+  padding: 30px 64px 26px 30px;
+  background: linear-gradient(135deg, var(--accento), var(--accento-2));
+  color: #fff;
+}
+.info-testata h2 { margin: 6px 0 6px; font-size: 1.7rem; }
+.info-testata p { margin: 0; opacity: 0.9; font-weight: 600; }
+.info-testata .etichetta { background: rgba(255, 255, 255, 0.22); color: #fff; }
+.info-testata .etichetta.in-corso { background: var(--in-corso); }
+
+.info-corpo { padding: 8px 30px; }
+.info-corpo section { padding: 18px 0; border-bottom: 1px solid var(--bordo); }
+.info-corpo section:last-child { border-bottom: none; }
+.info-corpo h3 { margin: 0 0 8px; font-size: 1.1rem; }
+.info-corpo p { margin: 3px 0; color: var(--testo-tenue); }
+.info-corpo .info-nome { color: var(--testo); font-weight: 800; }
+.info-corpo blockquote {
+  margin: 4px 0 8px;
+  padding: 14px 18px;
+  border-radius: 20px;
+  background: var(--accento-tenue);
+  color: var(--testo);
+  font-style: italic;
+}
+.info-fonte { font-size: 0.82rem; }
+
+.info-dati { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.info-dati li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: var(--sfondo);
+  font-size: 0.92rem;
+}
+.info-dati span { color: var(--testo-tenue); }
+.info-dati strong { text-align: right; }
+
+.info-piede {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 18px 30px 28px;
+}
+.info-piede .bottone-principale { padding: 11px 22px; font-size: 1rem; }
+.info-piede p { flex-basis: 100%; margin: 6px 0 0; font-size: 0.8rem; color: var(--testo-tenue); }
+.bottone-contorno {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 2px solid var(--accento);
+  color: var(--accento);
+  transition: background 0.2s;
+}
+.bottone-contorno:hover { background: var(--accento-tenue); text-decoration: none; }
+
+@media (max-width: 520px) {
+  .info-testata { padding: 24px 56px 20px 20px; }
+  .info-corpo { padding: 4px 20px; }
+  .info-piede { padding: 16px 20px 24px; }
+}
+
+.leaflet-control-attribution {
+  background: var(--vetro) !important;
+  color: var(--testo-tenue) !important;
+  border-radius: 999px 0 0 0;
+  padding: 0 10px !important;
+}
+
+
+/* =========================================================
+   Elenco delle fiere a schede
+   ========================================================= */
+.elenco {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+.scheda-fiera {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 26px;
+  background: var(--superficie);
+  box-shadow: var(--ombra);
+  cursor: pointer;
+  transition: opacity 0.7s, transform 0.3s, box-shadow 0.3s;
+  transition-delay: var(--ritardo, 0s), 0s, 0s;
+}
+.scheda-fiera.visibile:hover,
+.scheda-fiera.visibile:focus { transform: translateY(-5px); box-shadow: var(--ombra-forte); outline: none; }
+.scheda-testo { min-width: 0; }
+.scheda-fiera h3 { margin: 0 0 4px; font-size: 1.08rem; overflow-wrap: anywhere; }
+.scheda-fiera p { margin: 0; font-size: 0.9rem; color: var(--testo-tenue); }
+.scheda-fiera .settore { margin-top: 2px; }
+.scheda-fiera .etichette { margin-top: 8px; }
+
+/* La data d'inizio dentro un cerchio */
+.data-tonda {
+  flex: none;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--accento-tenue);
+  color: var(--accento);
+}
+.data-tonda strong { font-family: "Fredoka", sans-serif; font-size: 1.45rem; line-height: 1; }
+.data-tonda span { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; }
+.scheda-fiera.in-corso .data-tonda { background: var(--in-corso); color: #fff; }
+
+.etichetta {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-right: 5px;
+  background: var(--accento-tenue);
+  color: var(--accento);
+}
+.etichetta.in-corso { background: var(--in-corso); color: #fff; }
+.etichetta.tenue { background: var(--bordo); color: var(--testo-tenue); }
+
+.vuoto { grid-column: 1 / -1; text-align: center; padding: 40px 16px; color: var(--testo-tenue); }
+
+
+/* =========================================================
+   News dalle fiere (sezione tra l'elenco e il piè di pagina, vedi news.js)
+   ========================================================= */
+/* La fascia in parallax delle news ha i colori invertiti rispetto a quella sopra la lista */
+.intermezzo-news { background: linear-gradient(135deg, var(--accento-2), var(--accento)); margin-top: 20px; }
+
+/* Le tre scelte del periodo, a forma di "pillola" */
+.scelte-news {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: -12px 0 30px;
+}
+.scelte-news button {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--bordo);
+  background: var(--superficie);
+  color: var(--testo);
+  cursor: pointer;
+  box-shadow: var(--ombra);
+}
+.scelte-news button[aria-pressed="true"] { background: var(--accento); border-color: var(--accento); color: #fff; }
+
+/* Ogni news è una scheda bianca arrotondata, come le schede delle fiere */
+.scheda-news {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border-radius: 26px;
+  background: var(--superficie);
+  box-shadow: var(--ombra);
+  border-top: 5px solid var(--accento);
+  transition: opacity 0.7s, transform 0.3s, box-shadow 0.3s;
+  transition-delay: var(--ritardo, 0s), 0s, 0s;
+}
+.scheda-news.in-corso { border-top-color: var(--in-corso); }
+.scheda-news.visibile:hover { transform: translateY(-5px); box-shadow: var(--ombra-forte); }
+.scheda-news p { margin: 0; }
+.news-fiera { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.9rem; }
+.news-fiera strong { overflow-wrap: anywhere; }
+.news-quando { margin-top: 4px !important; font-size: 0.85rem; color: var(--testo-tenue); }
+.scheda-news h3 { margin: 12px 0 8px; font-size: 1.15rem; line-height: 1.3; }
+.news-testo { color: var(--testo-tenue); font-size: 0.95rem; line-height: 1.55; flex: 1; }
+.news-fonte { margin-top: 14px !important; font-size: 0.82rem; color: var(--testo-tenue); }
+.news-fonte a { color: var(--accento); font-weight: 700; text-decoration: none; }
+.news-fonte a:hover { text-decoration: underline; }
+
+/* Sul telefono le schede occupano tutta la larghezza */
+@media (max-width: 420px) {
+  .elenco-news { grid-template-columns: 1fr; }
+}
+
+
+/* =========================================================
+   Banda scorrevole con i nomi delle fiere (vedi banda.js)
+   ========================================================= */
+.banda-fiere {
+  position: relative;
+  overflow: hidden;            /* le forme dietro non devono allargare la pagina */
+  padding: 46px 0;
+  margin-bottom: 10px;
+}
+.banda-fiere .forma { background: color-mix(in srgb, var(--accento) 12%, transparent); }
+.banda-fiere .forma.f1 { width: 220px; height: 220px; top: -60px; left: 6%; }
+.banda-fiere .forma.f3 { width: 90px; height: 90px; top: auto; bottom: -10px; right: 12%; }
+
+/* La striscia colorata, DRITTA (12/10: l'utente non la vuole inclinata) */
+.banda-binario {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--accento), var(--accento-2));
+  box-shadow: var(--ombra-forte);
+  padding: 16px 0;
+}
+
+/* Il nastro scorre da destra a sinistra; con due copie identiche il giro non ha stacchi */
+.banda-nastro {
+  display: flex;
+  width: max-content;
+  animation: banda-scorre var(--durata, 60s) linear infinite;
+}
+.banda-binario:hover .banda-nastro,
+.banda-binario:focus-within .banda-nastro { animation-play-state: paused; }   /* si ferma col mouse sopra */
+@keyframes banda-scorre {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.banda-copia { display: flex; align-items: center; flex: none; }
+
+.banda-voce {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: #fff;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.banda-voce strong { font-family: "Fredoka", sans-serif; font-size: 1.25rem; font-weight: 600; letter-spacing: 0.01em; }
+.banda-voce span { font-size: 0.8rem; font-weight: 700; opacity: 0.8; text-transform: uppercase; }
+.banda-voce:hover,
+.banda-voce:focus-visible { background: rgba(255, 255, 255, 0.18); outline: none; }
+.banda-punto { color: rgba(255, 255, 255, 0.55); padding: 0 6px; }
+
+/* Chi preferisce meno animazioni: la banda resta ferma e si scorre a mano */
+@media (prefers-reduced-motion: reduce) {
+  .banda-nastro { animation: none; }
+  .banda-binario { overflow-x: auto; }
+  .banda-copia[aria-hidden="true"] { display: none; }
+}
+
+/* La scheda dell'elenco raggiunta dalla banda si illumina per un momento */
+.scheda-fiera.dalla-banda { animation: scheda-illumina 2.2s ease-out; }
+@keyframes scheda-illumina {
+  0%, 35% { box-shadow: 0 0 0 4px var(--accento), var(--ombra-forte); }
+  100%    { box-shadow: var(--ombra); }
+}
+
+
+/* =========================================================
+   Piè di pagina
+   ========================================================= */
+.piede {
+  text-align: center;
+  padding: 32px 24px 48px;
+  font-size: 0.85rem;
+  color: var(--testo-tenue);
+}
+.piede p { margin: 4px 0; }
+/* Avviso "sito non ufficiale": un po' più in evidenza del resto del piè di pagina */
+.piede .avviso-non-ufficiale {
+  margin-top: 12px;
+  font-weight: 700;
+  color: var(--testo);
+}
+
+
+/* =========================================================
+   Schermi piccoli (telefono)
+   ========================================================= */
+@media (max-width: 860px) {
+  .barra-alta, .barra-alta.piena { padding: 10px 16px; }
+  .aggiornamento { display: none; }
+  .menu a { padding: 7px 12px; font-size: 0.92rem; }
+
+  .sezione { padding: 56px 16px; }
+  .cosa-offre-griglia { grid-template-columns: 1fr; gap: 32px; }
+  .italia-galleggiante { max-width: 320px; margin: 0 auto; }
+  .vantaggi { grid-template-columns: 1fr; }
+
+  .bolla { width: 100px; height: 100px; }
+  .bolla strong { font-size: 1.7rem; }
+  .sole { width: 90px; height: 90px; }
+
+  /* Sul telefono i filtri non restano attaccati in alto: occuperebbero troppo spazio */
+  .fascia-filtri { position: static; padding: 8px 16px; box-shadow: none; }
+  .filtri { border-radius: 28px; }
+  .filtri select { flex: 1 1 45%; }
+
+  .scheda-mappa { height: 70vh; min-height: 380px; border-radius: 28px; }
+  .intermezzo { margin: 24px 16px; padding: 90px 20px; border-radius: 36px; }
+  .elenco { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .menu a:not(.menu-evidenza) { display: none; }
+  /* Sul telefono "Installa l'app" diventa "📲 App", così la barra resta su una riga */
+  .solo-schermo-largo { display: none; }
+  .solo-telefono { display: inline; }
+  .installa-app { padding: 5px 10px; font-size: 0.92rem; }
+  .menu { gap: 6px; }
+  .logo { font-size: 1.2rem; white-space: nowrap; }
+}
+
+
+/* =========================================================
+   Chi preferisce meno animazioni (impostazione del computer)
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rivela { opacity: 1; transform: none; transition: none; }
+  .nuvola, .scorri span, .italia-galleggiante svg, .punto.in-corso::after { animation: none; }
+}

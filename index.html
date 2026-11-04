@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiere in Italia</title>
+  <meta name="description" content="Le fiere in Italia in corso e dei prossimi 30 giorni, su una mappa interattiva semplice e pratica. Aggiornata ogni settimana.">
+
+  <!-- Caratteri: "Fredoka" per i titoli e "Nunito" per i testi, entrambi dalle forme arrotondate -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+
+  <!-- Il nostro stile. Il "?v=..." è il numero di versione: quando cambiamo il file
+       lo aggiorniamo, così il browser scarica la versione nuova invece di quella vecchia -->
+  <link rel="stylesheet" href="style.css?v=2026-10-13-app2">
+
+  <!-- App per smartphone: "carta d'identità" dell'app, icone e colore della barra del telefono -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icone/favicon-48.png" type="image/png">
+  <link rel="apple-touch-icon" href="icone/apple-touch-icon.png">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-title" content="Fiere Italia">
+</head>
+<body class="pagina-iniziale">
+
+  <!-- ===== Barra in alto (diventa "piena" quando si scorre) ===== -->
+  <header class="barra-alta" id="barra-alta">
+    <a class="logo" href="#inizio">Fiere in Italia</a>
+    <nav class="menu" aria-label="Sezioni">
+      <a href="#cosa-offre">Cosa offre</a>
+      <a href="mappa.html" class="menu-evidenza">Apri la mappa</a>
+      <!-- Compare solo quando il telefono permette di installare il sito come app (vedi comune.js) -->
+      <button type="button" id="installa-app" class="installa-app" hidden><span class="solo-schermo-largo">Installa l'app</span><span class="solo-telefono">📲 App</span></button>
+    </nav>
+  </header>
+
+  <!-- Istruzioni per iPhone, che non ha la domanda automatica di installazione -->
+  <div id="aiuto-installa" class="aiuto-installa" hidden>
+    <strong>Installa su iPhone</strong>
+    Tocca il pulsante <b>Condividi</b> (il quadrato con la freccia verso l'alto) e poi
+    <b>«Aggiungi alla schermata Home»</b>.
+    <small>Tocca qui per chiudere</small>
+  </div>
+
+  <!-- ===== 1. Apertura a tutto schermo con il paesaggio in parallax ===== -->
+  <!-- Ogni strato ha "data-velocita": più il numero è alto, più lo strato
+       sembra lontano (si muove più lentamente rispetto alla pagina) -->
+  <section class="apertura" id="inizio">
+    <div class="cielo"></div>
+    <div class="strato sole" data-velocita="0.6"></div>
+    <div class="strato nuvole" data-velocita="0.5">
+      <span class="nuvola n1"></span><span class="nuvola n2"></span><span class="nuvola n3"></span>
+    </div>
+
+    <svg class="strato" data-velocita="0.45" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+      <path class="monti-lontani" d="M0,220 C120,140 200,90 300,150 C380,200 440,80 560,110 C660,135 700,60 820,90 C940,120 980,170 1080,130 C1180,90 1260,60 1340,110 C1400,150 1440,160 1440,160 L1440,320 L0,320 Z"/>
+    </svg>
+    <svg class="strato" data-velocita="0.3" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+      <path class="colline-medie" d="M0,250 C160,190 280,230 420,210 C560,190 640,240 800,225 C960,210 1040,180 1200,205 C1320,225 1400,215 1440,210 L1440,320 L0,320 Z"/>
+    </svg>
+    <svg class="strato" data-velocita="0.15" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+      <path class="colline-vicine" d="M0,280 C200,240 360,290 540,265 C720,240 860,290 1040,270 C1200,252 1340,275 1440,262 L1440,320 L0,320 Z"/>
+    </svg>
+
+    <div class="apertura-testo" data-velocita="0.35">
+      <p class="occhiello" id="aggiornamento">Aggiornata ogni settimana</p>
+      <h1>Le fiere d'Italia,<br>a portata di mappa</h1>
+      <p>Trova in pochi secondi le fiere in corso e dei prossimi 30 giorni,
+         in tutta Italia. <span id="numero-fiere"></span></p>
+
+      <!-- Il "clic" principale: porta alla cartina -->
+      <a class="bottone-principale bottone-grande" href="mappa.html">Apri la mappa →</a>
+    </div>
+
+    <a class="scorri" href="#cosa-offre" aria-label="Scorri verso il basso"><span></span></a>
+
+    <!-- Onda finale dello stesso colore della pagina: "unisce" l'apertura al resto -->
+    <svg class="onda" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,10 480,70 720,40 C960,10 1200,70 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </section>
+
+  <!-- ===== 2. Cosa offre la cartina ===== -->
+  <section class="sezione" id="cosa-offre">
+    <span class="cerchio-deco c1" data-velocita="-0.15"></span>
+    <span class="cerchio-deco c2" data-velocita="0.12"></span>
+
+    <div class="cosa-offre-griglia">
+      <div>
+        <div class="titolo-sezione titolo-a-sinistra rivela">
+          <h2>Tutto quello che ti serve,<br>in una sola mappa</h2>
+          <p>Pensata per essere semplice: niente registrazioni, niente complicazioni.</p>
+        </div>
+
+        <div class="vantaggi">
+          <article class="vantaggio rivela">
+            <span class="vantaggio-icona" aria-hidden="true">🔎</span>
+            <div>
+              <h3>Ricerca per fiera</h3>
+              <p>Scrivi il nome di una fiera o di una città e la trovi subito sulla mappa.</p>
+            </div>
+          </article>
+          <article class="vantaggio rivela">
+            <span class="vantaggio-icona" aria-hidden="true">🗺️</span>
+            <div>
+              <h3>Regione per regione</h3>
+              <p>Scegli una regione dal menu: la mappa si avvicina e ti mostra solo le sue fiere.</p>
+            </div>
+          </article>
+          <article class="vantaggio rivela">
+            <span class="vantaggio-icona" aria-hidden="true">📅</span>
+            <div>
+              <h3>Solo quello che conta</h3>
+              <p>Fiere in corso, dei prossimi 7 giorni o dei prossimi 30. Niente di più lontano.</p>
+            </div>
+          </article>
+          <article class="vantaggio rivela">
+            <span class="vantaggio-icona" aria-hidden="true">👆</span>
+            <div>
+              <h3>Semplice da usare</h3>
+              <p>Pochi filtri chiari: settore, tipologia e periodo. Un clic per azzerare tutto.</p>
+            </div>
+          </article>
+          <article class="vantaggio rivela">
+            <span class="vantaggio-icona" aria-hidden="true">📱</span>
+            <div>
+              <h3>Pratica ovunque</h3>
+              <p>Funziona su computer, tablet e telefono, anche con il tema scuro.</p>
+            </div>
+          </article>
+          <article class="vantaggio rivela">
+            <span class="vantaggio-icona" aria-hidden="true">🔄</span>
+            <div>
+              <h3>Sempre aggiornata</h3>
+              <p>Ogni settimana l'elenco si rinnova dal calendario ufficiale AEFI.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Un'Italia che "galleggia" in parallax (il disegno lo crea home.js) -->
+      <div class="italia-galleggiante" data-velocita="-0.1" aria-hidden="true">
+        <svg id="italia" viewBox="0 0 100 100"></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. Fascia intermedia in parallax ===== -->
+  <section class="intermezzo" aria-hidden="true">
+    <span class="forma f1" data-velocita="0.25"></span>
+    <span class="forma f2" data-velocita="-0.2"></span>
+    <span class="forma f3" data-velocita="0.4"></span>
+    <p class="intermezzo-testo rivela">Dalle Alpi alla Sicilia,<br><strong>un unico calendario.</strong></p>
+  </section>
+
+  <!-- ===== 4. Invito finale: come si usa la mappa ===== -->
+  <section class="sezione invito rivela">
+    <h2>Pronto a partire?</h2>
+    <p>Bastano tre clic per trovare la fiera che fa per te.</p>
+    <!-- Come si usa la mappa, in tre passi brevissimi (scelto dall'utente: con le ICONE VERE
+         della mappa al posto delle parole "bolla" e "puntino"). Si trova tutto cliccando
+         sulla mappa, senza scorrere l'elenco in fondo alla pagina. -->
+    <ol class="come-si-usa">
+      <li><span class="esempio" aria-hidden="true"><span class="gruppo">12</span></span>
+          <span><strong class="passo">Trova</strong> Clicca un numero sulla mappa: si apre l'elenco delle fiere di quella zona.</span></li>
+      <li><span class="esempio" aria-hidden="true"><span class="punto"></span></span>
+          <span><strong class="passo">Scegli</strong> Clicca la fiera che ti interessa: vedi subito date, luogo e sito ufficiale.</span></li>
+      <li><span class="esempio" aria-hidden="true"><span class="link-info">Info fiera</span></span>
+          <span><strong class="passo">Approfondisci</strong> Clicca il pulsante "Info Fiera" e in un'unica scheda troverai: organizzatore, contatti e una breve descrizione dell'evento.</span></li>
+    </ol>
+    <!-- Tolto il secondo pulsante grande "Apri la mappa" (12/10/2026, deciso dall'utente):
+         resta un unico pulsante principale, in alto. -->
+  </section>
+
+  <footer class="piede">
+    <!-- Piè di pagina UGUALE nelle due pagine (12/10/2026, deciso dall'utente):
+         fonti, diritto d'autore con riferimento di legge, responsabilità, avviso non ufficiale. -->
+    <p>
+      <strong>Fonti.</strong> Fiere: <a href="https://www.aefi.it/it/calendario/" target="_blank" rel="noopener">calendario AEFI – Associazione Esposizioni e Fiere Italiane</a>.
+      Confini delle regioni: ISTAT / openpolis. Cartina stradale: © contributori
+      <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> (licenza ODbL).
+      Sono mostrate solo le fiere in corso o che iniziano entro 30 giorni.
+    </p>
+    <p>
+      <strong>Diritto d'autore.</strong> Le descrizioni «In breve» e le news sono riassunti scritti da noi, sempre con
+      l'indicazione della fonte. Non riproduciamo testi, immagini o loghi di AEFI o degli organizzatori, nel rispetto
+      della Legge 22 aprile 1941, n. 633 sul diritto d'autore (in particolare l'art. 70 sui riassunti con citazione
+      della fonte e gli artt. 102-bis e seguenti sulle banche dati). Nomi e marchi delle fiere appartengono ai
+      rispettivi titolari e sono citati solo per indicare l'evento.
+    </p>
+    <p>
+      <strong>Responsabilità.</strong> Le informazioni hanno solo scopo informativo e non sono garantite come
+      complete o esatte. Date e dettagli possono cambiare: verifica sempre sul sito ufficiale della fiera prima di partire.
+    </p>
+    <!-- Avviso richiesto: il sito non deve sembrare "ufficiale" -->
+    <p class="avviso-non-ufficiale">Sito amatoriale e non ufficiale, non collegato ad AEFI né agli organizzatori delle fiere. Verifica sempre sui siti ufficiali.</p>
+  </footer>
+
+  <script src="comune.js?v=2026-10-13-app2"></script>
+  <script src="home.js?v=2026-10-13-app2"></script>
+</body>
+</html>

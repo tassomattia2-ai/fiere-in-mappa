@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mappa – Fiere in Italia</title>
+  <meta name="description" content="Mappa interattiva delle fiere in Italia in corso e dei prossimi 30 giorni, filtrabile per regione, settore, tipologia e periodo.">
+
+  <!-- Caratteri: "Fredoka" per i titoli e "Nunito" per i testi, entrambi dalle forme arrotondate -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+
+  <!-- Leaflet: la libreria che disegna la mappa -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <!-- MarkerCluster: raggruppa i pallini vicini in un cerchio con il numero -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+
+  <!-- Il nostro stile (il "?v=..." è il numero di versione, vedi index.html) -->
+  <link rel="stylesheet" href="style.css?v=2026-10-13-app2">
+
+  <!-- App per smartphone (vedi index.html) -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icone/favicon-48.png" type="image/png">
+  <link rel="apple-touch-icon" href="icone/apple-touch-icon.png">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-title" content="Fiere Italia">
+</head>
+<body>
+
+  <!-- ===== Barra in alto (diventa "piena" quando si scorre) ===== -->
+  <header class="barra-alta" id="barra-alta">
+    <a class="logo" href="index.html">Fiere in Italia</a>
+    <nav class="menu" aria-label="Sezioni">
+      <a href="index.html">Home</a>
+      <a href="#esplora">Mappa</a>
+      <a href="#fiere">Elenco</a>
+      <a href="#news">News</a>
+    </nav>
+    <p class="aggiornamento" id="aggiornamento">Caricamento dati…</p>
+  </header>
+
+  <!-- ===== Testata con paesaggio in parallax (più bassa di quella della pagina iniziale) ===== -->
+  <!-- Ogni strato ha "data-velocita": più il numero è alto, più lo strato
+       sembra lontano (si muove più lentamente rispetto alla pagina) -->
+  <section class="apertura apertura-bassa">
+    <div class="cielo"></div>
+    <div class="strato sole" data-velocita="0.6"></div>
+    <svg class="strato" data-velocita="0.45" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+      <path class="monti-lontani" d="M0,220 C120,140 200,90 300,150 C380,200 440,80 560,110 C660,135 700,60 820,90 C940,120 980,170 1080,130 C1180,90 1260,60 1340,110 C1400,150 1440,160 1440,160 L1440,320 L0,320 Z"/>
+    </svg>
+    <svg class="strato" data-velocita="0.3" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+      <path class="colline-medie" d="M0,250 C160,190 280,230 420,210 C560,190 640,240 800,225 C960,210 1040,180 1200,205 C1320,225 1400,215 1440,210 L1440,320 L0,320 Z"/>
+    </svg>
+    <svg class="strato" data-velocita="0.15" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+      <path class="colline-vicine" d="M0,280 C200,240 360,290 540,265 C720,240 860,290 1040,270 C1200,252 1340,275 1440,262 L1440,320 L0,320 Z"/>
+    </svg>
+
+    <div class="apertura-testo" data-velocita="0.35">
+      <h1>La mappa delle fiere</h1>
+      <!-- Tre "bolle" con i numeri: cliccandole si sceglie il periodo -->
+      <div class="bolle">
+        <button type="button" class="bolla" data-periodo="oggi">
+          <strong id="numero-oggi">–</strong><span>In corso</span>
+        </button>
+        <button type="button" class="bolla" data-periodo="settimana">
+          <strong id="numero-settimana">–</strong><span>Prossimi 7 giorni</span>
+        </button>
+        <button type="button" class="bolla" data-periodo="">
+          <strong id="numero-mese">–</strong><span>Prossimi 30 giorni</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Onda finale dello stesso colore della pagina: "unisce" la testata al resto -->
+    <svg class="onda" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,10 480,70 720,40 C960,10 1200,70 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </section>
+
+  <!-- ===== Da qui in giù i filtri restano attaccati in alto mentre si scorre ===== -->
+  <div class="contenitore-filtri">
+
+    <!-- La "fascia" piena a tutta larghezza resta attaccata sotto la barra in alto:
+         ciò che scorre sotto non si vede in trasparenza -->
+    <div class="fascia-filtri">
+    <section class="filtri" aria-label="Filtri">
+      <input type="search" id="filtro-testo" placeholder="Cerca una fiera o una città…" aria-label="Cerca">
+
+      <select id="filtro-regione" aria-label="Regione">
+        <option value="">Tutte le regioni</option>
+      </select>
+
+      <select id="filtro-settore" aria-label="Settore">
+        <option value="">Tutti i settori</option>
+      </select>
+
+      <select id="filtro-tipologia" aria-label="Tipologia">
+        <option value="">Tutte le tipologie</option>
+      </select>
+
+      <!-- Periodo: solo tre scelte (decise dall'utente). Il sito non mostra mai fiere oltre i 30 giorni -->
+      <select id="filtro-periodo" aria-label="Periodo">
+        <option value="oggi" data-descrizione="in corso">In corso</option>
+        <option value="settimana" data-descrizione="nei prossimi 7 giorni">Prossimi 7 giorni</option>
+        <option value="" data-descrizione="nei prossimi 30 giorni" selected>Prossimi 30 giorni</option>
+      </select>
+
+      <button type="button" id="azzera" class="bottone-secondario">Azzera filtri</button>
+    </section>
+    </div>
+
+    <!-- ===== La mappa ===== -->
+    <section class="sezione" id="esplora">
+      <div class="titolo-sezione rivela">
+        <h2>Esplora la mappa</h2>
+        <p class="conteggio" id="conteggio"></p>
+      </div>
+
+      <div class="scheda-mappa rivela" id="scheda-mappa">
+        <!-- Cerchi decorativi dietro la mappa, anche loro in parallax -->
+        <span class="cerchio-deco c1" data-velocita="-0.12"></span>
+        <span class="cerchio-deco c2" data-velocita="0.1"></span>
+
+        <div id="mappa" class="mappa" role="region" aria-label="Mappa delle fiere"></div>
+      </div>
+    </section>
+
+    <!-- ===== Fascia intermedia in parallax ===== -->
+    <section class="intermezzo" aria-hidden="true">
+      <span class="forma f1" data-velocita="0.25"></span>
+      <span class="forma f2" data-velocita="-0.2"></span>
+      <span class="forma f3" data-velocita="0.4"></span>
+      <p class="intermezzo-testo rivela">Dalle Alpi alla Sicilia,<br><strong>un unico calendario.</strong></p>
+    </section>
+
+    <!-- ===== Elenco delle fiere, a schede ===== -->
+    <section class="sezione" id="fiere">
+      <div class="titolo-sezione rivela">
+        <h2>Le fiere</h2>
+        <p>Clicca una fiera per vederla sulla mappa.</p>
+      </div>
+      <ol class="elenco" id="elenco"></ol>
+    </section>
+
+  </div>
+
+  <!-- ===== NEWS dalle fiere (12/10/2026, chiesto dall'utente) ===== -->
+  <!-- Tra l'elenco delle fiere e il piè di pagina. Le news sono in data/news.json
+       (scritte da noi, con la fonte) e le disegna news.js: compaiono SOLO quelle
+       di fiere in corso o dei prossimi 30 giorni. -->
+
+  <!-- Fascia in parallax che introduce le news -->
+  <section class="intermezzo intermezzo-news" aria-hidden="true">
+    <span class="forma f1" data-velocita="0.25"></span>
+    <span class="forma f2" data-velocita="-0.2"></span>
+    <span class="forma f3" data-velocita="0.4"></span>
+    <p class="intermezzo-testo rivela">Le ultime notizie,<br><strong>prima di partire.</strong></p>
+  </section>
+
+  <section class="sezione" id="news">
+    <!-- Cerchi decorativi in parallax, come dietro la mappa -->
+    <span class="cerchio-deco c1" data-velocita="-0.12"></span>
+    <span class="cerchio-deco c2" data-velocita="0.1"></span>
+
+    <div class="titolo-sezione rivela">
+      <h2>News dalle fiere</h2>
+      <p>Novità e anticipazioni sulle fiere in corso e dei prossimi 30 giorni.</p>
+    </div>
+
+    <!-- Le stesse tre scelte del menu "Periodo" (si parte da "Prossimi 30 giorni") -->
+    <div class="scelte-news rivela" role="group" aria-label="Periodo delle news">
+      <button type="button" data-periodo="oggi" aria-pressed="false">In corso</button>
+      <button type="button" data-periodo="settimana" aria-pressed="false">Prossimi 7 giorni</button>
+      <button type="button" data-periodo="" aria-pressed="true">Prossimi 30 giorni</button>
+    </div>
+
+    <ol class="elenco elenco-news" id="elenco-news"></ol>
+  </section>
+
+  <!-- ===== Banda scorrevole con i NOMI delle fiere (12/10/2026, scelto dall'utente) ===== -->
+  <!-- Niente loghi né marchi (diritti): solo i nomi delle fiere, scritti da banda.js
+       con i dati del periodo scelto. Le forme dietro si muovono in parallax. -->
+  <section class="banda-fiere" aria-label="Fiere in arrivo">
+    <span class="forma f1" data-velocita="0.2"></span>
+    <span class="forma f3" data-velocita="-0.25"></span>
+    <div class="banda-binario">
+      <div class="banda-nastro" id="banda-nastro"></div>
+    </div>
+  </section>
+
+  <!-- ===== Finestrella "Info fiera" (si apre dal cartellino di ogni fiera) ===== -->
+  <!-- Il contenuto lo scrive app.js con i dati della fiera scelta -->
+  <dialog class="info-fiera" id="info-fiera" aria-labelledby="info-titolo">
+    <button type="button" class="info-chiudi" id="info-chiudi" aria-label="Chiudi">×</button>
+    <div id="info-contenuto"></div>
+  </dialog>
+
+  <footer class="piede">
+    <!-- Piè di pagina UGUALE nelle due pagine (12/10/2026, deciso dall'utente):
+         fonti, diritto d'autore con riferimento di legge, responsabilità, avviso non ufficiale. -->
+    <p>
+      <strong>Fonti.</strong> Fiere: <a href="https://www.aefi.it/it/calendario/" target="_blank" rel="noopener">calendario AEFI – Associazione Esposizioni e Fiere Italiane</a>.
+      Confini delle regioni: ISTAT / openpolis. Cartina stradale: © contributori
+      <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> (licenza ODbL).
+      Sono mostrate solo le fiere in corso o che iniziano entro 30 giorni.
+    </p>
+    <p>
+      <strong>Diritto d'autore.</strong> Le descrizioni «In breve» e le news sono riassunti scritti da noi, sempre con
+      l'indicazione della fonte. Non riproduciamo testi, immagini o loghi di AEFI o degli organizzatori, nel rispetto
+      della Legge 22 aprile 1941, n. 633 sul diritto d'autore (in particolare l'art. 70 sui riassunti con citazione
+      della fonte e gli artt. 102-bis e seguenti sulle banche dati). Nomi e marchi delle fiere appartengono ai
+      rispettivi titolari e sono citati solo per indicare l'evento.
+    </p>
+    <p>
+      <strong>Responsabilità.</strong> Le informazioni hanno solo scopo informativo e non sono garantite come
+      complete o esatte. Date e dettagli possono cambiare: verifica sempre sul sito ufficiale della fiera prima di partire.
+    </p>
+    <!-- Avviso richiesto: il sito non deve sembrare "ufficiale" -->
+    <p class="avviso-non-ufficiale">Sito amatoriale e non ufficiale, non collegato ad AEFI né agli organizzatori delle fiere. Verifica sempre sui siti ufficiali.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+  <script src="comune.js?v=2026-10-13-app2"></script>
+  <script src="app.js?v=2026-10-13-app2"></script>
+  <script src="news.js?v=2026-10-13-app2"></script>
+  <script src="banda.js?v=2026-10-13-app2"></script>
+</body>
+</html>

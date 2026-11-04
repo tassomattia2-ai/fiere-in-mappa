@@ -1,0 +1,783 @@
+{
+  "_nota": "Riassunti scritti a mano (8 ottobre 2026) per le fiere senza descrizione su AEFI e sul sito ufficiale. Chiave = nome della fiera in minuscolo. Ogni riassunto si basa sulle fonti indicate.",
+  "taste of earth": {
+    "testo": "Sezione internazionale della Fiera del Riso di Isola della Scala: espositori da diversi Paesi presentano prodotti tipici, cultura e cucina del proprio territorio, con incontri e presentazioni dedicati anche alla sostenibilità.",
+    "fonte": "https://en.italiani.it/rice-fair-isola-della-scala/amp/"
+  },
+  "fiera del riso": {
+    "testo": "La grande festa del riso Vialone Nano Veronese IGP, giunta alla 58ª edizione: quasi un mese di risotti preparati da chef e storici \"Mastri Risottari\" in un'area coperta di circa 15.000 m², con oltre 100 espositori, spettacoli, sfilate in costume e convegni sulla risicoltura.",
+    "fonte": "https://www.e-borghi.com/en/?p=392376"
+  },
+  "fiera del tartufo di borgofranco sul po": {
+    "testo": "Fiera Nazionale del Tartufo Bianco organizzata dalla Pro Loco nei fine settimana di ottobre: stand gastronomico in una tensostruttura riscaldata in piazza Malavasi, con un menù interamente dedicato al tartufo bianco della zona.",
+    "fonte": "https://www.voloscontato.it/sagre-ed-eventi/fiera-nazionale-del-tartufo-bianco-2025-a-borgofranco-sul-po-quando-dove-e-info.php"
+  },
+  "fiera nazionale del tartufo bianco pregiato": {
+    "testo": "Dal 1985 Sant'Agata Feltria, \"città del tartufo\", dedica le domeniche di ottobre al tartufo bianco pregiato: mostra mercato nel centro storico, prodotti dell'Appennino (funghi, castagne, miele, formaggi), percorso dei vini e gara dei cani da tartufo.",
+    "fonte": "https://www.itinerarinelgusto.it/sagre-e-feste/fiera-nazionale-del-tartufo-bianco-di-sant-agata-feltria-1226"
+  },
+  "urban tech 2026": {
+    "testo": "Nuovo salone europeo B2B sulle tecnologie per le città intelligenti: riunisce in un unico evento mobilità elettrica, traffico, sicurezza urbana, telecomunicazioni e ambiente (con Traffic, E-Charge, E-Tech Europe, Wireless & Towers e Urban Security).",
+    "fonte": "https://www.cnit.it/en/2026/05/18/urban-tech-2026-the-urban-technology-show-the-first-european-trade-hub-for-smart-city-management/"
+  },
+  "asphaltica": {
+    "testo": "Il salone delle tecnologie per asfalti, pavimentazioni, sicurezza stradale e infrastrutture, organizzato con SITEB: circa 140 espositori, oltre 40 tra convegni e workshop su materiali, macchine, riciclo e digitalizzazione dei cantieri stradali.",
+    "fonte": "https://highways.today/2026/08/06/asphaltica-2026/"
+  },
+  "greenitaly": {
+    "testo": "Fiera professionale del verde: produzione di piante, tecnologie per il vivaismo, progettazione del paesaggio e verde urbano. Accanto agli espositori, incontri con compratori esteri e la Talent Academy dedicata a formazione e lavoro nel settore.",
+    "fonte": "https://hub.aiph.org/fci/magazine/greenitaly"
+  },
+  "e-tech europe": {
+    "testo": "Salone dedicato a batterie avanzate e alle tecnologie per produrre e riciclare veicoli elettrici e ibridi, nei settori auto, trasporti e industria. Fa parte di Urban Tech e ospita la conferenza \"Battery Day\".",
+    "fonte": "https://www.expometals.net/it/events/e-tech-europe"
+  },
+  "casalia - salone dell'arredamento e delle idee per abitare": {
+    "testo": "Nuovo salone dell'abitare all'Oval Lingotto, erede di Expocasa: oltre 150 marchi di arredamento, design e lifestyle, più di 50 laboratori, incontri con designer ed esperti e un'area bimbi. Ingresso gratuito con registrazione.",
+    "fonte": "https://www.mentelocale.it/torino/140876-casa-e-lifestyle-nasce-cas-lia-nuovo-salone-all-oval-lingotto-fiere-di-torino.htm"
+  },
+  "promessi sposi - il matrimonio in vetrina": {
+    "testo": "Salone dedicato al matrimonio e ai suoi momenti più emozionanti: abiti, servizi, allestimenti e fornitori per le nozze riuniti in un unico percorso espositivo. L'edizione di Bari alla Fiera del Levante ha superato i 25.000 visitatori.",
+    "fonte": "https://www.italpress.com/?p=602582"
+  },
+  "fiera nazionale di lagopesole - città di avigliano": {
+    "testo": "Fiera nazionale di agricoltura e zootecnia nell'Area Fiera di Lagopesole, frazione di Avigliano (PZ) ai piedi del castello federiciano, curata dalla cooperativa Fiere Lucane.",
+    "fonte": "https://www.fierelucane.it/"
+  },
+  "4x4 fest": {
+    "testo": "Il Salone nazionale dell'auto a trazione integrale (22ª edizione): aree per overlanding, accessori, quad, van e usato, pista indoor, pista sulla sabbia in spiaggia e tour fuoristrada nelle cave di marmo di Carrara.",
+    "fonte": "https://www.automoto.it/news/4x4fest-2026-a-carrara-date-programma-completo-e-tutte-le-attivita.html"
+  },
+  "art parma fair": {
+    "testo": "Mostra mercato d'arte moderna e contemporanea con gallerie selezionate, presentata come una vetrina delle correnti artistiche più influenti ed emergenti. Si svolge in concomitanza con Mercanteinfiera alle Fiere di Parma.",
+    "fonte": "https://www.zaniniarte.com/en/fiera-art-parma-fair-11-12-e-17-19-ottobre/"
+  },
+  "eos expo ottica sud": {
+    "testo": "Fiera dell'ottica e dell'optometria del Sud Italia: mette in contatto ottici siciliani, calabresi e maltesi con i marchi del settore, comprese le aziende di nicchia.",
+    "fonte": "https://accrue.com/events/sicilferr-9CszouZywAa6EXMJ3j"
+  },
+  "animali in fiera": {
+    "testo": "Due giorni dedicati al mondo animale: animali da compagnia, da fattoria ed esotici, dimostrazioni, incontri, laboratori per bambini ed esibizioni dei cani da soccorso. Ingresso gratuito.",
+    "fonte": "https://www.voloscontato.it/sagre-ed-eventi/dai-quattro-zampe-agli-esotici-a-forli-arriva-la-maxi-fiera-che-conquista-grandi-e-bambini.php"
+  },
+  "psittacus": {
+    "testo": "Area dedicata ai pappagalli (psittacidi) all'interno di Animali in Fiera, la manifestazione sul mondo animale della Fiera di Forlì.",
+    "fonte": "https://www.cantonfair.net/event/67645-reptilus"
+  },
+  "reptilus": {
+    "testo": "Mostra dedicata a rettili e animali esotici (con tartarughe e area pappagalli) che si svolge insieme ad Animali in Fiera alla Fiera di Forlì.",
+    "fonte": "https://www.cantonfair.net/event/67645-reptilus"
+  },
+  "salone del cavallo": {
+    "testo": "Spazio dedicato al mondo equestre all'interno di Animali in Fiera, la manifestazione sugli animali da compagnia, da fattoria ed esotici della Fiera di Forlì.",
+    "fonte": "https://www.voloscontato.it/sagre-ed-eventi/dai-quattro-zampe-agli-esotici-a-forli-arriva-la-maxi-fiera-che-conquista-grandi-e-bambini.php"
+  },
+  "forli' in gatto": {
+    "testo": "Esposizione dedicata ai gatti organizzata da Felina Eventi, nello stesso fine settimana di Animali in Fiera alla Fiera di Forlì.",
+    "fonte": "http://www.feliniaeventi.com/"
+  },
+  "fungo in festa": {
+    "testo": "45ª edizione della festa del fungo porcino di Giaveno: il PalaFungo con cene a base di porcini, e la domenica la Fiera nazionale del fungo porcino con degustazioni, mercato dei funghi, artigianato e premiazione dei cercatori locali.",
+    "fonte": "https://www.mentelocale.it/torino/139262-fungo-in-festa-a-giaveno-tra-stand-gastronomici-passeggiate-e-fiera-commerciale.htm"
+  },
+  "dolomiti horeca": {
+    "testo": "Fiera per alberghi, ristoranti e bar delle zone di montagna e collina di Veneto, Friuli e Trentino-Alto Adige: fornitori di prodotti, attrezzature e servizi, convegni, workshop, dimostrazioni e incontri B2B. Ingresso gratuito per gli operatori registrati.",
+    "fonte": "https://www.dolomiti.it/en/longarone/events/dolomiti-horeca"
+  },
+  "impact": {
+    "testo": "Fiera dei servizi e dell'innovazione per l'impresa: mette in contatto aziende, fornitori di servizi e mondo universitario per favorire collaborazione e crescita.",
+    "fonte": "https://www.borsaitaliana.it/borsa/notizie/radiocor/finanza/dettaglio/fiere-calendario-agostoottobre-2026-padova-nRC_16082026_1915_375133461.html"
+  },
+  "it's elettrica!": {
+    "testo": "Evento dedicato al settore elettrico ed elettrotecnico, che si tiene all'Allianz MiCo, il centro congressi di Milano.",
+    "fonte": "https://expofp.com/milano-convention-centre/it-s-elettrica-2026-10-15"
+  },
+  "fiera nazionale del marrone": {
+    "testo": "Tre giorni nel centro storico di Cuneo dedicati al marrone e ai prodotti del territorio: centinaia di espositori scelti da una commissione con Comune, Slow Food, Coldiretti e Confartigianato. Fiera nazionale dal 2009.",
+    "fonte": "https://www.marrone.net/en/fair/history/"
+  },
+  "fiera del mais e dei cavalli": {
+    "testo": "Fiera nazionale nata nel 1999 e dedicata al mais, coltura principale della pianura, e al cavallo: cerimonie, serate gastronomiche, un galà equestre e un pranzo a tema mais.",
+    "fonte": "https://www.guidatorino.com/?p=78475"
+  },
+  "ferrara tattoo convention": {
+    "testo": "Convention internazionale del tatuaggio con circa 250 tatuatori, che unisce il mondo del tattoo alla cultura nerd, al fantasy e alla mitologia vichinga, con cosplay e cultura pop.",
+    "fonte": "https://inkppl.com/it/tattooevents/2026/ottobre-2026/ferrara-tattoo-convention"
+  },
+  "the jewelry hub": {
+    "testo": "Una delle due esposizioni principali della Milano Jewelry Week, dedicata all'alta gioielleria e all'innovazione: la settimana riunisce oltre 400 espositori da circa 60 Paesi, con un programma per i compratori professionali.",
+    "fonte": "https://www.europastarjewellery.com/jewellery-highlights/milan-to-host-the-sixth-edition-of-the-international-event-dedicated-to-jewelry.html"
+  },
+  "como fun": {
+    "testo": "La fiera del fumetto, del gioco e della cultura pop di Lariofiere: fumetti, giochi, retrogaming, cosplay e città LEGO. Ospite d'onore 2026: Christopher Lloyd, il \"Doc\" di Ritorno al futuro.",
+    "fonte": "https://www.mentelocale.it/como/131807-comofun-2026-fiera-del-fumetto-e-della-cultura-pop-con-ospiti-christopher-lloyd.htm"
+  },
+  "fiera nazionale del tartufo e dei prodotti locali": {
+    "testo": "Fiera nazionale del tartufo bianco organizzata dal Comune di Mombercelli a metà ottobre, con i prodotti tipici del territorio astigiano e, nelle passate edizioni, passeggiate tra i vigneti e degustazioni di vini.",
+    "fonte": "https://www.eventiesagre.it/Eventi_Fiere/21083237_Fiera+Regionale+Del+Tartufo.html"
+  },
+  "gift fair": {
+    "testo": "Fiera dell'articolo da regalo, dell'artigianato e della decorazione per la casa, promossa da EMIL, portale italiano B2B dedicato a questi settori.",
+    "fonte": "https://www.emil.it/"
+  },
+  "fiera - mostra mercato del tartufo": {
+    "testo": "Fiera nazionale del tartufo bianco di Moncalvo, nel Monferrato: le ultime domeniche di ottobre la mostra mercato del tartufo e dei prodotti tipici riempie piazza Carlo Alberto e piazza Garibaldi.",
+    "fonte": "https://www.itinerarinelgusto.it/sagre-e-feste/fiera-del-tartufo-moncalvo-1565"
+  },
+  "comocrea textile design show": {
+    "testo": "Storica mostra del disegno tessile a Villa Erba, sul Lago di Como: studi di design internazionali presentano le collezioni di disegni per tessuti, con una sezione dedicata all'arredamento e temi come l'intelligenza artificiale nel design.",
+    "fonte": "https://www.espansionetv.it/2024/10/19/villa-erba-ospita-comocrea-la-fiera-del-disegno-per-tessuti"
+  },
+  "forum polizia": {
+    "testo": "Forum della Polizia Locale alla Fiera di Bergamo: giornate di formazione e aggiornamento dedicate agli operatori della polizia locale.",
+    "fonte": "https://accrue.com/events/forum-della-polizia-locale-AFya6bUeUXoQbQ8YAp"
+  },
+  "luv - la fiera dell'uva da tavola": {
+    "testo": "Il primo evento europeo dedicato all'intera filiera dell'uva da tavola: aziende, compratori italiani ed esteri, tecnici e stampa, con la Table Grape Conference, incontri B2B per l'export e una visita alle aziende produttrici. Biglietto gratuito online.",
+    "fonte": "https://fruittoday.com/en/luv-fiera-brings-the-global-table-grape-market-to-bari/"
+  },
+  "netzero milan": {
+    "testo": "Expo-summit di Fiera Milano sulla decarbonizzazione dell'industria: industria, istituzioni, finanza e ricerca a confronto su elettrificazione, transizione energetica e competitività, con conferenze tematiche e area espositiva all'Allianz MiCo.",
+    "fonte": "https://www.qualenergia.it/articoli/netzero-milan-torna-tra-un-anno-appuntamento-ottobre-2026/"
+  },
+  "beauty to business": {
+    "testo": "Fiera B2B della filiera cosmetica nella \"Cosmetic Valley\" lombarda: ingredienti e materie prime, packaging, prodotti per la cura della persona, tecnologie e servizi, con convegni e seminari. Nel 2025: oltre 80 espositori e 2.600 operatori.",
+    "fonte": "https://www.cosmoprof.com/en/corporate/cosmoprof-network/other-exhibitions/beauty-to-business-summit/"
+  },
+  "t3 truck tyre trailer": {
+    "testo": "Seconda edizione della fiera dedicata al trasporto su strada pesante e leggero: veicoli industriali, allestimenti, rimorchi e semirimorchi, pneumatici e componenti per camion, furgoni e trattori stradali.",
+    "fonte": "https://www.heavyquipmag.com/2024/12/09/truck-tyre-trailer-a-new-exhibition-in-italy/"
+  },
+  "agv expo": {
+    "testo": "Fiera dei veicoli a guida automatica (AGV) e della logistica automatizzata per fabbriche e magazzini, in contemporanea con T3 Truck Tyre Trailer a Piacenza Expo.",
+    "fonte": "https://logistik-heute.de/termine/agv-expo-2026-automated-factory-and-warehousing-show-piacenza-it-285606.html"
+  },
+  "time on show": {
+    "testo": "Salone dell'orologio d'epoca e da collezione, in formato \"galleria\": commercianti italiani e internazionali selezionati da un comitato propongono orologi vintage. Si svolge dentro Auto e Moto d'Epoca.",
+    "fonte": "https://expofp.com/bologna-fiere/time-on-show-2026-10-22"
+  },
+  "vintage": {
+    "testo": "\"Vintage! La moda che vive due volte\": mostra mercato di abbigliamento, accessori e grandi firme d'annata, con musica a tema, alla Fiera di Forlì.",
+    "fonte": "https://www.eventiesagre.it/Eventi_Fiere/21041900_Vintage.html"
+  },
+  "racquet trend expo": {
+    "testo": "La fiera degli sport di racchetta nata da Padel Trend Expo: tennis, padel, pickleball, beach tennis e tennis tavolo, con stand di marchi e club, campi per prove, gare e incontri. Organizzata con Fiera Milano.",
+    "fonte": "https://www.lapresse.it/sport/2025/03/06/milano-racquet-trend-expo-in-scena-dal-7-al-9-marzo/"
+  },
+  "fiera del tartufo": {
+    "testo": "Fiera Nazionale del Tartufo Bianco nel borgo medievale di Trisobbio, nel Monferrato: una domenica di fine ottobre dedicata al tartufo bianco e alle eccellenze del territorio.",
+    "fonte": "https://www.mentelocale.it/alessandria/96241-fiera-nazionale-del-tartufo-bianco-di-trisobbio.htm"
+  },
+  "a & t automation & testing": {
+    "testo": "Fiera della manifattura avanzata per le piccole e medie imprese del Nord: automazione, robotica, intelligenza artificiale, intralogistica, controllo di processo, prove e misure, con un programma di convegni tecnici e workshop.",
+    "fonte": "https://www.aetexpo.it/en"
+  },
+  "labotec": {
+    "testo": "Fiera dedicata a laboratorio e analisi (alimentare, chimico e farmaceutico): strumenti di analisi, controllo e monitoraggio, automazione, microscopia e spettrometria, con un laboratorio dimostrativo e un programma di convegni. In contemporanea con Cibus Tec; ingresso gratuito.",
+    "fonte": "https://www.tecnelab.it/news/attualita/cibus-tec-e-labotec-2026-verso-il-sold-out-ingresso-gratuito-per-la-prima-volta"
+  },
+  "abs eurepe adhesives bonding & sealants": {
+    "testo": "Fiera internazionale interamente dedicata ad adesivi, incollaggio e sigillanti: colle, nastri, schiume, resine, rivestimenti e film. Partner l'associazione Avisa-Federchimica.",
+    "fonte": "https://www.luminik.io/events/abs-adhesives-bonding-sealants-vicenza/"
+  },
+  "aura": {
+    "testo": "Nuovo evento internazionale del turismo di lusso alla Fortezza da Basso: tre giorni di incontri B2B tra compratori esteri selezionati ed espositori italiani, workshop ed esperienze sul territorio. Nasce dal Luxury Event di TTG, con la Regione Toscana.",
+    "fonte": "https://www.firenzefiera.it/en/news/tuscany-becomes-the-capital-of-luxury-tourism-aura-the-new-major-international-event-for-the-luxury-segment-unveiled"
+  },
+  "expo industria": {
+    "testo": "Evento dedicato alle imprese manifatturiere del Nordest, al quartiere fieristico di Vicenza, negli stessi giorni di A&T Automation & Testing.",
+    "fonte": "https://www.qualitytravel.it/ieg-il-vicenza-convention-centre-casa-dellindustria-del-nordest-con-18-eventi/145850"
+  },
+  "fine – winetuorism marketplace italy": {
+    "testo": "Marketplace B2B dell'enoturismo: cantine, territori e operatori del turismo del vino incontrano agenzie e compratori. Nata dall'esperienza di FINE Spain, è organizzata da Riva del Garda Fierecongressi con la Feria de Valladolid.",
+    "fonte": "https://www.greatwinecapitals.com/industry-resources/fine-italy-the-b2b-marketplace-dedicated-to-wine-tourism-development/"
+  },
+  "fiera campionaria": {
+    "testo": "La \"fiera delle fiere\" di Bergamo: cinque giorni al polo fieristico di via Lunga con circa 200 espositori di tanti settori diversi, dalla casa all'alimentare, aperta al pubblico.",
+    "fonte": "https://tradefest.io/en/event/bergamo-trade-fair-campionaria"
+  },
+  "bmta borsa mediterranea del turismo archeologico": {
+    "testo": "Unico salone espositivo al mondo dedicato al patrimonio archeologico e al turismo culturale, giunto alla 28ª edizione: espositori italiani ed esteri, incontri, conferenze e premi, nell'ex Tabacchificio Cafasso e nel Parco Archeologico di Paestum.",
+    "fonte": "https://regione.lazio.it/notizia/turismo/DE-G09407-09-07-2026-Avviso-Pubblico-partecipazione-fiera-BMTA-Borsa-Mediterranea-Turismo-Archeologico-Paestum-29-ottobre-1-novembre-2026"
+  },
+  "golosaria": {
+    "testo": "La rassegna del gusto ideata da Paolo Massobrio (il nome viene dalla sua guida \"Il Golosario\"): produttori di cibo e vino di qualità da tutta Italia, assaggi e incontri.",
+    "fonte": "https://www.scattidigusto.it/migliori-ristoranti-italia-golosaria-programma"
+  },
+  "fiera nazionale del tartufo bianco": {
+    "testo": "La storica fiera di Acqualagna, \"capitale del tartufo\", nata nel 1966: nei fine settimana mercato del tartufo bianco, cooking show, corsi di cucina, degustazioni guidate, racconti e concerti.",
+    "fonte": "https://www.idealista.it/en/news/lifestyle-in-italy/2026/09/22/275285-italy-s-truffle-season-2026-best-fairs-for-trying-truffles"
+  },
+  "eicma temporary bikers shop": {
+    "testo": "Area commerciale dentro EICMA, la grande esposizione internazionale delle due ruote: qui i motociclisti possono acquistare accessori, abbigliamento, caschi, attrezzature e gadget per la moto.",
+    "fonte": "https://www.cantonfair.net/event/41211-eicma-temporary-bikers-shop"
+  },
+  "orientasud": {
+    "testo": "\"Il Salone delle Opportunità\" per i giovani del Sud: studenti degli ultimi anni delle superiori, neolaureati e chi cerca lavoro trovano orientamento, seminari, workshop, test attitudinali e stand di università, enti e aziende.",
+    "fonte": "https://www.lavoro.gov.it/notizie/pagine/orientasud-2025-napoli-lorientamento-e-loccupabilita"
+  },
+  "metal materia": {
+    "testo": "Fiera B2B della meccanica, dalla materia prima alle prime lavorazioni: materiali innovativi, macchine per lavorazione e deformazione, efficienza energetica e strumenti digitali per l'Industria 4.0, con formazione e incontri tra settori.",
+    "fonte": "https://www.steel-technology.com/events/metal-materia-2026"
+  },
+  "eureka": {
+    "testo": "La Fiera della Cultura e Creatività promossa dalla Regione Friuli Venezia Giulia: area espositiva delle imprese culturali e creative, convegno, workshop tematici e incontri B2B.",
+    "fonte": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/progetti-bandi-europei/FOGLIA31/articolo.html"
+  },
+  "mostra nazionale dei bovini di razza piemontese": {
+    "testo": "La mostra nazionale ufficiale dei bovini di razza Piemontese, organizzata dall'ANABORAPI (l'associazione degli allevatori della razza, con sede a Carrù) e aperta agli allevatori di tutta Italia.",
+    "fonte": "https://ibeef.anaborapi.it/sitoweb/statutoAnaborapi.pdf"
+  },
+  "mostra mercato del tartufo bianco d'alba della regione piemonte raccolto nelle colline torinesi": {
+    "testo": "38ª Mostra mercato nazionale del tartufo bianco delle Colline Torinesi a Rivalba: un fine settimana di novembre con il mercato del tartufo bianco (Tuber Magnatum Pico) e aree enogastronomiche.",
+    "fonte": "https://turismotorino.org/en/visit/events/fiera-nazionale-del-tartufo-bianco-d-alba-delle-colline-torinesi"
+  },
+  "fiera di san martino": {
+    "testo": "Fiera nazionale con oltre due secoli di storia (istituita nel 1819, ma già documentata nel 1765): giorni di mercati, centinaia di espositori, luna park, stand gastronomici, spettacoli e fuochi d'artificio finali.",
+    "fonte": "https://www.quotidiano.net/speciali/eventi-e-fiere/la-fiera-di-san-martino-sta-per-iniziare-dal-7-novembre-e-festa-a-castelmassa-3ee48835"
+  },
+  "fiera di san martino (chieri)": {
+    "testo": "48ª Fiera nazionale di San Martino nel centro storico di Chieri: intrattenimento, laboratori, degustazioni, show cooking e ospiti del mondo enogastronomico. Ingresso libero.",
+    "fonte": "https://www.eventiesagre.it/Eventi_Feste/12245_Fiera+di+San+Martino+a+Chieri.html"
+  },
+  "fiera del bollito": {
+    "testo": "La Fiera del bollito con la pearà al Palariso di Isola della Scala: il bollito misto con la tradizionale salsa veronese protagonista di diverse settimane di pranzi e cene, affiancato da piatti di altri Paesi (Taste of Earth). Ingresso libero.",
+    "fonte": "https://www.itinerarinelgusto.it/sagre-e-feste/fiera-del-bollito-con-la-peara-isola-della-scala-2125"
+  },
+  "la fiera dei morti anche in centro": {
+    "testo": "La parte nel centro storico della storica Fiera dei Morti di Perugia, di origine medievale (un tempo \"Fiera di Ognissanti\"): banchi selezionati di artigianato, prodotti tipici e città gemellate tra corso Vannucci, piazza della Repubblica, via Mazzini, piazza Matteotti e piazza Italia. Il grande mercato con giostre è invece a Pian di Massiano, raggiungibile col minimetrò.",
+    "fonte": "https://turismo.comune.perugia.it/poi/fiera-dei-morti-eng"
+  },
+  "reining futurity": {
+    "testo": "Il grande appuntamento europeo del reining (monta western) organizzato da IRHA nell'arena ovale di CremonaFiere: gare per cavalli di 3 anni con montepremi tra i più alti d'Europa. Nel 2025 ha richiamato 35.000 visitatori da 25 Paesi.",
+    "fonte": "https://www.cavallomagazine.it/en/equestrian-sports/reigning/Cremonafiere--the-home-of-great-reining"
+  },
+  "mostra scambio": {
+    "testo": "Mostra scambio al polo fieristico A1Expò di San Marco Evangelista (Caserta Sud): oltre 7.000 m² coperti con auto, moto e biciclette d'epoca, ricambi, accessori e modellini.",
+    "fonte": "https://www.napolike.it/mostra-scambio-2024-con-auto-e-moto-depoca"
+  },
+  "merano winefestival": {
+    "testo": "35ª edizione di uno dei festival del vino più prestigiosi d'Italia, al Kurhaus di Merano: degustazioni di vini selezionati italiani e internazionali, eccellenze gastronomiche e masterclass.",
+    "fonte": "https://www.vinetur.com/en/20260817105739/merano-winefestival-will-return-for-its-35th-edition-from-nov-6-to-nov-10-2026.html"
+  },
+  "cadeaux al castello": {
+    "testo": "I mercatini di Natale nel castello normanno di Limatola (Benevento), trasformato in un mondo da fiaba: circa 80 espositori di antiquariato, ceramiche artistiche, artigianato e prodotti gastronomici, la casa di Babbo Natale, giullari, falconieri, cori gospel e rievocazioni storiche. Biglietto d'ingresso.",
+    "fonte": "https://www.eroicafenice.com/napoli/eventi-napoli/cadeaux-al-castello/"
+  },
+  "antiquaria padova": {
+    "testo": "Mostra mercato di antiquariato alla Fiera di Padova, ideata da Nicola Rossi (Nord Est Fair): oltre 70 gallerie e collezionisti dal Nordest, dall'Austria e dalla Slovenia, con mobili, dipinti e oggetti dal Settecento al modernariato.",
+    "fonte": "https://www.ilgiornale.it/news/attualit/antiquaria-padova-700-modernariato-ledizione-numero-41-oltre-2567965.html"
+  },
+  "tuttomele": {
+    "testo": "La rassegna della mela di Cavour, organizzata dalla Pro Loco con il Comune e i frutticoltori: le mele migliori di oltre 200 produttori, varietà da tutta Italia e stand gastronomici con torte di mele, succhi e piatti piemontesi. Oltre 250.000 visitatori ogni anno.",
+    "fonte": "https://www.mentelocale.it/torino/97649-tuttomele-2025-a-cavour.htm"
+  },
+  "astroshow": {
+    "testo": "Fiera dedicata all'astronomia amatoriale alla Fiera di Cesena: telescopi, strumenti e accessori, con la partecipazione dei gruppi di astrofili.",
+    "fonte": "https://cosmo2050.com/tag/astroshow/"
+  },
+  "mercanteinfiera autunno": {
+    "testo": "Grande mostra mercato internazionale alle Fiere di Parma per chi ama l'antico: mobili, oggetti d'epoca, pezzi di modernariato e collezionismo di ogni genere, per oltre una settimana.",
+    "fonte": "https://www.mercanteinfiera.it/"
+  },
+  "fiera nazionale del tartufo bianco pregiato di pergola e dei prodotti tipici": {
+    "testo": "Tre domeniche d'ottobre dedicate al tartufo bianco nel centro storico di Pergola: circa due chilometri di bancarelle di produttori e artigiani, prodotti tipici, cultura e spettacoli. Nel 2026 partecipano anche le città gemellate di Germania e Francia.",
+    "fonte": "https://siviaggia.it/notizie/sagre-feste-marche-ottobre-2026/602725/"
+  },
+  "geofluid": {
+    "testo": "Fiera internazionale per chi lavora con il sottosuolo: macchine e attrezzature per perforazioni, pozzi, ricerca e trasporto dell'acqua e degli altri fluidi sotterranei, geotermia e consolidamento dei terreni.",
+    "fonte": "https://www.geofluid.it/"
+  },
+  "saie": {
+    "testo": "Lo storico salone italiano delle costruzioni, a BolognaFiere: materiali, macchine, impianti e soluzioni innovative per progettare, costruire e ristrutturare edifici e infrastrutture.",
+    "fonte": "https://www.saiebologna.it/it/"
+  },
+  "miac": {
+    "testo": "Mostra internazionale dedicata all'industria della carta: macchinari, tecnologie e attrezzature per produrre carta e cartone e per trasformare la carta tissue (fazzoletti, carta igienica e simili).",
+    "fonte": "https://www.miac.info/"
+  },
+  "reas -salone internazionale dell'emergenza": {
+    "testo": "Al Centro Fiera di Montichiari il grande salone di chi interviene nelle emergenze: veicoli e attrezzature per soccorritori, vigili del fuoco e volontari, dispositivi per lavorare in sicurezza, dimostrazioni pratiche e convegni.",
+    "fonte": "https://www.reasonline.it/"
+  },
+  "open tari'": {
+    "testo": "Evento fieristico del Tarì di Marcianise, il grande centro orafo campano che riunisce oltre 400 aziende: incontri d'affari, novità di gioielleria e contatti tra produttori e commercianti del settore.",
+    "fonte": "https://open.tari.it/open-1.html"
+  },
+  "art verona": {
+    "testo": "Fiera d'arte a Veronafiere dove espongono soprattutto gallerie del nostro Paese, con opere del Novecento e di oggi in mostra e in vendita per collezionisti e appassionati.",
+    "fonte": "https://www.aefi.it/it/manifestazione/art-verona-2026"
+  },
+  "pharm evolution": {
+    "testo": "Tre giorni dedicati al mondo della farmacia a SiciliaFiera: aziende di prodotti farmaceutici, attrezzature, software e servizi digitali per farmacie, convegni, un premio di settore e un evento letterario.",
+    "fonte": "https://www.cantonfair.net/event/67433-pharm-evolution"
+  },
+  "casa moderna": {
+    "testo": "La storica fiera della casa di Udine: arredamento, edilizia, risparmio energetico e idee per abitare, con aree tematiche dedicate alla casa sana, alla sicurezza e al verde.",
+    "fonte": "https://www.casamoderna.it/"
+  },
+  "saperi&sapori fvg": {
+    "testo": "Vetrina delle specialità gastronomiche e dell'artigianato del Friuli Venezia Giulia, voluta dalla Regione insieme alle associazioni artigiane e a Udine Esposizioni, in contemporanea con Casa Moderna.",
+    "fonte": "https://saperiesapori.casamoderna.it/"
+  },
+  "fiera del tartufo bianco d'alba": {
+    "testo": "La fiera internazionale più famosa dedicata al tartufo bianco: per diverse settimane, ad Alba, mercato del tartufo, degustazioni, eventi culturali e gastronomici tra Langhe e Roero.",
+    "fonte": "https://www.fieradeltartufo.org/"
+  },
+  "idea sposa": {
+    "testo": "Una delle fiere del matrimonio più conosciute di Torino: oltre cento espositori tra abiti, servizi e fornitori per organizzare le nozze, con proposte per chi ha già iniziato i preparativi e per chi deve ancora cominciare.",
+    "fonte": "https://www.fieraideasposatorino.it/"
+  },
+  "fiera del tartufo di montiglio monferrato - premio cane d'argento": {
+    "testo": "La fiera che apre la stagione dei tartufi nell'Astigiano, nelle prime domeniche di ottobre: esposizione dei tartufi giudicati da una giuria, premio \"Cane d'Argento\" per il più bello e premio per il miglior piatto di un trifolao locale. Fa parte del circuito delle fiere del tartufo del Monferrato.",
+    "fonte": "https://www.vitacasalese.it/tartufi-si-parte-con-montiglio-monferrato"
+  },
+  "mostra nazionale del tartufo bianco pregiato delle marche": {
+    "testo": "A Sant'Angelo in Vado la mostra nazionale dedicata al tartufo bianco delle Marche: mercato dei tartufi e dei prodotti del territorio, gastronomia ed eventi nei fine settimana d'autunno.",
+    "fonte": "https://www.mostratartufo.it/"
+  },
+  "imeat": {
+    "testo": "Appuntamento a Bologna dedicato alla macelleria e alle sue innovazioni: attrezzature, prodotti e nuove idee per chi lavora la carne.",
+    "fonte": "https://www.aefi.it/it/manifestazione/imeat-2026"
+  },
+  "bimu": {
+    "testo": "La grande biennale italiana delle macchine utensili, che nel 2026 compie 70 anni: macchine per asportazione e deformazione dei metalli, robot, automazione, produzione additiva e tecnologie digitali per la fabbrica. È considerata la rassegna mondiale di settore degli anni pari.",
+    "fonte": "https://www.bimu.it/"
+  },
+  "welfair - la fiera del fare sanita'": {
+    "testo": "Fiera romana dedicata alla sanità: mette allo stesso tavolo amministratori pubblici, società scientifiche mediche e aziende tecnologiche per discutere come migliorare i servizi sanitari.",
+    "fonte": "https://www.romawelfair.it/"
+  },
+  "blue planet economy": {
+    "testo": "Evento di Fiera Roma dedicato all'economia del mare e alla sostenibilità ambientale, ospitato a Fiumicino, sul Piazzale Mediterraneo.",
+    "fonte": "https://www.blueplaneteconomy.it/en/"
+  },
+  "ttg travel experience": {
+    "testo": "Il principale appuntamento italiano per i professionisti del turismo: tre giorni a Rimini in cui agenzie, tour operator, destinazioni e aziende del settore si incontrano per fare affari.",
+    "fonte": "https://www.ttgexpo.it/"
+  },
+  "inout - the hospitality community": {
+    "testo": "Fiera di Rimini dedicata all'ospitalità: arredi, progetti e soluzioni per hotel, ristoranti e strutture ricettive, in contemporanea con TTG Travel Experience.",
+    "fonte": "https://www.inoutexpo.it/"
+  },
+  "green logistics expo": {
+    "testo": "Salone internazionale della logistica sostenibile alla Fiera di Padova: trasporti intermodali, magazzini, e-commerce e consegne in città, con ingresso gratuito per gli operatori registrati.",
+    "fonte": "https://greenlogisticsexpo.it/"
+  },
+  "abilmente autunno": {
+    "testo": "Il salone della creatività manuale a Vicenza: materiali e strumenti per cucito, maglia, decorazione e altri lavori fatti a mano, con corsi e dimostrazioni per appassionati.",
+    "fonte": "https://www.abilmente.org/it/"
+  },
+  "abilmente": {
+    "testo": "Il salone della creatività manuale: materiali e strumenti per cucito, maglia, decorazione e altri lavori fatti a mano, con corsi, laboratori e dimostrazioni per appassionati.",
+    "fonte": "https://www.abilmente.org/it/"
+  },
+  "colloquium dental show": {
+    "testo": "Mostra e convegno internazionale a Parma per dentisti e odontotecnici: attrezzature, materiali e aggiornamento professionale nel settore dentale.",
+    "fonte": "http://colloquium.dental/"
+  },
+  "lts expo logistica trasporti servizi": {
+    "testo": "Fiera della logistica, dei trasporti e dei servizi collegati alla Mostra d'Oltremare di Napoli, con le novità del settore per aziende e operatori.",
+    "fonte": "https://ltsexponapoli.com/"
+  },
+  "fiera d'ottobre dauno": {
+    "testo": "La fiera campionaria d'autunno di Foggia, con espositori di vari settori merceologici nel quartiere fieristico della città.",
+    "fonte": "https://www.aefi.it/it/manifestazione/fiera-d-ottobre-2026"
+  },
+  "tuttosposi": {
+    "testo": "Grande fiera del matrimonio alla Mostra d'Oltremare di Napoli, su due fine settimana di ottobre: fornitori, atelier e servizi per le nozze da conoscere di persona prima di scegliere.",
+    "fonte": "https://tuttosposi.it/"
+  },
+  "fiera nazionale di antiquariato e collezionismo del c'era una volta": {
+    "testo": "Mostra mercato di antiquariato e collezionismo alla Fiera Millenaria di Gonzaga, nel Mantovano.",
+    "fonte": "https://www.ceraunavoltagonzaga.it/"
+  },
+  "petsfestival": {
+    "testo": "Un fine settimana alla Fiera di Cremona dedicato agli animali da compagnia: specie da scoprire, dimostrazioni dal vivo, prodotti e consigli per chi ama gli animali.",
+    "fonte": "https://petsfestival.eu/"
+  },
+  "abruzzo sposi": {
+    "testo": "Salone nazionale del matrimonio a Pescara, giunto alla trentesima edizione: espositori, idee ed esperienze per organizzare le nozze, con registrazione gratuita.",
+    "fonte": "https://www.abruzzosposi.it/"
+  },
+  "c'era una volta... + speciale numismatica e filatelia": {
+    "testo": "Mostra mercato di antiquariato, collezionismo e oggettistica alla Fiera di Cesena, con un'area speciale dedicata a monete e francobolli.",
+    "fonte": "https://www.aefi.it/it/manifestazione/c-era-una-volta-2026-6230"
+  },
+  "hotel": {
+    "testo": "Fiera di Bolzano per hotel, ristoranti e bar: arredi, attrezzature, tecnologie, prodotti alimentari e servizi per l'accoglienza, punto di riferimento per l'ospitalità alpina.",
+    "fonte": "https://www.aefi.it/it/manifestazione/hotel-2026"
+  },
+  "sicam": {
+    "testo": "Salone internazionale di Pordenone dedicato a componenti, semilavorati e accessori per chi produce mobili: ferramenta, superfici, materiali e finiture.",
+    "fonte": "https://www.exposicam.it/"
+  },
+  "triestespresso expo": {
+    "testo": "Fiera biennale di Trieste dedicata al caffè espresso: macchine, torrefazioni, attrezzature e cultura del caffè, per tutta la filiera del settore.",
+    "fonte": "https://www.aefi.it/it/manifestazione/triestespresso-expo-2026"
+  },
+  "auto e moto d'epoca": {
+    "testo": "A BolognaFiere uno dei più grandi eventi europei per gli appassionati di veicoli storici: auto e moto d'epoca in mostra e in vendita, ricambi originali e club da tutta Italia.",
+    "fonte": "https://autoemotodepoca.com/"
+  },
+  "snim - salone nautico di puglia": {
+    "testo": "Il Salone nautico di Puglia a Brindisi, alla ventiduesima edizione: imbarcazioni da diporto, accessori ed eventi dedicati al mare.",
+    "fonte": "https://www.snimpuglia.it/"
+  },
+  "fazi fiera agricola zootecnica italiana": {
+    "testo": "Mostra mercato nazionale dell'agricoltura e dell'allevamento al Centro Fiera di Montichiari: animali, macchine agricole e prodotti per il settore primario.",
+    "fonte": "https://www.aefi.it/it/manifestazione/fiera-agricola-zootecnica-italiana-2026"
+  },
+  "expodetergo international": {
+    "testo": "Fiera internazionale a Milano per lavanderie e pulitura dei tessuti: macchine, prodotti e servizi per lavanderie industriali e per il pubblico.",
+    "fonte": "https://detergo.eu/expodetergo/"
+  },
+  "pharmaexpo": {
+    "testo": "Borsa del prodotto farmaceutico a Napoli: incontro tra aziende del farmaco, farmacisti e operatori della distribuzione.",
+    "fonte": "https://www.pharmexpo.it/"
+  },
+  "next vintage": {
+    "testo": "Mostra mercato di abiti e accessori d'epoca nel Castello di Belgioioso, per appassionati di moda vintage.",
+    "fonte": "https://www.aefi.it/it/manifestazione/next-vintage-2026-62056"
+  },
+  "mostra artigianato": {
+    "testo": "Mostra dell'artigianato a Lariofiere (Erba): prodotti e lavorazioni di artigiani, tra mestieri tradizionali e nuove idee.",
+    "fonte": "https://www.aefi.it/it/manifestazione/mostra-artigianato-2026"
+  },
+  "gepi expo": {
+    "testo": "Fiera per i professionisti della ristorazione a Misterbianco (Catania): macchinari, ingredienti, arredi e corsi per chi gestisce un ristorante, una pizzeria, una pasticceria, una gelateria, un bar o un furgone di cibo da strada.",
+    "fonte": "https://www.gepiexpo.it/"
+  },
+  "cibus tec": {
+    "testo": "Salone di Fiere di Parma dedicato alle tecnologie per l'industria alimentare: macchine per lavorare, conservare e confezionare i cibi.",
+    "fonte": "https://www.aefi.it/it/manifestazione/cibus-tec-2026"
+  },
+  "viscom italia": {
+    "testo": "Mostra convegno a Milano su tutta la comunicazione visiva: stampa digitale di grande formato, insegne, segnaletica, allestimenti e personalizzazione di oggetti e tessuti.",
+    "fonte": "https://www.viscomitalia.it/it-it.html"
+  },
+  "lift expo italia": {
+    "testo": "Esposizione internazionale a Milano dedicata agli ascensori: impianti, componenti, accessori, servizi e stampa specializzata.",
+    "fonte": "https://liftexpoitalia.com/"
+  },
+  "lucca comics & games": {
+    "testo": "Il più grande festival italiano di fumetti, giochi, videogiochi e cultura pop: mostre, ospiti, anteprime e cosplayer in tutto il centro storico di Lucca.",
+    "fonte": "https://www.luccacomicsandgames.com/it/"
+  },
+  "paint & coatings": {
+    "testo": "Fiera B2B a Milano per l'industria di vernici, rivestimenti e trattamento delle superfici: materie prime, additivi, tecnologie di applicazione e soluzioni a basso impatto ambientale, con incontri tecnici. Solo per operatori.",
+    "fonte": "https://www.ipcm.it/en/post/paint-coatings-italy-2026.aspx"
+  },
+  "artissima": {
+    "testo": "A Torino una delle fiere d'arte di oggi più importanti d'Italia, con gallerie, artisti, curatori e collezionisti da tutto il mondo.",
+    "fonte": "https://www.artissima.art/"
+  },
+  "romasposa": {
+    "testo": "Grande fiera del matrimonio a Roma: abiti da sposa e da cerimonia, servizi e tendenze per organizzare le nozze.",
+    "fonte": "https://www.romasposa.it/"
+  },
+  "salerno boat show": {
+    "testo": "Salone nautico al porto turistico Marina d'Arechi di Salerno: barche esposte a terra e in acqua, con la possibilità di provarle in mare. Ingresso libero.",
+    "fonte": "https://www.salernoboatshow.com/"
+  },
+  "arredamont": {
+    "testo": "Mostra di Longarone Fiere dedicata ad arredare in montagna: mobili, legno, stufe, rivestimenti e idee per case e baite alpine.",
+    "fonte": "https://www.aefi.it/it/manifestazione/arredamont-2026"
+  },
+  "bmii - bridal & tourism in italy": {
+    "testo": "Workshop B2B a Roma sul turismo dei matrimoni: compratori da molti Paesi incontrano location, wedding planner e fornitori italiani per organizzare nozze in Italia.",
+    "fonte": "https://www.borsadelmatrimonioinitalia.it/"
+  },
+  "smau": {
+    "testo": "Evento milanese sull'innovazione digitale per le imprese: tecnologie informatiche, startup e partner per far crescere la propria azienda.",
+    "fonte": "https://www.smau.it/"
+  },
+  "ecomondo": {
+    "testo": "Grande fiera internazionale di Rimini sull'economia verde e circolare: riciclo, recupero di materia ed energia, gestione dei rifiuti e dell'acqua, bonifiche e sviluppo sostenibile.",
+    "fonte": "https://www.ecomondo.com/"
+  },
+  "fieracavalli": {
+    "testo": "La storica fiera internazionale del cavallo di Verona, alla 128ª edizione: razze da tutto il mondo, gare sportive, spettacoli equestri, attrezzature e turismo a cavallo.",
+    "fonte": "https://fieracavalli.it/it/"
+  },
+  "creattiva napoli": {
+    "testo": "Edizione autunnale napoletana del salone delle arti manuali: hobbistica, modellismo, bricolage, materiali e corsi per chi ama creare con le mani.",
+    "fonte": "https://www.aefi.it/it/manifestazione/creattiva-napoli-2026"
+  },
+  "agrogepaciok": {
+    "testo": "Salone di Lecce per gelateria, pasticceria, cioccolateria, caffetteria e artigianato alimentare: attrezzature, ingredienti e dimostrazioni per professionisti.",
+    "fonte": "https://www.agrogepaciok.it/"
+  },
+  "navigare": {
+    "testo": "Salone nautico internazionale di Napoli, sul Molo Luise a Mergellina: da oltre trent'anni permette di provare in mare le barche dei cantieri.",
+    "fonte": "https://salonenauticonavigare.it/"
+  },
+  "aestetica": {
+    "testo": "La grande fiera di estetica, benessere e acconciatura del Sud Italia, a Napoli: prodotti, attrezzature e aggiornamento per i professionisti della bellezza. Nel 2026 festeggia i 25 anni.",
+    "fonte": "https://aestetica.it/"
+  },
+  "gardacon": {
+    "testo": "Al Centro Fiera di Montichiari un fine settimana per gli appassionati di fumetto, giochi elettronici e cultura pop.",
+    "fonte": "https://www.aefi.it/it/manifestazione/gardacon-2026-"
+  },
+  "riso e confetti": {
+    "testo": "Salone di Pordenone Fiere per chi si sposa: prodotti e servizi per le nozze e per arredare la nuova casa.",
+    "fonte": "https://www.aefi.it/it/manifestazione/riso-e-confetti-2026"
+  },
+  "fiera nazionale del tartufo bianco del monferrato": {
+    "testo": "Fiera nazionale del tartufo bianco a Montechiaro d'Asti, con il patrocinio del Ministero dell'Agricoltura e della Regione: una giornata con la mostra mercato del tartufo, preceduta da serate di musica, cori e teatro. Fa parte del circuito delle fiere del tartufo del Monferrato.",
+    "fonte": "https://www.regione.piemonte.it/web/pinforma/notizie/circuito-delle-fiere-tartufo-monferrato"
+  },
+  "un milione di giocattoli": {
+    "testo": "Alla Fiera di Cremona, per l'80ª volta, collezionisti e venditori di giocattoli antichi e vintage si danno appuntamento, grazie all'associazione AIGEC.",
+    "fonte": "https://aigec.it/"
+  },
+  "eima international": {
+    "testo": "La grande esposizione internazionale di BolognaFiere per le macchine agricole e da giardinaggio: trattori, attrezzature, componenti e tecnologie per l'agricoltura.",
+    "fonte": "https://www.aefi.it/it/manifestazione/eima-international-2026"
+  },
+  "ro.me museum exhibition": {
+    "testo": "Evento di Fiera Roma dedicato a chi lavora nei musei e nei luoghi della cultura: servizi, tecnologie e progetti per conservare e valorizzare l'arte.",
+    "fonte": "https://romemuseumexhibition.com/"
+  },
+  "young": {
+    "testo": "Salone dell'orientamento a Lariofiere (Erba): scuole, corsi di formazione, università e mondo del lavoro per aiutare i ragazzi a scegliere il loro futuro.",
+    "fonte": "https://www.aefi.it/it/manifestazione/young-2026"
+  },
+  "restructura": {
+    "testo": "Salone di Torino dedicato a ristrutturare, recuperare e riqualificare gli edifici: materiali, impianti, efficienza energetica e servizi per privati e professionisti.",
+    "fonte": "https://www.aefi.it/it/manifestazione/restructura-2026"
+  },
+  "arte padova": {
+    "testo": "Fiera d'arte moderna e contemporanea a Padova, con gallerie, artisti indipendenti e collettivi.",
+    "fonte": "https://www.artepadova.com/"
+  },
+  "eurochocolate": {
+    "testo": "Il celebre festival internazionale del cioccolato di Perugia, nato nel 1994: degustazioni, laboratori e attività per adulti e bambini.",
+    "fonte": "https://www.eurochocolate.com/"
+  },
+  "enci mostra canina": {
+    "testo": "Esposizione canina nazionale a CarraraFiere, organizzata con l'ENCI (Ente Nazionale della Cinofilia Italiana): cani di razza giudicati da esperti.",
+    "fonte": "https://www.aefi.it/it/manifestazione/enci-mostra-canina-20266"
+  },
+  "gustus": {
+    "testo": "Fiera napoletana dei sapori mediterranei: prodotti alimentari, attrezzature e servizi per la ristorazione e il settore agroalimentare.",
+    "fonte": "https://www.aefi.it/it/manifestazione/gustus-2026"
+  },
+  "big buyer": {
+    "testo": "Incontro annuale riservato agli operatori a Milano, alla 30ª edizione: chi acquista per negozi in Italia e all'estero trova cartoleria, articoli per ufficio, per le feste e per la creatività.",
+    "fonte": "https://www.bigbuyer.info/"
+  },
+  "enovitis": {
+    "testo": "Salone internazionale a Milano per le tecniche di viticoltura e olivicoltura: macchine, attrezzature e soluzioni per vigneti e oliveti.",
+    "fonte": "https://www.aefi.it/it/manifestazione/enovitis-2026"
+  },
+  "simei": {
+    "testo": "Salone internazionale a Fiera Milano delle macchine per fare il vino e per l'imbottigliamento, organizzato da Unione Italiana Vini.",
+    "fonte": "https://www.aefi.it/it/manifestazione/simei-2026"
+  },
+  "verona mineral show - edizione novembre": {
+    "testo": "A Veronafiere la 75ª edizione della grande rassegna per collezionisti e curiosi di pietre: minerali, fossili, gemme e gioielli da tutto il mondo.",
+    "fonte": "https://www.veronamineralshow.com/it/home/"
+  },
+  "padelness": {
+    "testo": "Fiera internazionale a Napoli dedicata allo sport e al benessere, con al centro il padel: attrezzature, campi, prove e novità del settore.",
+    "fonte": "https://www.padelness.it/"
+  },
+  "milano auto classica": {
+    "testo": "Salone milanese dei veicoli d'epoca: auto classiche, ricambi, accessori e club per appassionati e collezionisti.",
+    "fonte": "https://www.aefi.it/it/manifestazione/milano-auto-classica-2026"
+  },
+  "radioamatore 2": {
+    "testo": "Fiera di Pordenone per radioamatori ed elettronica, con apparati, componenti e computer. Nello stesso fine settimana si tengono Fotomercato (fotografia usata e d'epoca) e Games&Co (giochi e fumetti).",
+    "fonte": "https://www.aefi.it/it/manifestazione/radioamatore-2026"
+  },
+  "rassegna antiquaria": {
+    "testo": "Al Centro Fiera di Montichiari antiquari da tutta Italia espongono e vendono mobili, dipinti e oggetti d'arte del passato.",
+    "fonte": "https://www.aefi.it/it/manifestazione/rassegna-antiquaria-2026"
+  },
+  "c'era una volta...speciale libro e stampe antiche": {
+    "testo": "Mostra mercato di antiquariato e collezionismo alla Fiera di Cesena, con un'area speciale dedicata a libri e stampe antiche.",
+    "fonte": "https://www.aefi.it/it/manifestazione/c-era-una-volta-speciale-libro-e-stampe-antiche-2026-"
+  },
+  "commercianti per un giorno": {
+    "testo": "Mostra scambio alla Fiera di Forlì riservata ai privati: chiunque può vendere, comprare o scambiare oggetti usati, per un giorno da \"commerciante\".",
+    "fonte": "https://www.eventiesagre.it/Fiere_Altre/5207_Commercianti+per+un+Giorno+a+Forli.html"
+  },
+  "punto di incontro": {
+    "testo": "Salone dell'orientamento di Pordenone Fiere e Regione FVG, alla 18ª edizione: studenti, neodiplomati e chi cerca lavoro incontrano università, scuole di formazione, aziende, agenzie per il lavoro e associazioni.",
+    "fonte": "https://eures.europa.eu/punto-di-incontro-2026-11-11_bg"
+  },
+  "amart antiquariato a milano": {
+    "testo": "Mostra di antiquariato al palazzo della Permanente di Milano, organizzata dall'Associazione Antiquari Milanesi: una sessantina di gallerie selezionate con opere dall'antichità al design moderno.",
+    "fonte": "https://www.liberoquotidiano.it/news/tv-news/48444295/amart-2026-l-antiquariato-a-milano-un-piacere-contemporaneo-/"
+  },
+  "sposi in love": {
+    "testo": "Quattro giorni dedicati al matrimonio a SiciliaFiera: abiti da sposa e da sposo, accessori, bomboniere, fotografi, fiori, trucco e acconciature, con sfilate e spettacoli. Di solito l'ingresso è gratuito.",
+    "fonte": "https://www.blogsicilia.it/comunicati-stampa/sicilia-protagonista-del-wedding-tra-nozze-vip-e-indotto-record-le-nuove-tendenze-a-sposinlove-dal-12-al-15-novembre/1268840/"
+  },
+  "fiera del carciofo mediterraneo e del prodotto ortofrutticolo": {
+    "testo": "Fiera nazionale di San Ferdinando di Puglia, oltre sessanta edizioni, dedicata al carciofo locale (prodotto tradizionale riconosciuto) e all'ortofrutta della valle dell'Ofanto: mostre, convegni, degustazioni, show cooking e musica. Ingresso libero.",
+    "fonte": "https://www.ilturista.info/blog/sagra-carciofo-san-ferdinando-puglia/"
+  },
+  "futurity & country christmas": {
+    "testo": "Festival country alla Fiera di Cremona, in contemporanea con le finali europee del reining: balli country per principianti ed esperti, musica e un mercatino western con cibo, abbigliamento, accessori e idee regalo.",
+    "fonte": "https://www.hotel-bb.com/it/country-christmas-cremona"
+  },
+  "palakiss jewelry fall show": {
+    "testo": "Edizione autunnale di Palakiss, il centro espositivo per la gioielleria accanto alla Fiera di Vicenza: aziende orafe che presentano gioielli, orologi e accessori ai commercianti, con vendita e ordini sul posto. Riservata agli operatori.",
+    "fonte": "https://benchpeg.com/events/jewelryaround-at-palakiss-winter-2020-during-vicezaoro/"
+  },
+  "turismo natura": {
+    "testo": "Fiera del turismo all'aria aperta al Centro Fiera di Montichiari: camper, caravan, nautica e vacanze sostenibili, con i concessionari delle grandi marche, accessori e attrezzature.",
+    "fonte": "https://www.cantonfair.net/event/17235-turismonatura"
+  },
+  "fiera nazionale di san martino arcole doc": {
+    "testo": "Fiera d'autunno di Arcole (Verona) dedicata al vino Arcole DOC e ai sapori locali: oltre cento espositori, stand gastronomici con piatti tradizionali, mercato dei prodotti tipici e rievocazioni della battaglia napoleonica di Arcole.",
+    "fonte": "https://www.itinerarinelgusto.it/sagre-e-feste/fiera-nazionale-di-san-martino-e-arcole-doc-0069"
+  },
+  "good life": {
+    "testo": "Nuova fiera della Fiera di Bolzano dedicata al vivere bene in modo sostenibile, che dal 2026 sostituisce la storica Fiera d'Autunno: cibo biologico e regionale, moda sostenibile, cosmesi naturale, salute, mobilità e casa, con la Biolife al suo interno.",
+    "fonte": "https://www.suedtirolerland.it/en/leisure-activities/markets-fairs-and-shopping/bolzano-fair/good-life-trade-fair-for-good-living"
+  },
+  "ideanatale": {
+    "testo": "Fiera natalizia di Udine Esposizioni: idee regalo, decorazioni, artigianato e prodotti tipici per prepararsi alle feste.",
+    "fonte": "https://www.ideanatale.it/"
+  },
+  "bee - formaggi di montagna": {
+    "testo": "Fiera dei formaggi di montagna a Villanova Mondovì, nata dall'antica fiera di Santa Caterina e sostenuta da Slow Food: mercato dei formaggi e dei prodotti agricoli, laboratori del gusto anche per bambini, cene a tema e mostra di pecore e capre.",
+    "fonte": "https://www.mentelocale.it/cuneo/60696-bee-sapori-di-montagna-a-villanova-mondov-il-programma.htm"
+  },
+  "sicilia game expo": {
+    "testo": "Fiera di videogiochi, giochi da tavolo, fumetti e cosplay a SiciliaFiera: postazioni di gioco, realtà virtuale, tornei, ospiti, spettacoli J-Pop e K-Pop e area per artisti.",
+    "fonte": "https://www.balarm.it/eventi/videogiochi-giochi-da-tavolo-spettacoli-cosplay-sicilia-game-expo-a-misterbianco-141896"
+  },
+  "m come montagna": {
+    "testo": "Nuova mostra-convegno al Brixia Forum di Brescia dedicata alla montagna: turismo, artigianato, cicloturismo e cammini, enogastronomia, sport e natura, con dimostrazioni di soccorso alpino insieme al CAI.",
+    "fonte": "https://www.notizie.it/m-come-montagna-per-un-turismo-che-rafforza-filiere-locali-e-occupazione/"
+  },
+  "mercato dei vini dei vignaioli indipendenti fivi": {
+    "testo": "Il grande mercato dei vignaioli indipendenti della FIVI: centinaia di piccoli produttori che fanno il vino con le proprie uve lo presentano e lo vendono direttamente al pubblico.",
+    "fonte": "https://fivi.it/"
+  },
+  "bridal week": {
+    "testo": "Fiera per i futuri sposi al Centro Fiera di Montichiari: atelier di abiti, location, gioiellerie, wedding planner, fiorai, fotografi e, insieme, proposte per arredare la nuova casa.",
+    "fonte": "https://www.centrofiera.it/en/manifestazioni/bridal-week/"
+  },
+  "fiera dei vini": {
+    "testo": "Fiera del vino aperta al pubblico a Piacenza Expo, alla quarta edizione: circa 280 espositori, degustazioni e approfondimenti su sostenibilità, turismo del vino e mercati.",
+    "fonte": "https://www.itinerarinelgusto.it/eventi/fiera-dei-vini-piacenza-expo-7420"
+  },
+  "vicenza comics & games": {
+    "testo": "Fiera del fumetto e del gioco alla Fiera di Vicenza: mostra mercato, area artisti, tornei di videogiochi, spettacoli sul palco e spazi per collezionisti e famiglie.",
+    "fonte": "https://www.cantonfair.net/event/37417-vicenza-comics-games-2026"
+  },
+  "fiera internazionale del tartufo trifola d'or": {
+    "testo": "La fiera del tartufo bianco di Murisengo, nel borgo dominato dal castello: mercato con controlli rigorosi su ogni tartufo, gare per i tartufi più belli e stand gastronomici, nelle domeniche di novembre.",
+    "fonte": "https://www.ilpiccolo.net/2025/03/20/tartufo-nero-la-regione-lancia-a-murisengo-la-prima-fiera-dedicata"
+  },
+  "fiera nazionale del tartufo bianco e nero": {
+    "testo": "Fiera nazionale (dal 2008) del tartufo bianco e nero a San Sebastiano Curone: tanti stand enogastronomici, mostra mercato, gare di cani da tartufo e passeggiate nel borgo medievale.",
+    "fonte": "https://www.itinerarinelgusto.it/sagre-e-feste/mostra-mercato-fiera-nazionale-del-tartufo-1203"
+  },
+  "bevertech": {
+    "testo": "Nuova fiera a Fiera Milano, organizzata da Ipack-Ima insieme al SIMEI: tecnologie per produrre, confezionare e distribuire bevande e alimenti liquidi.",
+    "fonte": "https://packmedia.net/node/11809"
+  },
+  "rebuild": {
+    "testo": "Prima edizione italiana di REBUILD alla Fiera di Rimini: costruzioni industrializzate e prefabbricate, digitalizzazione, sostenibilità ed efficienza energetica degli edifici.",
+    "fonte": "https://www.qualenergia.it/eventi/rebuild-expo-italia/"
+  },
+  "smart building levante": {
+    "testo": "Fiera alla Nuova Fiera del Levante di Bari sulla transizione energetica e digitale degli edifici: automazione di case e palazzi, impianti elettrici, energie rinnovabili e sicurezza, con corsi per i professionisti.",
+    "fonte": "https://transition-pathways.europa.eu/construction/events/smart-building-levante-2026-mediterranean-energy-and-digital-transition-fair"
+  },
+  "work on work - il lavoro al servizio del lavoro": {
+    "testo": "Fiera nazionale sul lavoro a Ferrara: istituzioni, aziende e università con incontri di orientamento per i giovani, workshop e corsi su intelligenza artificiale, transizione ecologica, inclusione e diritti.",
+    "fonte": "https://www.partitaiva.it/work-on-work-ferrara/"
+  },
+  "io creo": {
+    "testo": "Fiera della creatività e del fai da te a Pordenone Fiere: materiali, accessori e strumenti per hobby creativi, con corsi e dimostrazioni per principianti ed esperti.",
+    "fonte": "https://exposale.net/es/exhibition/io-creo"
+  },
+  "internazionale sor": {
+    "testo": "La mostra ornitologica internazionale della Società Ornitologica Reggiana a ModenaFiere: decine di migliaia di uccelli da gabbia e da voliera da molti Paesi, in gara davanti a giudici esperti.",
+    "fonte": "https://www.ilrestodelcarlino.it/modena/cronaca/torna-la-mostra-ornitologica-oltre-2dcc6c3b"
+  },
+  "terrae by agritravel expo": {
+    "testo": "Fiera del turismo lento alla Fiera di Bergamo, erede di Agritravel Expo: cammini, cicloturismo, borghi, enogastronomia, natura e benessere, con una giornata di incontri tra espositori e compratori. Ingresso libero.",
+    "fonte": "https://www.qualitytravel.it/?p=185725"
+  },
+  "fiera del vintage": {
+    "testo": "Fiera del vintage al polo fieristico A1Expò di San Marco Evangelista (Caserta): abbigliamento, accessori, oggetti d'epoca e collezionismo.",
+    "fonte": "https://www.napolike.it/torna-la-fiera-del-vintage-e-mostra-scambio-2025-alla1expo-di-caserta"
+  },
+  "winter christmas": {
+    "testo": "Mercato di Natale alla Fiera di Forlì: oltre 8.000 m² con espositori artigiani, idee regalo e decorazioni per le feste.",
+    "fonte": "https://www.winterchristmas.it/"
+  },
+  "gustofair": {
+    "testo": "Fiera enogastronomica alla Fiera di Padova: prodotti alimentari locali e artigianali, degustazioni, dimostrazioni di cucina e incontri su temi del settore.",
+    "fonte": "https://gustofair.it/"
+  },
+  "games & co": {
+    "testo": "Fiera del gioco, del fumetto e dell'intrattenimento a Pordenone Fiere, nello stesso fine settimana di Radioamatore e Fotomercato.",
+    "fonte": "https://www.fierapordenone.it/en/pnf/events"
+  },
+  "fotomercato": {
+    "testo": "Mostra scambio di macchine fotografiche e accessori, d'epoca, usati e digitali, a Pordenone Fiere, insieme alla fiera Radioamatore.",
+    "fonte": "https://www.fierapordenone.it/en/pnf/events"
+  },
+  "ibe intermobility future ways": {
+    "testo": "Alla Fiera di Rimini il punto d'incontro del trasporto pubblico e della mobilità condivisa: autobus, rinnovo delle flotte, transizione energetica, pagamenti digitali e servizi a chiamata, con convegni, rapporti di settore e il premio \"Bus of the Year\".",
+    "fonte": "https://en.ilsole24ore.com/art/transport-24-26-november-rimini-ibe-intermobility-future-ways-the-european-hub-for-shared-mobility-AIdg30KD"
+  },
+  "la terra dei mercanti": {
+    "testo": "Grande fiera di antiquariato, modernariato, vintage e collezionismo a Umbriafiere (Bastia Umbra): oltre 250 espositori tra mobili, abiti e accessori d'epoca, dischi, radio, fumetti e giocattoli, con un'area di trenini in movimento.",
+    "fonte": "https://www.umbriatourism.it/en/w/la-terra-dei-mercanti-event"
+  },
+  "fiera del tartufo bianco e dei vini del roero di vezza d'alba": {
+    "testo": "Fiera del tartufo bianco e dei vini del Roero a Vezza d'Alba, oltre quarant'anni di storia, organizzata con la Pro Loco: mercato del tartufo, vini del territorio ed eventi nel cuore del Roero.",
+    "fonte": "https://verbanonews.it/aree-geografiche/piemonte/2023/09/25/e-tempo-di-tartufo-le-fiere-del-piemonte-dedicate-al-gioiello-della-terra/966431/?output=pdf"
+  },
+  "accadueo": {
+    "testo": "Appuntamento dedicato al mondo dell'acqua: reti idriche, depurazione, riuso, dissalazione e digitale contro le perdite. Si alterna tra Bologna e Bari; nel 2026 è alla Fiera del Levante.",
+    "fonte": "https://www.waternewseurope.com/accadueo-returns-to-bari-on-26-and-27-november-the-key-event-for-the-water-sector/"
+  },
+  "bitesp": {
+    "testo": "Borsa del turismo esperienziale a Venezia: due giornate di incontri su appuntamento tra chi offre esperienze di viaggio in Italia e acquirenti stranieri, solo per operatori.",
+    "fonte": "https://tno.camcom.it/sites/default/files/allegati/Uffici%20Promozione/Turismo/2026-Circolare-Bitesp.pdf"
+  },
+  "career day": {
+    "testo": "Giornata in fiera a Bergamo organizzata dall'Università di Bergamo: studenti e laureati incontrano le aziende per lavoro, tirocini e tesi, con colloqui e CV da consegnare.",
+    "fonte": "https://www.unibg.it/terza-missione/collaborazioni-enti-e-imprese/career-day/eventi-career-day"
+  },
+  "fiere zootecniche internazionali di cremona": {
+    "testo": "Le fiere della zootecnia di Cremona: bovini da latte, suini, avicoltura e caseificio in un unico evento, con attenzione a genetica e gestione dell'allevamento.",
+    "fonte": "https://cowcare.eu/event/cremona-international-livestock-exhibition-fiere-zootecniche-internazionali-di-cremona/"
+  },
+  "frutech": {
+    "testo": "Fiera dell'ortofrutta mediterranea a SiciliaFiera (Catania), alla terza edizione: agricoltura di precisione, difesa sostenibile delle colture e incontri d'affari per le aziende del settore.",
+    "fonte": "https://www.farmersguide.co.uk/?p=129436"
+  },
+  "interpoma": {
+    "testo": "Fiera di Bolzano tutta dedicata alla mela: coltivazione, conservazione e vendita, con un congresso tecnico. Si tiene ogni due anni in Alto Adige, la più grande zona di meleti d'Europa.",
+    "fonte": "https://www.fruitnet.com/eurofruit/interpoma-announces-details-of-2026-congress/270443.article"
+  },
+  "job & orienta": {
+    "testo": "Grande salone di Verona su scuola, orientamento, formazione e lavoro, pensato per studenti, famiglie e insegnanti. Ingresso gratuito con registrazione.",
+    "fonte": "https://globaltradefairs.com/tradefairs/event-details/joborienta"
+  },
+  "nse - new space economy": {
+    "testo": "Fiera e convegno sull'economia dello spazio a Fiera Roma: area espositiva, dibattiti, incontri B2B, gara per startup e spazio formazione, con agenzie, imprese e università.",
+    "fonte": "https://turismoroma.it/it/node/175288"
+  },
+  "salone dello studente": {
+    "testo": "Tappa a Napoli (Mostra d'Oltremare) del salone di orientamento per chi finisce le superiori: università, corsi e lavoro, colloqui di orientamento. Gratuito per gli studenti.",
+    "fonte": "https://www.tecnicadellascuola.it/salone-dello-studente-al-via-il-tour-di-indire-le-date-e-le-citta-che-tocchera"
+  },
+  "wow la fiera con più passioni": {
+    "testo": "Fiera per il pubblico a Bologna che riunisce più hobby insieme: fumetti, collezionismo, elettronica, vinili, vintage, mondo giapponese e, nelle ultime edizioni, filatelia.",
+    "fonte": "https://www.eventiesagre.it/Fiere_Altre/15264_Wow+a+Bologna+la+fiera+con+piE+passioni.html"
+  }
+}

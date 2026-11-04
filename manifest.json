@@ -1,0 +1,19 @@
+{
+  "name": "Fiere in Italia",
+  "short_name": "Fiere Italia",
+  "description": "Le fiere in Italia in corso e dei prossimi 30 giorni, su una mappa interattiva.",
+  "lang": "it",
+  "start_url": "./index.html?app=1",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fb",
+  "theme_color": "#2563eb",
+  "icons": [
+    { "src": "icone/icona-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icone/icona-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icone/icona-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Apri la mappa", "url": "./mappa.html", "icons": [{ "src": "icone/icona-192.png", "sizes": "192x192" }] }
+  ]
+}

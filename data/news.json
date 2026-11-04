@@ -1,0 +1,117 @@
+{
+  "_nota": "News sulle fiere, scritte da noi con parole nostre (mai copiate), sempre con la fonte. 'fiera' = nome della fiera come in data/fiere.json (maiuscole e minuscole non contano). La pagina mostra da sola SOLO le news di fiere in corso o che iniziano entro 30 giorni: quelle delle fiere finite spariscono senza toccare questo file. Per aggiungere una news: copiare un blocco, cambiare i testi e la data 'aggiunta'.",
+  "news": [
+    {
+      "fiera": "iMEAT",
+      "titolo": "iMEAT lascia Modena e arriva a BolognaFiere",
+      "testo": "Dopo nove edizioni a Modena, la fiera professionale della carne si sposta a Bologna per avere più spazio e servizi. È pensata per macellerie, gastronomie, ristorazione e aziende di lavorazione.",
+      "fonte": "https://www.ecoseven.net/flash-news/imeat-la-fiera-professionale-del-comparto-carne-nel-2026-si-sposta-a-bolognafiere/",
+      "testata": "Ecoseven",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "Fiera Nazionale del Tartufo Bianco Pregiato",
+      "titolo": "Sant'Agata Feltria: tartufo bianco ogni domenica di ottobre",
+      "testo": "Nel borgo dell'alta Valmarecchia la fiera del tartufo bianco, nata nel 1985, va avanti tutte le domeniche fino al 1° novembre. Nelle passate edizioni c'erano anche la gara dei cani da tartufo e spettacoli in piazza.",
+      "fonte": "https://www.tradefairdates.com/Fiera+Nazionale+del+Tartufo+Bianco+Pregiato-M13201/Sant%27Agata+Feltria.html",
+      "testata": "TradeFairDates",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "BIMU",
+      "titolo": "BI-MU festeggia 70 anni a fieramilano",
+      "testo": "La 35ª edizione della fiera delle macchine utensili celebra i 70 anni della manifestazione. Spazio a robotica e intelligenza artificiale, stampa 3D e software per la fabbrica digitale. Ingresso solo per operatori, con registrazione online.",
+      "fonte": "https://www.bimu.it/wp-content/uploads/2025/10/35-BIMU-LANCIO-1.pdf",
+      "testata": "BI-MU",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "TTG Travel Experience",
+      "titolo": "TTG Rimini: 45 startup del turismo in vetrina",
+      "testo": "Per la 63ª edizione la fiera del turismo divide i padiglioni in tre mondi: Italia, The World e Global Village. Nell'area dedicata alle startup si presentano 45 giovani aziende. Accesso riservato agli operatori del settore.",
+      "fonte": "https://siviaggia.it/notizie/ttg-2026-date-informazioni-fiera-turismo-rimini/604926/",
+      "testata": "SiViaggia",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "TRIESTESPRESSO EXPO",
+      "titolo": "Trieste diventa per una settimana la capitale del caffè",
+      "testo": "La fiera dell'espresso, che si tiene ogni due anni, arriva alla 12ª edizione. Nei due giorni prima, il 19 e 20 ottobre, la città ospita anche un convegno internazionale sul caffè. In programma gare, workshop e studi di mercato.",
+      "fonte": "https://www.beverfood.com/settimana-internazionale-caffe-triestespresso-expo-2026/",
+      "testata": "Beverfood",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "AUTO E MOTO D'EPOCA",
+      "titolo": "Auto e Moto d'Epoca: una mostra sulle corse di durata",
+      "testo": "Tra le novità c'è «Icons of Speed», con più di 25 auto da corsa che raccontano oltre cinquant'anni di gare endurance, da Le Mans in poi. Nasce anche un'area per moto da collezione in vendita. Il 25 ottobre è la giornata della Corvette.",
+      "fonte": "https://autoemotodepoca.com/wp-content/uploads/2026/07/CS_ITA_AUTO-E-MOTO-DEPOCA_2026_luglio.pdf",
+      "testata": "Auto e Moto d'Epoca (comunicato)",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "CIBUS TEC",
+      "titolo": "Cibus Tec e Labotec, per la prima volta si entra gratis",
+      "testo": "La fiera delle tecnologie per l'alimentare cresce di espositori e di spazio rispetto al 2023. Ci saranno linee di produzione funzionanti dal vivo e un'area per le startup. Il World Pasta Day si festeggia per la prima volta a Parma.",
+      "fonte": "https://www.tecnelab.it/news/attualita/cibus-tec-e-labotec-2026-verso-il-sold-out-ingresso-gratuito-per-la-prima-volta",
+      "testata": "Tecnelab",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "LUCCA COMICS & GAMES",
+      "titolo": "Lucca Comics & Games compie 60 anni",
+      "testo": "L'edizione dell'anniversario ha come tema «Legacy», l'eredità tra generazioni di lettori e giocatori. Il manifesto è di Claudio Castellini. Tra gli ospiti annunciati ci sono Frank Miller e Go Nagai.",
+      "fonte": "https://senalnews.com/en/events/lucca-comics-games-unveils-lineup-and-themes-for-its-60th-anniversary-edition",
+      "testata": "Senal News",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "ARTISSIMA",
+      "titolo": "Artissima: 183 gallerie da 35 paesi all'Oval Lingotto",
+      "testo": "La 33ª edizione della fiera d'arte contemporanea di Torino chiude il mandato del direttore Luigi Fassi. Per le edizioni dal 2027 la Fondazione Torino Musei ha aperto un bando per la direzione.",
+      "fonte": "https://www.finestresullarte.info/eventi/artissima-2026-torino-quinta-edizione-diretta-da-fassi-tra-mercato-ricerca",
+      "testata": "Finestre sull'Arte",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "SALERNO BOAT SHOW",
+      "titolo": "Salerno Boat Show: barche a terra e in acqua",
+      "testo": "Il salone nautico torna a Marina d'Arechi, sul golfo di Salerno, con imbarcazioni esposte sia sul piazzale sia in acqua. Nelle passate edizioni l'ingresso era gratuito ed era possibile provare le barche in mare.",
+      "fonte": "https://www.absoluteyachts.com/en/absolute_event/salerno-boat-show-2026/",
+      "testata": "Absolute Yachts",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "ECOMONDO",
+      "titolo": "Ecomondo punta sull'estero e apre un padiglione al tessile",
+      "testo": "La fiera della transizione ecologica arriva alla 29ª edizione con un nuovo padiglione dedicato al tessile e più compratori dall'estero, grazie all'Agenzia ICE. In programma oltre 70 incontri e convegni.",
+      "fonte": "https://www.affaritaliani.it/economia/notizie-aziende/ieg-ecomondo-2026-sempre-piu-globale-cresce-lecosistema-della-transizione-ecologica.html",
+      "testata": "Affaritaliani",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "FIERACAVALLI",
+      "titolo": "Fieracavalli accoglie dressage e polo",
+      "testo": "Alla 128ª edizione il programma sportivo si allarga a due nuove discipline: debutta una gara di dressage e arriva una tappa del circuito italiano di polo.",
+      "fonte": "https://www.veronafiere.it/en/press-release/fieracavalli-2025-closes-with-more-than-140000-visitors/",
+      "testata": "Veronafiere (comunicato)",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "MERANO WINEFESTIVAL",
+      "titolo": "Merano WineFestival: i primi vini da 100 su 100",
+      "testo": "Presentata a Roma la 35ª edizione: per la prima volta alcuni vini hanno avuto il punteggio massimo nel premio del festival. Dal 2027 nascerà anche un osservatorio sul futuro del vino.",
+      "fonte": "https://wineindustryadvisor.com/2026/10/08/merano-winefestival-honours-first-ever-100-100-wh-award-platinum-winners/",
+      "testata": "Wine Industry Advisor",
+      "aggiunta": "2026-10-12"
+    },
+    {
+      "fiera": "EIMA INTERNATIONAL",
+      "titolo": "EIMA verso il record: circa 1.800 espositori",
+      "testo": "La fiera delle macchine agricole si allarga con nuovi padiglioni, anche temporanei. Apre prima il martedì e resta aperta fino a sera il sabato. Per la prima volta c'è un concorso per il design degli stand.",
+      "fonte": "https://www.ivtinternational.com/news/agriculture/eima-2026-confirms-1800-exhibitors-as-show-grows.html",
+      "testata": "iVT International",
+      "aggiunta": "2026-10-12"
+    }
+  ]
+}

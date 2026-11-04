@@ -1,0 +1,18 @@
+# File che NON vanno mai caricati su GitHub
+# (quando il sito diventerà pubblico, chiunque potrebbe leggerli)
+
+# Appunti personali, mail e registro dei lavori
+NOTE-PROGETTO.md
+REGISTRO-LAVORI.md
+email-AEFI.txt
+
+# Le nostre catture dello schermo
+catture/
+
+# Copia dei testi delle schede AEFI: è solo una guida per scrivere i riassunti,
+# NON va pubblicata (diritto d'autore). Il programma la ricrea da solo quando serve.
+strumenti/cache_schede.json
+
+# File temporanei di Python
+__pycache__/
+*.pyc

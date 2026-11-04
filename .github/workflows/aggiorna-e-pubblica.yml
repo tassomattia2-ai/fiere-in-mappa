@@ -1,0 +1,92 @@
+# Aggiornamento giornaliero e pubblicazione del sito
+# --------------------------------------------------
+# Deciso il 2/11/2026: le fiere si aggiornano DA SOLE ogni giorno, senza approvazione.
+#
+# Cosa succede:
+#   - ogni mattina GitHub esegue strumenti/aggiorna_fiere.py (raccoglie le fiere da AEFI),
+#     salva il nuovo data/fiere.json nell'archivio e pubblica il sito aggiornato;
+#   - ogni volta che carichiamo noi delle modifiche (push), il sito viene ripubblicato
+#     subito, senza rileggere AEFI.
+# L'app non ha dati suoi: li prende dal sito, quindi si aggiorna insieme a lui.
+#
+# Se AEFI non risponde, il programma si ferma senza toccare l'elenco di ieri
+# (vedi la "Protezione" in aggiorna_fiere.py) e GitHub ce lo segnala per email.
+
+name: Aggiorna fiere e pubblica il sito
+
+on:
+  schedule:
+    - cron: "0 4 * * *"   # ogni giorno alle 4:00 di Greenwich = 5:00 (inverno) / 6:00 (estate) in Italia
+  push:
+    branches: [main]
+  workflow_dispatch:       # permette anche di avviarlo a mano dalla scheda "Actions"
+
+permissions:
+  contents: write   # per salvare il nuovo elenco delle fiere
+  pages: write      # per pubblicare il sito
+  id-token: write   # richiesto da GitHub Pages
+
+# Mai due pubblicazioni insieme
+concurrency:
+  group: pubblica-sito
+  cancel-in-progress: false
+
+jobs:
+  aggiorna-e-pubblica:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pubblica.outputs.page_url }}
+    steps:
+      - name: Scarica il codice del sito
+        uses: actions/checkout@v4
+
+      # --- Solo per l'aggiornamento giornaliero (o avviato a mano) ---------------
+
+      - name: Prepara Python
+        if: github.event_name != 'push'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # La "cache" delle schede AEFI non sta nell'archivio (diritto d'autore):
+      # GitHub la conserva in privato tra un giorno e l'altro, così il programma è veloce
+      - name: Recupera la memoria delle schede già lette
+        if: github.event_name != 'push'
+        uses: actions/cache@v4
+        with:
+          path: strumenti/cache_schede.json
+          key: cache-schede-${{ github.run_id }}
+          restore-keys: cache-schede-
+
+      - name: Raccogli le fiere dal calendario AEFI
+        if: github.event_name != 'push'
+        run: python -u strumenti/aggiorna_fiere.py
+
+      - name: Salva il nuovo elenco nell'archivio
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "aggiornamento-automatico"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/fiere.json
+          git diff --cached --quiet || git commit -m "Aggiornamento giornaliero delle fiere"
+          git push
+
+      # --- Sempre: pubblicazione ---------------------------------------------------
+
+      # Nel sito mettiamo SOLO i file che servono alle pagine (niente strumenti, appunti ecc.)
+      - name: Prepara i file del sito
+        run: |
+          mkdir _sito
+          cp *.html *.css *.js manifest.json _sito/
+          cp -r data icone _sito/
+          if [ -f CNAME ]; then cp CNAME _sito/; fi
+
+      - name: Prepara la pubblicazione
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _sito
+
+      - name: Pubblica su GitHub Pages
+        id: pubblica
+        uses: actions/deploy-pages@v4
