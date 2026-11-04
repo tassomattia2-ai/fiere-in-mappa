@@ -779,5 +779,241 @@
   "wow la fiera con più passioni": {
     "testo": "Fiera per il pubblico a Bologna che riunisce più hobby insieme: fumetti, collezionismo, elettronica, vinili, vintage, mondo giapponese e, nelle ultime edizioni, filatelia.",
     "fonte": "https://www.eventiesagre.it/Fiere_Altre/15264_Wow+a+Bologna+la+fiera+con+piE+passioni.html"
+  },
+  "domani lavoro": {
+    "testo": "Fiera del lavoro di Brescia: aziende, agenzie per il lavoro, università e scuole incontrano studenti e candidati per colloqui, orientamento e offerte di impiego. Ingresso gratuito con iscrizione online.",
+    "fonte": "https://www.unibs.it/it/ateneo/comunicazione/tutte-le-news/partecipa-alla-fiera-domani-lavoro-2026"
+  },
+  "expo scuola": {
+    "testo": "Salone dedicato a scuola, orientamento e formazione: istituti, università ed enti di formazione presentano percorsi di studio e professionali a studenti, famiglie e insegnanti.",
+    "fonte": "https://www.neventum.com/tradeshows/expo-scuola"
+  },
+  "arezzo tattoo expo": {
+    "testo": "Due giorni dedicati al tatuaggio: oltre cento tatuatori italiani e stranieri al lavoro, stand di artigiani, un mercatino di settore, workshop, dj set e spettacoli dal vivo.",
+    "fonte": "https://www.borsaitaliana.it/borsa/notizie/radiocor/finanza/dettaglio/fiere-calendario-ottobredicembre-2026-arezzo-nRC_03102026_1917_454103107.html"
+  },
+  "soft air fair": {
+    "testo": "Fiera nazionale del softair: attrezzature, repliche, abbigliamento tecnico e accessori per il gioco di simulazione tattica, con espositori e appassionati da tutta Italia.",
+    "fonte": "https://www.aefi.it/it/manifestazione/soft-air-fair-2026-63048"
+  },
+  "usi & costumi": {
+    "testo": "Appuntamento dedicato alla rievocazione storica di tutte le epoche: gruppi storici, artigiani, costumi, armi e accessori d'epoca, con dimostrazioni e incontri sul turismo legato alla storia.",
+    "fonte": "https://www.all4shooters.com/it/tiro/cultura/rievocazione-storica-di-tutte-le-epoche-usi-costumi/"
+  },
+  "fiera toscana del lavoro": {
+    "testo": "La fiera del lavoro della Regione Toscana, organizzata con l'agenzia regionale ARTI alla Fortezza da Basso: aziende, centri per l'impiego ed enti di formazione incontrano chi cerca lavoro, tra colloqui, offerte e orientamento.",
+    "fonte": "https://www.regione.toscana.it/-/fiera-toscana-del-lavoro"
+  },
+  "animalia": {
+    "testo": "Grande mostra mercato dedicata agli animali da compagnia e da cortile, con allevatori, espositori di accessori e alimenti e spazi pensati per le famiglie.",
+    "fonte": "https://www.borsaitaliana.it/borsa/notizie/radiocor/finanza/dettaglio/fiere-calendario-ottobredicembre-2026-arezzo-nRC_03102026_1917_454103107.html"
+  },
+  "fiera del disco e del fumetto": {
+    "testo": "Mostra mercato per collezionisti: dischi in vinile e cd, fumetti, carte e oggetti da collezione, con espositori da tutta Italia e ospiti dal mondo del fumetto italiano.",
+    "fonte": "https://www.lanazione.it/arezzo/cultura/28esima-fiera-del-disco-fumetto-e-collezionismo-k1yej8pa"
+  },
+  "wow brixia la fiera con più passioni": {
+    "testo": "Fiera che riunisce più passioni sotto lo stesso tetto: collezionismo, hobby creativi, giochi e cultura pop, con espositori, laboratori ed eventi per tutte le età.",
+    "fonte": "https://www.eventiesagre.it/Fiere_Altre/15264_Wow+a+Bologna+la+fiera+con+piE+passioni.html"
+  },
+  "back to the wine": {
+    "testo": "Fiera dei vini artigianali, naturali e biologici: con un unico biglietto si degustano i vini dei produttori presenti e si possono acquistare direttamente da loro.",
+    "fonte": "https://www.raisin.digital/it/scopri/fiere-vino-naturale-degustazioni-eventi/fiere/back-to-the-wine-2026-5177/"
+  },
+  "remodula expo": {
+    "testo": "Prima edizione italiana del salone europeo sulle costruzioni innovative: edilizia industrializzata, prefabbricazione fuori cantiere (offsite) e digitalizzazione, con oltre 250 aziende espositrici attese.",
+    "fonte": "https://www.infobuild.it/eventi/remodula-expo-rimini-prima-edizione-fiera-dedicata-costruzioni/"
+  },
+  "megawatt exhibition & conference": {
+    "testo": "Mostra e convegno sull'energia: turbomacchine, produzione di elettricità e nuove tecnologie come l'idrogeno e la cattura della CO2, per tecnici e aziende del settore.",
+    "fonte": "https://en.jufair.com/exhibition/20030/"
+  },
+  "m.e.c.i.": {
+    "testo": "Storica mostra dell'edilizia civile e industriale di Lariofiere: materiali, impianti, serramenti, macchine e servizi per costruire e ristrutturare, per professionisti e privati.",
+    "fonte": "https://www.infobuild.it/m-e-c-i-mostra-edilizia-civile-e-industriale/"
+  },
+  "gamics cesena": {
+    "testo": "Fiera del fumetto e del gioco: fumetti, giochi e cultura pop, con espositori, collezionisti e appassionati.",
+    "fonte": "https://www.eventiesagre.it/Eventi_Fiere/15184_La+fiera+del+fumetto+Gamics+a+Carrara.html"
+  },
+  "il mondo creativo": {
+    "testo": "Salone dell'hobbistica creativa, delle belle arti e del fai da te: materiali, strumenti e laboratori per lavori manuali, decorazione e pittura.",
+    "fonte": "https://www.neventum.com/tradeshows/il-mondo-creativo"
+  },
+  "veronafil": {
+    "testo": "Storica manifestazione di filatelia, numismatica, cartofilia e collezionismo vario, con commercianti, associazioni e collezionisti.",
+    "fonte": "https://www.veronafil.it/en/association/about-us/"
+  },
+  "beer my lover": {
+    "testo": "Nuova fiera della birra artigianale al Brixia Forum: birrifici, degustazioni, incontri e intrattenimento, con la direzione artistica dell'esperto Lorenzo «Kuaska» Dabove.",
+    "fonte": "https://www.beverfood.com/beermylover-21-23-novembre-brescia-birra-artigianale-wd/"
+  },
+  "handmade stories": {
+    "testo": "Mercato di oggetti fatti a mano da creativi selezionati da tutta Italia, dove vedere e comprare pezzi unici. Si svolge insieme a Il Mondo Creativo e a WOW, con un unico biglietto.",
+    "fonte": "https://boothsquare.com/events/handmade-stories-bologna/editions/handmade-stories-bologna-nov-2026/23c5dcaa-95ea-4175-a78a-87c81f55960e"
+  },
+  "fiera dell'orientamento": {
+    "testo": "Fiera della Provincia di Bergamo per aiutare studenti, famiglie e insegnanti a scegliere la scuola superiore e i percorsi di formazione, con gli stand degli istituti e incontri di orientamento.",
+    "fonte": "https://albino-api.municipiumapp.it/s3/130/allegati/allegati-news/fiera-dell-orientamento-locandina-completa-con-programma.pdf"
+  },
+  "expogusti": {
+    "testo": "Salone delle eccellenze agroalimentari ed enogastronomiche: prodotti tipici, degustazioni di vino e birra, cooking show e laboratori.",
+    "fonte": "https://www.eventiesagre.it/Fiere_Alimentari/21180618_Expogusti+A+Bologna.html"
+  },
+  "abbiategusto": {
+    "testo": "Rassegna enogastronomica con oltre venticinque edizioni alle spalle: produttori, prodotti tipici, degustazioni e iniziative dedicate al buon cibo nel quartiere fieristico di Abbiategrasso.",
+    "fonte": "https://www.milanofree.it/milano/eventi/abbiategusto-2025-ad-abbiategrasso-date-programma-e-consigli-da-milano.html"
+  },
+  "re panettone": {
+    "testo": "Festa del panettone artigianale nata a Milano nel 2008: pasticceri da tutta Italia presentano panettoni fatti con ingredienti naturali, tra assaggi, vendita e premi ai migliori.",
+    "fonte": "https://www.mentelocale.it/milano/101190-re-panettone-2025-festa-del-dolce-milanese-di-natale-con-premi-ai-migliori-prodotti-artigianali.htm"
+  },
+  "expo elettronica": {
+    "testo": "Grande mostra mercato dell'elettronica: componenti, informatica, telefonia, accessori ed elettrodomestici, con centinaia di espositori e tante idee regalo.",
+    "fonte": "https://www.neventum.com/tradeshows/expo-elettronica-forli"
+  },
+  "elettronica": {
+    "testo": "Mostra mercato dell'elettronica: componenti, informatica, telefonia e accessori, con espositori e occasioni per appassionati e curiosi.",
+    "fonte": "https://www.aefi.it/it/manifestazione/expo-elettronica-2026-63047"
+  },
+  "fiera dell'elettronica di consumo": {
+    "testo": "Mostra mercato dell'elettronica di consumo: computer, telefonia, componenti e accessori, per appassionati e famiglie.",
+    "fonte": "https://www.aefi.it/it/manifestazione/fiera-dell-elettronica-di-consumo-2026-63035"
+  },
+  "esotika pet show": {
+    "testo": "Mostra dedicata agli animali esotici e da compagnia: rettili, pesci, anfibi, uccelli e piccoli mammiferi, con allevatori, accessori e incontri per appassionati e famiglie.",
+    "fonte": "https://www.fierapordenone.it/en/pnf/events"
+  },
+  "pet expo&show": {
+    "testo": "Fiera dedicata agli animali domestici: accessori, alimenti, servizi e cure veterinarie per cani, gatti e altri animali da compagnia.",
+    "fonte": "https://www.boothsquare.com/events/pet-expo-show-bologna/editions/pet-expo-show-bologna-nov-2026/75a58dff-09de-4615-a5db-7d4e917ee768"
+  },
+  "mostra mercato cambio & scambio": {
+    "testo": "Mostra scambio regionale di auto, moto, ricambi e accessori d'epoca, per collezionisti e appassionati di motori storici.",
+    "fonte": "https://www.aefi.it/it/manifestazione/mostra-mercato-cambio-scambio-2026"
+  },
+  "mostra mercato del fumetto": {
+    "testo": "Storica mostra mercato del fumetto usato e da collezione promossa dall'ANAFI: albi, tavole originali e materiale da collezione per appassionati.",
+    "fonte": "https://www.bolognawelcome.com/en/events/fairs/mostra-mercato-del-fumetto-anafi-en"
+  },
+  "fiera del baratto e dell'usato": {
+    "testo": "Grande mercato dell'usato alla Mostra d'Oltremare, con centinaia di espositori: si comprano, si vendono e si barattano oggetti usati, vintage e da collezione.",
+    "fonte": "https://www.napolike.it/fiera-baratto-usato-mostra-oltremare-2026"
+  },
+  "piace mattoncini": {
+    "testo": "Grande esposizione di costruzioni e diorami realizzati con i mattoncini LEGO® da un'associazione di appassionati: oltre cento espositori e opere dedicate anche alla storia di Piacenza.",
+    "fonte": "https://visitpiacenza.it/en/events/piace-mattoncini/"
+  },
+  "il paese del natale": {
+    "testo": "Fiera nazionale del Natale nel borgo di Sant'Agata Feltria: nei giorni di festa di dicembre il centro storico si riempie di bancarelle, presepi, prodotti tipici e iniziative per famiglie.",
+    "fonte": "https://www.eventiesagre.it/Mercatini_Natale/19801_Mercatini+Natalizi+A+S+Agata+Feltria.html"
+  },
+  "circular medical expo": {
+    "testo": "Evento B2B dedicato alla filiera biomedicale: aziende delle tecnologie e della produzione per la sanità si presentano e si incontrano tra esposizione, appuntamenti d'affari e convegni.",
+    "fonte": "https://www.bluenext.it/en/?p=228677"
+  },
+  "fiera del bue grasso": {
+    "testo": "Antichissima fiera di Moncalvo, con oltre 380 edizioni alle spalle: si premiano i migliori capi di bue grasso e si festeggia con il tradizionale bollito misto.",
+    "fonte": "https://www.ilturista.info/blog/fiera-bue-grasso-sagra-bollito-moncalvo/"
+  },
+  "ai – new technologies and blockchain revolution": {
+    "testo": "Summit B2B sulla trasformazione digitale: intelligenza artificiale, blockchain e automazione per imprese e istituzioni, tra interventi, incontri e stand.",
+    "fonte": "https://events.coinpedia.org/ai-digital-tech-and-blockchain-revolution-summit-2026-8791/"
+  },
+  "piu' libri piu' liberi": {
+    "testo": "La fiera nazionale della piccola e media editoria, nata nel 2002 e organizzata dall'Associazione Italiana Editori alla Nuvola dell'EUR: centinaia di editori indipendenti e un ricco programma di presentazioni e incontri.",
+    "fonte": "https://turismoroma.it/it/node/178322"
+  },
+  "fiera fredda della lumaca": {
+    "testo": "Fiera storica di Borgo San Dalmazzo, nata nel 1569 e dedicata alla lumaca: mercato, prodotti tipici, piatti a base di chiocciole nei ristoranti della zona e tante iniziative in paese.",
+    "fonte": "https://cuneodice.it/varie/cuneo-e-valli/per-la-fiera-fredda-torna-la-rassegna-sotto-il-segno-della-lumaca_81048.html"
+  },
+  "natale village": {
+    "testo": "Grande villaggio di Natale al coperto nel polo fieristico A1Expò: attrazioni per bambini, set fotografici a tema, bancarelle e atmosfera natalizia.",
+    "fonte": "https://www.eroicafenice.com/napoli/eventi-napoli/natale-village-dal-7-al-23-dicembre-la-magia-ritorna-alla1expo-per-il-mega-villaggio-di-natale-al-coperto/"
+  },
+  "mostra internazionale canina": {
+    "testo": "Esposizione internazionale di bellezza canina organizzata dal Gruppo Cinofilo Perugino: cani di razza giudicati da esperti per i premi e i titoli ufficiali, aperta anche al pubblico.",
+    "fonte": "https://www.umbriatourism.it/-/international-dog-show"
+  },
+  "esposizione canina": {
+    "testo": "Esposizione internazionale di bellezza canina organizzata dal Gruppo Cinofilo Perugino: cani di razza giudicati da esperti per i premi e i titoli ufficiali, aperta anche al pubblico.",
+    "fonte": "https://www.umbriatourism.it/-/international-dog-show"
+  },
+  "artigiano in fiera": {
+    "testo": "La grande mostra mercato internazionale dell'artigianato a Fiera Milano Rho: artigiani da tutta Italia e dal mondo con oggetti fatti a mano, arredo, design e specialità gastronomiche da assaggiare.",
+    "fonte": "https://www.italia.it/it/lombardia/milano/cosa-fare/evento-artigiano-in-fiera"
+  },
+  "parma comics and games": {
+    "testo": "Fiera del fumetto e del gioco nel quartiere fieristico di Parma: fumetti, giochi e cultura pop, con espositori, collezionisti e appassionati.",
+    "fonte": "https://www.voloscontato.it/sagre-ed-eventi/parma-comics-games-info-dove-e-quando.php"
+  },
+  "lakecomo vintage & market": {
+    "testo": "Grande mercato del vintage a Lariofiere, con oltre 300 espositori di abiti, accessori e oggetti d'epoca.",
+    "fonte": "https://lakecomotourism.it/lake-como-vintage-market-returns-to-lariofiere/"
+  },
+  "remoto": {
+    "testo": "Mostra mercato dedicata alle due ruote classiche: biciclette e moto d'epoca, ricambi e accessori per collezionisti e appassionati.",
+    "fonte": "https://www.eventiesagre.it/Eventi_Mostra+Mercato/21107261_Remoto.html"
+  },
+  "agri e tour": {
+    "testo": "Salone nazionale dell'agriturismo e dell'agricoltura multifunzionale: incontri d'affari tra agriturismi e operatori turistici italiani e stranieri, con formazione e approfondimenti sul settore.",
+    "fonte": "https://www.borsaitaliana.it/borsa/notizie/radiocor/finanza/dettaglio/fiere-calendario-ottobredicembre-2026-arezzo-nRC_03102026_1917_454103107.html"
+  },
+  "castanea expo": {
+    "testo": "Fiera nazionale dedicata a tutta la filiera del castagno, dal bosco alla tavola: ricerca, tecnologie, prodotti a base di castagne e valorizzazione turistica dei territori.",
+    "fonte": "https://www.firenzefiera.it/news/castanea-expo-torna-alla-fortezza-da-basso-di-firenze-dall11-al-13-dicembre-2026-con-una-seconda-edizione-ricca-di-novita"
+  },
+  "parma bagarre": {
+    "testo": "Il déballage delle Fiere di Parma: mercato di antiquariato, modernariato e oggetti da collezione, con la merce esposta direttamente dai commercianti.",
+    "fonte": "https://www.cantonfair.net/event/65332-mercanteinfiera-autunno"
+  },
+  "fiera del cappone di morozzo": {
+    "testo": "Storica fiera nazionale dedicata al cappone di Morozzo, presidio Slow Food: mostra e premiazione dei capponi, mercato e pranzi a base di cappone curati dalle Pro Loco.",
+    "fonte": "https://www.fondazioneslowfood.com/en/slow-food-presidia/morozzo-capon/"
+  },
+  "usatissimo": {
+    "testo": "Mercatino dell'usato a ModenaFiere: privati ed espositori vendono oggetti di casa e da collezione, e si può contrattare sul prezzo.",
+    "fonte": "https://www.eventiesagre.it/Fiere_Altre/21132803_Usatissimo.html"
+  },
+  "orientasicilia": {
+    "testo": "Grande salone dell'orientamento per gli studenti delle scuole superiori: università, accademie ed enti di formazione presentano corsi e percorsi dopo il diploma.",
+    "fonte": "https://www.unipa.it/strutture/orientamento/eventi/orienta-sicilia--catania-dicembre-2025/index.html"
+  },
+  "c'era una volta... + speciale disco usato e da collezione": {
+    "testo": "Storica mostra mercato di antiquariato, modernariato, vintage e brocantage di Cesena Fiera, nata nel 1999. Questa edizione ha uno spazio speciale per dischi usati e da collezione.",
+    "fonte": "https://www.cosedicasa.com/news/fiere/a-cesena-fiera-cera-una-volta-per-gli-amanti-di-antiquariato-e-brocantage-79255"
+  },
+  "arkeda": {
+    "testo": "Mostra convegno di Napoli dedicata ad architettura, edilizia, design e arredo: aziende, professionisti e incontri di aggiornamento per tecnici e privati.",
+    "fonte": "https://www.arkeda.it/"
+  },
+  "be comics! be games! be xmas!": {
+    "testo": "L'edizione natalizia di Be Comics! Be Games! al Lingotto: fumetti, manga, videogiochi e cultura pop, con incontri, spettacoli e ospiti per un weekend di festa.",
+    "fonte": "https://lingottofiere.it/en/?p=4688"
+  },
+  "evoo trends": {
+    "testo": "Fiera dedicata all'olio extravergine d'oliva, organizzata da Fiera Roma con Unaprol: produttori, degustazioni e incontri su tutta la filiera olivicola.",
+    "fonte": "https://www.evootrends.it/"
+  },
+  "festival dell'oriente": {
+    "testo": "Festival dedicato alle culture asiatiche: spettacoli, aree culturali, arti marziali, benessere, laboratori e cucina orientale.",
+    "fonte": "https://www.festivaldelloriente.it/"
+  },
+  "fiere di santa lucia di piave": {
+    "testo": "Storica fiera internazionale dell'agricoltura di Santa Lucia di Piave, tra le colline del Prosecco, legata alla festa della patrona: macchine, prodotti agricoli, espositori e incontri.",
+    "fonte": "https://www.itinerarinelgusto.it/sagre-e-feste/fiera-internazionale-dell-agricoltura-di-santa-lucia-di-piave-2137"
+  },
+  "milano games week e cartoomics": {
+    "testo": "Il grande evento della cultura pop a Fiera Milano Rho: videogiochi, eSport, fumetti, manga, cinema, cosplay e creator, su più padiglioni e palchi a tema.",
+    "fonte": "https://www.milanofree.it/milano/eventi/milan-games-week-cartoomics-2026-date-biglietti-e-ospiti.html"
+  },
+  "numisfero": {
+    "testo": "Fiera della numismatica e del collezionismo a Veronafiere, a ingresso gratuito: monete, banconote e oggetti da collezione.",
+    "fonte": "https://numisfero.it/"
+  },
+  "wow la fiera con più passioni cards & pop": {
+    "testo": "Edizione di WOW dedicata alle carte collezionabili e alla cultura pop, con espositori, collezionisti e appassionati.",
+    "fonte": "https://www.eventiesagre.it/Fiere_Altre/15264_Wow+a+Bologna+la+fiera+con+piE+passioni.html"
   }
 }
