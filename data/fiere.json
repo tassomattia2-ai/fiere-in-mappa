@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-04T15:41:07+00:00",
+ "aggiornato": "2026-11-05T04:45:34+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -129,57 +129,6 @@
     "indirizzo": "-, Perugia",
     "telefono": "393 388 8440",
     "email": "farefacendo@gmail.com"
-   }
-  },
-  {
-   "id": "roma-travel-show-2026-",
-   "nome": "BMII - BRIDAL & TOURISM IN ITALY",
-   "inizio": "2026-11-03",
-   "fine": "2026-11-04",
-   "settore": "Turismo e tempo libero",
-   "tipologia": "Internazionale",
-   "quartiere": "ROMA PALAZZO DEI CONGRESSI",
-   "citta": "Roma",
-   "provincia": "RM",
-   "regione": "Lazio",
-   "lat": 41.834179,
-   "lng": 12.474524,
-   "sito": "https://www.borsadelmatrimonioinitalia.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/roma-travel-show-2026-",
-   "sito_fiera": "https://www.borsadelmatrimonioinitalia.it/",
-   "riassunto": "Workshop B2B a Roma sul turismo dei matrimoni: compratori da molti Paesi incontrano location, wedding planner e fornitori italiani per organizzare nozze in Italia.",
-   "fonte_riassunto": "https://www.borsadelmatrimonioinitalia.it/",
-   "organizzatore": {
-    "nome": "Tecnicon S.r.l.",
-    "indirizzo": "Via Topino n. 13B, Roma",
-    "telefono": "+39 06 853.554.54",
-    "sito": "https://www.borsadelmatrimonioinitalia.it/"
-   }
-  },
-  {
-   "id": "smau-2026",
-   "nome": "SMAU",
-   "inizio": "2026-11-03",
-   "fine": "2026-11-04",
-   "settore": "IT e Telecomunicazioni",
-   "tipologia": "Internazionale",
-   "quartiere": "FIERA MILANO S.P.A.",
-   "citta": "Milano",
-   "provincia": "MI",
-   "regione": "Lombardia",
-   "lat": 45.520698,
-   "lng": 9.079041,
-   "sito": "http://www.smau.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/smau-2026",
-   "sito_fiera": "https://www.smau.it/",
-   "riassunto": "Evento milanese sull'innovazione digitale per le imprese: tecnologie informatiche, startup e partner per far crescere la propria azienda.",
-   "fonte_riassunto": "https://www.smau.it/",
-   "organizzatore": {
-    "nome": "SMAU Servizi Srl",
-    "indirizzo": "Via della Posta n. 8, Milano",
-    "telefono": "02796871206",
-    "email": "segreteria@smau.it",
-    "sito": "http://www.smau.it/"
    }
   },
   {
