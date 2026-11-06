@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-05T04:45:34+00:00",
+ "aggiornato": "2026-11-06T04:44:27+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -104,31 +104,6 @@
     "telefono": "+39 0721/79671",
     "email": "comune.acqualagna@provincia.ps.it",
     "sito": "http://www.comune.acqualagna.ps.it/"
-   }
-  },
-  {
-   "id": "la-fiera-dei-morti-anche-in-centro-2026",
-   "nome": "La Fiera dei Morti anche in Centro",
-   "inizio": "2026-11-01",
-   "fine": "2026-11-05",
-   "settore": "Fiere Campionarie",
-   "tipologia": "Nazionale",
-   "quartiere": null,
-   "citta": "Perugia",
-   "provincia": "PG",
-   "regione": "Umbria",
-   "lat": 43.1070321,
-   "lng": 12.4029962,
-   "sito": null,
-   "fonte": "https://www.aefi.it/it/manifestazione/la-fiera-dei-morti-anche-in-centro-2026",
-   "sito_fiera": "https://turismo.comune.perugia.it/poi/fiera-dei-morti-eng",
-   "riassunto": "La parte nel centro storico della storica Fiera dei Morti di Perugia, di origine medievale (un tempo \"Fiera di Ognissanti\"): banchi selezionati di artigianato, prodotti tipici e città gemellate tra corso Vannucci, piazza della Repubblica, via Mazzini, piazza Matteotti e piazza Italia. Il grande mercato con giostre è invece a Pian di Massiano, raggiungibile col minimetrò.",
-   "fonte_riassunto": "https://turismo.comune.perugia.it/poi/fiera-dei-morti-eng",
-   "organizzatore": {
-    "nome": "Associazione Farefacendo",
-    "indirizzo": "-, Perugia",
-    "telefono": "393 388 8440",
-    "email": "farefacendo@gmail.com"
    }
   },
   {
@@ -363,31 +338,6 @@
     "telefono": "+39 0434 23.21.11",
     "email": "infofiere@fierapordenone.it",
     "sito": "http://www.fierapordenone.it/"
-   }
-  },
-  {
-   "id": "domani-lavoro-2026",
-   "nome": "Domani Lavoro",
-   "inizio": "2026-11-05",
-   "fine": "2026-11-05",
-   "settore": "Ambienti Protezione Civile e Sicurezza",
-   "tipologia": "Regionale",
-   "quartiere": "BRIXIA FORUM",
-   "citta": "Brescia",
-   "provincia": "BS",
-   "regione": "Lombardia",
-   "lat": 45.52758,
-   "lng": 10.169783,
-   "sito": "http://www.brixiaexpo.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/domani-lavoro-2026",
-   "sito_fiera": null,
-   "riassunto": "Fiera del lavoro di Brescia: aziende, agenzie per il lavoro, università e scuole incontrano studenti e candidati per colloqui, orientamento e offerte di impiego. Ingresso gratuito con iscrizione online.",
-   "fonte_riassunto": "https://www.unibs.it/it/ateneo/comunicazione/tutte-le-news/partecipa-alla-fiera-domani-lavoro-2026",
-   "organizzatore": {
-    "nome": "Fiera di Brescia - Brixia Expo",
-    "indirizzo": "Via Caprera 5 - 25125, Brescia",
-    "telefono": "+39 0303463-482/485",
-    "sito": "http://www.brixiaexpo.it/"
    }
   },
   {
