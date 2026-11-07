@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-06T04:44:27+00:00",
+ "aggiornato": "2026-11-07T04:38:21+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -133,32 +133,6 @@
    }
   },
   {
-   "id": "ecomondo-2026",
-   "nome": "ECOMONDO",
-   "inizio": "2026-11-03",
-   "fine": "2026-11-06",
-   "settore": "Ambienti Protezione Civile e Sicurezza",
-   "tipologia": "Internazionale",
-   "quartiere": "ITALIAN EXHIBITION GROUP S.P.A. - RIMINI",
-   "citta": "Rimini",
-   "provincia": "RN",
-   "regione": "Emilia-Romagna",
-   "lat": 44.069734,
-   "lng": 12.526671,
-   "sito": "http://www.iegexpo.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/ecomondo-2026",
-   "sito_fiera": "https://www.ecomondo.com/",
-   "riassunto": "Grande fiera internazionale di Rimini sull'economia verde e circolare: riciclo, recupero di materia ed energia, gestione dei rifiuti e dell'acqua, bonifiche e sviluppo sostenibile.",
-   "fonte_riassunto": "https://www.ecomondo.com/",
-   "organizzatore": {
-    "nome": "ITALIAN EXHIBITION GROUP",
-    "indirizzo": "Via Emilia 155 - 47921 Rimini, Rimini",
-    "telefono": "0541/744111",
-    "email": "info@iegexpo.it",
-    "sito": "http://www.iegexpo.it/"
-   }
-  },
-  {
    "id": "futurity-country-christmas-2026-62508",
    "nome": "REINING FUTURITY",
    "inizio": "2026-11-04",
@@ -182,32 +156,6 @@
     "telefono": "0421280235",
     "email": "info@teamforyou.net",
     "sito": "https://www.teamforyou.net/"
-   }
-  },
-  {
-   "id": "orientasud-2026",
-   "nome": "OrientaSud",
-   "inizio": "2026-11-04",
-   "fine": "2026-11-06",
-   "settore": "Cultura Formazione Scuola",
-   "tipologia": "Nazionale",
-   "quartiere": "MOSTRA D'OLTREMARE S.P.A.",
-   "citta": "Napoli",
-   "provincia": "NA",
-   "regione": "Campania",
-   "lat": 40.824862,
-   "lng": 14.193145,
-   "sito": "www.orientasud.it",
-   "fonte": "https://www.aefi.it/it/manifestazione/orientasud-2026",
-   "sito_fiera": null,
-   "riassunto": "\"Il Salone delle Opportunità\" per i giovani del Sud: studenti degli ultimi anni delle superiori, neolaureati e chi cerca lavoro trovano orientamento, seminari, workshop, test attitudinali e stand di università, enti e aziende.",
-   "fonte_riassunto": "https://www.lavoro.gov.it/notizie/pagine/orientasud-2025-napoli-lorientamento-e-loccupabilita",
-   "organizzatore": {
-    "nome": "All Social s.r.l.",
-    "indirizzo": "via F. Domenico Guerrazzi 8, 00152, Roma",
-    "telefono": "0686165980; 3515678823",
-    "email": "info@orientasud.it",
-    "sito": "www.orientasud.it"
    }
   },
   {
@@ -286,58 +234,6 @@
     "telefono": "+39 035 32 30 911",
     "email": "info@promoberg.it",
     "sito": "https://www.bergamofiera.it/"
-   }
-  },
-  {
-   "id": "metal-materia-2026",
-   "nome": "METAL MATERIA",
-   "inizio": "2026-11-05",
-   "fine": "2026-11-06",
-   "settore": "Meccanica Strumentale Macchinari e Tecnologie per l'industria",
-   "tipologia": "Nazionale",
-   "quartiere": "PIACENZA EXPO S.P.A.",
-   "citta": "Piacenza",
-   "provincia": "PC",
-   "regione": "Emilia-Romagna",
-   "lat": 45.0421,
-   "lng": 9.7542,
-   "sito": "http://www.piacenzaexpo.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/metal-materia-2026",
-   "sito_fiera": null,
-   "riassunto": "Fiera B2B della meccanica, dalla materia prima alle prime lavorazioni: materiali innovativi, macchine per lavorazione e deformazione, efficienza energetica e strumenti digitali per l'Industria 4.0, con formazione e incontri tra settori.",
-   "fonte_riassunto": "https://www.steel-technology.com/events/metal-materia-2026",
-   "organizzatore": {
-    "nome": "Piacenza Expo S.p.A.",
-    "indirizzo": "Via Tirotti n. 11 - Frazione Le Mose, Piacenza",
-    "telefono": "+39 0523 602.711",
-    "email": "commerciale@piacenzaexpo.it",
-    "sito": "http://www.piacenzaexpo.it/"
-   }
-  },
-  {
-   "id": "eureka-20266",
-   "nome": "EUREKA",
-   "inizio": "2026-11-05",
-   "fine": "2026-11-06",
-   "settore": "Cultura Formazione Scuola",
-   "tipologia": "Regionale",
-   "quartiere": "PORDENONE FIERE S.P.A.",
-   "citta": "Pordenone",
-   "provincia": "PN",
-   "regione": "Friuli-Venezia Giulia",
-   "lat": 45.941284,
-   "lng": 12.651283,
-   "sito": "http://www.fierapordenone.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/eureka-20266",
-   "sito_fiera": null,
-   "riassunto": "La Fiera della Cultura e Creatività promossa dalla Regione Friuli Venezia Giulia: area espositiva delle imprese culturali e creative, convegno, workshop tematici e incontri B2B.",
-   "fonte_riassunto": "https://www.regione.fvg.it/rafvg/cms/RAFVG/cultura-sport/progetti-bandi-europei/FOGLIA31/articolo.html",
-   "organizzatore": {
-    "nome": "Pordenone Fiere",
-    "indirizzo": "Viale Treviso, 1 - 33170, Pordenone",
-    "telefono": "+39 0434 23.21.11",
-    "email": "infofiere@fierapordenone.it",
-    "sito": "http://www.fierapordenone.it/"
    }
   },
   {
