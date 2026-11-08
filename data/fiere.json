@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-07T04:38:21+00:00",
+ "aggiornato": "2026-11-08T04:40:08+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -234,32 +234,6 @@
     "telefono": "+39 035 32 30 911",
     "email": "info@promoberg.it",
     "sito": "https://www.bergamofiera.it/"
-   }
-  },
-  {
-   "id": "expo-scuola-2026",
-   "nome": "EXPO SCUOLA",
-   "inizio": "2026-11-05",
-   "fine": "2026-11-07",
-   "settore": "Attrezzature per il Commercio Comunità Alberghi",
-   "tipologia": "Regionale",
-   "quartiere": "PADOVA HALL S.P.A.",
-   "citta": "Padova",
-   "provincia": "PD",
-   "regione": "Veneto",
-   "lat": 45.414087,
-   "lng": 11.887537,
-   "sito": "https://padovahall.com/",
-   "fonte": "https://www.aefi.it/it/manifestazione/expo-scuola-2026",
-   "sito_fiera": null,
-   "riassunto": "Salone dedicato a scuola, orientamento e formazione: istituti, università ed enti di formazione presentano percorsi di studio e professionali a studenti, famiglie e insegnanti.",
-   "fonte_riassunto": "https://www.neventum.com/tradeshows/expo-scuola",
-   "organizzatore": {
-    "nome": "Populus SCS",
-    "indirizzo": "VIA ADRIATICA 7 - PADOVA, Padova",
-    "telefono": "(049) 8809888",
-    "email": "INFO@POPULUS-COOP.IT",
-    "sito": "https://padovahall.com/"
    }
   },
   {
