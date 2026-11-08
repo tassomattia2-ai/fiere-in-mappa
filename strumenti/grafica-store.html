@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<!-- Strumento di lavoro (NON pubblicato sul sito): la "grafica in evidenza" della scheda
+     Google Play, 1024×500. La foto la fa Chrome "headless":
+     chrome --headless --screenshot=... --window-size=1024,500 strumenti/grafica-store.html
+     Usa i colori e i caratteri del sito, così è coerente con l'app. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@600;700&display=swap">
+<style>
+  html, body { margin: 0; width: 1024px; height: 500px; overflow: hidden; }
+  body {
+    /* stesso "cielo" della pagina iniziale del sito */
+    background: linear-gradient(180deg, #cfe0ff 0%, #f3f6fb 100%);
+    display: flex; align-items: center; justify-content: center; gap: 48px;
+    font-family: "Nunito", sans-serif; color: #172033; position: relative;
+  }
+  /* la bandierina tricolore in alto, come nel sito */
+  .bandiera { position: absolute; top: 0; left: 0; right: 0; height: 10px;
+    background: linear-gradient(90deg, #009246 33.3%, #ffffff 33.3% 66.6%, #ce2b37 66.6%); }
+  .icona { width: 200px; height: 200px; border-radius: 44px;
+    box-shadow: 0 24px 50px rgba(23, 32, 51, 0.16); }
+  .testo { display: flex; flex-direction: column; gap: 10px; max-width: 600px; }
+  h1 { margin: 0; font-family: "Fredoka", sans-serif; font-size: 76px; line-height: 1; color: #2563eb; }
+  p { margin: 0; font-size: 32px; font-weight: 700; line-height: 1.25; }
+  .tenue { font-size: 24px; color: #5d6b82; font-weight: 600; }
+  /* qualche "segnaposto" sulla mappa, sparso sullo sfondo */
+  .pin { position: absolute; width: 22px; height: 22px; border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg); background: #2563eb; opacity: 0.18; }
+  .pin.arancio { background: #f97316; }
+</style>
+</head>
+<body>
+  <div class="bandiera"></div>
+  <span class="pin" style="left:60px; top:80px"></span>
+  <span class="pin arancio" style="left:120px; top:400px"></span>
+  <span class="pin" style="left:950px; top:110px"></span>
+  <span class="pin arancio" style="left:900px; top:420px"></span>
+  <span class="pin" style="left:520px; top:440px"></span>
+
+  <img class="icona" src="../icone/icona-512.png" alt="">
+  <div class="testo">
+    <h1>Fiere in Mappa</h1>
+    <p>Le fiere d'Italia, a portata di mappa</p>
+    <p class="tenue">Gratis · aggiornata ogni giorno</p>
+  </div>
+</body>
+</html>
