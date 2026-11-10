@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-09T04:51:06+00:00",
+ "aggiornato": "2026-11-10T04:40:21+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -107,32 +107,6 @@
    }
   },
   {
-   "id": "fiera-di-san-martino-2026",
-   "nome": "FIERA DI SAN MARTINO",
-   "inizio": "2026-11-06",
-   "fine": "2026-11-09",
-   "settore": "Fiere Campionarie",
-   "tipologia": "Nazionale",
-   "quartiere": null,
-   "citta": "Castelmassa",
-   "provincia": "RO",
-   "regione": "Veneto",
-   "lat": 45.0213545,
-   "lng": 11.3187235,
-   "sito": "http://www.comune.castelmassa.ro.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/fiera-di-san-martino-2026",
-   "sito_fiera": null,
-   "riassunto": "Fiera nazionale con oltre due secoli di storia (istituita nel 1819, ma già documentata nel 1765): giorni di mercati, centinaia di espositori, luna park, stand gastronomici, spettacoli e fuochi d'artificio finali.",
-   "fonte_riassunto": "https://www.quotidiano.net/speciali/eventi-e-fiere/la-fiera-di-san-martino-sta-per-iniziare-dal-7-novembre-e-festa-a-castelmassa-3ee48835",
-   "organizzatore": {
-    "nome": "Comune di Castelmassa",
-    "indirizzo": "Piazza Vittorio Veneto 1 - c.a.p 45035, Castelmassa",
-    "telefono": "+39 0425 846711",
-    "email": "commercio@comune.castelmassa.ro.it",
-    "sito": "http://www.comune.castelmassa.ro.it/"
-   }
-  },
-  {
    "id": "fiera-di-san-martino-2026-62072",
    "nome": "Fiera di San Martino",
    "inizio": "2026-11-06",
@@ -208,32 +182,6 @@
     "telefono": "08119465946",
     "email": "segreteria@afina.it",
     "sito": "https://www.afina.it/"
-   }
-  },
-  {
-   "id": "aestetica-2026",
-   "nome": "AESTETICA",
-   "inizio": "2026-11-07",
-   "fine": "2026-11-09",
-   "settore": "Cosmesi Profumeria Erboristeria",
-   "tipologia": "Internazionale",
-   "quartiere": "MOSTRA D'OLTREMARE S.P.A.",
-   "citta": "Napoli",
-   "provincia": "NA",
-   "regione": "Campania",
-   "lat": 40.824862,
-   "lng": 14.193145,
-   "sito": "http://www.mostradoltremare.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/aestetica-2026",
-   "sito_fiera": "https://aestetica.it/",
-   "riassunto": "La grande fiera di estetica, benessere e acconciatura del Sud Italia, a Napoli: prodotti, attrezzature e aggiornamento per i professionisti della bellezza. Nel 2026 festeggia i 25 anni.",
-   "fonte_riassunto": "https://aestetica.it/",
-   "organizzatore": {
-    "nome": "FUNTASTIC SRLS",
-    "indirizzo": "Via Toledo 106, NAPOLI",
-    "telefono": "+ 39 335 187042 - 081 5922946",
-    "email": "info@aestetica.it",
-    "sito": "http://www.mostradoltremare.it/"
    }
   },
   {
