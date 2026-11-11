@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-10T04:40:21+00:00",
+ "aggiornato": "2026-11-11T04:45:03+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -78,58 +78,6 @@
     "telefono": "0421280235",
     "email": "info@teamforyou.net",
     "sito": "https://www.teamforyou.net/"
-   }
-  },
-  {
-   "id": "merano-winefestival-2026",
-   "nome": "MERANO WINEFESTIVAL",
-   "inizio": "2026-11-06",
-   "fine": "2026-11-10",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Internazionale",
-   "quartiere": null,
-   "citta": "Merano",
-   "provincia": "BZ",
-   "regione": "Trentino-Alto Adige",
-   "lat": 46.6713536,
-   "lng": 11.1646348,
-   "sito": "https://meranowinefestival.com/",
-   "fonte": "https://www.aefi.it/it/manifestazione/merano-winefestival-2026",
-   "sito_fiera": "https://meranowinefestival.com/",
-   "riassunto": "35ª edizione di uno dei festival del vino più prestigiosi d'Italia, al Kurhaus di Merano: degustazioni di vini selezionati italiani e internazionali, eccellenze gastronomiche e masterclass.",
-   "fonte_riassunto": "https://www.vinetur.com/en/20260817105739/merano-winefestival-will-return-for-its-35th-edition-from-nov-6-to-nov-10-2026.html",
-   "organizzatore": {
-    "nome": "Gourmet’s International s.r.l",
-    "indirizzo": "-, Merano",
-    "telefono": "0577248856",
-    "email": "catsiena@pec.confcommercio.siena.it",
-    "sito": "https://meranowinefestival.com/"
-   }
-  },
-  {
-   "id": "fiera-di-san-martino-2026-62072",
-   "nome": "Fiera di San Martino",
-   "inizio": "2026-11-06",
-   "fine": "2026-11-10",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Nazionale",
-   "quartiere": null,
-   "citta": "Chieri",
-   "provincia": "TO",
-   "regione": "Piemonte",
-   "lat": 45.0138842,
-   "lng": 7.8223544,
-   "sito": "https://www.comune.chieri.to.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/fiera-di-san-martino-2026-62072",
-   "sito_fiera": null,
-   "riassunto": "48ª Fiera nazionale di San Martino nel centro storico di Chieri: intrattenimento, laboratori, degustazioni, show cooking e ospiti del mondo enogastronomico. Ingresso libero.",
-   "fonte_riassunto": "https://www.eventiesagre.it/Eventi_Feste/12245_Fiera+di+San+Martino+a+Chieri.html",
-   "organizzatore": {
-    "nome": "Comune di Chieri",
-    "indirizzo": "Via Palazzo di Città 10, Chieri",
-    "telefono": "0119428214",
-    "email": "cultura@comune.chieri.to.it",
-    "sito": "https://www.comune.chieri.to.it/"
    }
   },
   {
