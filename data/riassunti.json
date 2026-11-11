@@ -1015,5 +1015,13 @@
   "wow la fiera con più passioni cards & pop": {
     "testo": "Edizione di WOW dedicata alle carte collezionabili e alla cultura pop, con espositori, collezionisti e appassionati.",
     "fonte": "https://www.eventiesagre.it/Fiere_Altre/15264_Wow+a+Bologna+la+fiera+con+piE+passioni.html"
+  },
+  "chakra": {
+    "testo": "Fiera di BolognaFiere dedicata ai settori della cosmesi, della profumeria e dell'erboristeria.",
+    "fonte": "https://www.aefi.it/it/manifestazione/chakra-2026"
+  },
+  "sapore di vintage": {
+    "testo": "Fiera di BolognaFiere dedicata al collezionismo: arte, antiquariato, filatelia e numismatica, per appassionati e collezionisti.",
+    "fonte": "https://www.aefi.it/it/manifestazione/sapore-di-vintage-2027"
   }
 }
