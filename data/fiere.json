@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-11T04:45:03+00:00",
+ "aggiornato": "2026-11-12T04:45:28+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -78,32 +78,6 @@
     "telefono": "0421280235",
     "email": "info@teamforyou.net",
     "sito": "https://www.teamforyou.net/"
-   }
-  },
-  {
-   "id": "agrogepaciok-2026",
-   "nome": "AGROGEPACIOK",
-   "inizio": "2026-11-07",
-   "fine": "2026-11-11",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Internazionale",
-   "quartiere": "Piazza Palio",
-   "citta": "Lecce",
-   "provincia": "LE",
-   "regione": "Puglia",
-   "lat": 40.3620835,
-   "lng": 18.1938552,
-   "sito": "http://www.agenziaeventi.com/",
-   "fonte": "https://www.aefi.it/it/manifestazione/agrogepaciok-2026",
-   "sito_fiera": "https://www.agrogepaciok.it/",
-   "riassunto": "Salone di Lecce per gelateria, pasticceria, cioccolateria, caffetteria e artigianato alimentare: attrezzature, ingredienti e dimostrazioni per professionisti.",
-   "fonte_riassunto": "https://www.agrogepaciok.it/",
-   "organizzatore": {
-    "nome": "Eventi Marketing & Comunication",
-    "indirizzo": "Via Oberdan n. 11 - 73100, Lecce",
-    "telefono": "+39 0832 457864",
-    "email": "info@agenziaeventi.com",
-    "sito": "http://www.agenziaeventi.com/"
    }
   },
   {
