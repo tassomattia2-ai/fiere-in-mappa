@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-12T04:45:28+00:00",
+ "aggiornato": "2026-11-13T04:45:08+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -205,58 +205,6 @@
     "telefono": "+39 0516333957",
     "email": "info@federunacoma.it",
     "sito": "https://www.federunacoma.it"
-   }
-  },
-  {
-   "id": "fiera-toscana-del-lavoro-2026",
-   "nome": "FIERA TOSCANA DEL LAVORO",
-   "inizio": "2026-11-10",
-   "fine": "2026-11-12",
-   "settore": "Cultura Formazione Scuola",
-   "tipologia": "Regionale",
-   "quartiere": "FIRENZE FIERA S.P.A.",
-   "citta": "Firenze",
-   "provincia": "FI",
-   "regione": "Toscana",
-   "lat": 43.777803,
-   "lng": 11.249289,
-   "sito": "http://www.firenzefiera.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/fiera-toscana-del-lavoro-2026",
-   "sito_fiera": null,
-   "riassunto": "La fiera del lavoro della Regione Toscana, organizzata con l'agenzia regionale ARTI alla Fortezza da Basso: aziende, centri per l'impiego ed enti di formazione incontrano chi cerca lavoro, tra colloqui, offerte e orientamento.",
-   "fonte_riassunto": "https://www.regione.toscana.it/-/fiera-toscana-del-lavoro",
-   "organizzatore": {
-    "nome": "Firenze Fiera S.p.A.",
-    "indirizzo": "Piazza Adua 1 - 50123, Firenze",
-    "telefono": "+39 055 497.21",
-    "email": "info@firenzefiera.it",
-    "sito": "http://www.firenzefiera.it/"
-   }
-  },
-  {
-   "id": "punto-di-incontro-2026",
-   "nome": "PUNTO DI INCONTRO",
-   "inizio": "2026-11-11",
-   "fine": "2026-11-12",
-   "settore": "Cultura Formazione Scuola",
-   "tipologia": "Nazionale",
-   "quartiere": "PORDENONE FIERE S.P.A.",
-   "citta": "Pordenone",
-   "provincia": "PN",
-   "regione": "Friuli-Venezia Giulia",
-   "lat": 45.941284,
-   "lng": 12.651283,
-   "sito": "http://www.fierapordenone.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/punto-di-incontro-2026",
-   "sito_fiera": null,
-   "riassunto": "Salone dell'orientamento di Pordenone Fiere e Regione FVG, alla 18ª edizione: studenti, neodiplomati e chi cerca lavoro incontrano università, scuole di formazione, aziende, agenzie per il lavoro e associazioni.",
-   "fonte_riassunto": "https://eures.europa.eu/punto-di-incontro-2026-11-11_bg",
-   "organizzatore": {
-    "nome": "Pordenone Fiere",
-    "indirizzo": "Viale Treviso, 1 - 33170, Pordenone",
-    "telefono": "+39 0434 23.21.11",
-    "email": "infofiere@fierapordenone.it",
-    "sito": "http://www.fierapordenone.it/"
    }
   },
   {
