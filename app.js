@@ -40,9 +40,18 @@ function colore(nome) {
 // Il "rettangolo" che contiene tutta l'Italia, isole comprese
 const ITALIA = L.latLngBounds([[35.4, 6.6], [47.1, 18.6]]);
 
+// TELEFONO (e app Android): schermo stretto. Qui la mappa cambia un po' per essere comoda
+// con le dita (richiesta dell'utente, 15 novembre): mappa più grande, bolle e pallini più
+// grandi, e toccando una bolla l'elenco delle sue fiere sale dal basso in un PANNELLO
+// (invece dell'"albero" disegnato sulla cartina, che sul telefono copriva tutto).
+// Sul computer resta tutto come prima.
+const TELEFONO = matchMedia("(max-width: 860px)").matches;
+
 const mappa = L.map("mappa", {
   zoomControl: false,
-  zoomSnap: 0.25,            // passi fini: l'Italia intera riempie bene la scheda
+  // passi fini: l'Italia intera riempie bene la scheda (sul telefono passi finissimi,
+  // così l'Italia riempie tutta la larghezza dello schermo)
+  zoomSnap: TELEFONO ? 0.05 : 0.25,
   zoomDelta: 1.5,            // scatti ampi: ogni clic su + o − cambia di un livello e mezzo
   wheelPxPerZoomLevel: 50,   // la rotellina avvicina in fretta
   scrollWheelZoom: true,     // la rotellina ingrandisce subito, senza dover cliccare
@@ -275,6 +284,7 @@ function apriAlbero(dove, fiere, arancione) {
   chiudiAlbero();
   sganciaFiera();
   if (!fiere.length) return;
+  if (TELEFONO) { apriPannelloElenco(fiere, arancione); return; }   // telefono: pannello dal basso
   alberoCorrente = { dove, fiere, arancione };
   disegnaAlbero(alberoCorrente);
   alberoAperto = true;
@@ -358,7 +368,92 @@ function disegnaAlbero({ dove, fiere, arancione }) {
 let iconaInEvidenza = null;      // il pallino singolo con il cartellino aperto
 
 function aggiornaEvidenza() {
-  schedaMappa.classList.toggle("solo-selezione", alberoAperto || !!iconaInEvidenza);
+  schedaMappa.classList.toggle("solo-selezione", alberoAperto || !!iconaInEvidenza || !!fieraNelPannello);
+}
+
+
+// =========================================================
+// Telefono: il PANNELLO che sale dal basso
+// =========================================================
+// Toccando una bolla, il pannello mostra l'elenco delle sue fiere (pallino + nome, date,
+// città). Toccando una fiera, il pannello mostra la sua scheda (gli stessi tre link del
+// cartellino: Sito organizzatore, Scheda AEFI, Info fiera) e sulla mappa resta acceso
+// SOLO il pallino di quella fiera, al suo posto vero. Niente salta: quello che tocchi
+// è quello che si apre.
+let pannello = null;                 // l'elemento del pannello (creato al primo uso)
+let elencoNelPannello = null;        // { fiere, arancione } dell'elenco aperto (per "← Indietro")
+let fieraNelPannello = null;         // la fiera mostrata adesso nel pannello
+
+function creaPannello() {
+  pannello = document.createElement("aside");
+  pannello.className = "pannello-fiere";
+  pannello.setAttribute("aria-live", "polite");
+  pannello.innerHTML = `
+    <div class="pannello-testa">
+      <button type="button" class="pannello-indietro" aria-label="Torna all'elenco">←</button>
+      <p class="pannello-titolo"></p>
+      <button type="button" class="pannello-chiudi" aria-label="Chiudi">×</button>
+    </div>
+    <div class="pannello-corpo"></div>`;
+  document.body.append(pannello);
+  pannello.querySelector(".pannello-chiudi").addEventListener("click", chiudiPannello);
+  pannello.querySelector(".pannello-indietro").addEventListener("click", () => {
+    if (elencoNelPannello) apriPannelloElenco(elencoNelPannello.fiere, elencoNelPannello.arancione);
+  });
+  // Tocco su una fiera dell'elenco: si apre la sua scheda
+  pannello.querySelector(".pannello-corpo").addEventListener("click", (e) => {
+    const voce = e.target.closest("[data-fiera]");
+    if (!voce) return;
+    const fiera = tutteLeFiere.find((f) => f.id === voce.dataset.fiera);
+    if (fiera) mostraFieraNelPannello(fiera, { daElenco: true });
+  });
+}
+
+function mostraPannello(titolo, html, conIndietro) {
+  if (!pannello) creaPannello();
+  pannello.querySelector(".pannello-titolo").textContent = titolo;
+  pannello.querySelector(".pannello-indietro").hidden = !conIndietro;
+  const corpo = pannello.querySelector(".pannello-corpo");
+  corpo.innerHTML = html;
+  corpo.scrollTop = 0;
+  pannello.classList.add("aperto");
+}
+
+// L'elenco delle fiere di una bolla
+function apriPannelloElenco(fiere, arancione) {
+  spegniFieraNelPannello();
+  elencoNelPannello = { fiere, arancione };
+  const titolo = `${fiere.length} ${fiere.length === 1 ? "fiera" : "fiere"}${arancione ? " in corso" : ""}`;
+  const righe = fiere.map((f) => `
+    <li><button type="button" class="pannello-voce" data-fiera="${sicuro(f.id)}">
+      <span class="punto${inCorso(f) ? " in-corso" : ""}" aria-hidden="true"></span>
+      <span class="voce-testo"><strong>${sicuro(f.nome)}</strong>
+        <small>${sicuro(`${formattaDate(f.inizio, f.fine)} · ${luogo(f)}`)}</small></span>
+    </button></li>`).join("");
+  mostraPannello(titolo, `<ul class="pannello-elenco">${righe}</ul>`, false);
+}
+
+// La scheda di una fiera; sulla mappa resta acceso solo il suo pallino (al suo posto vero)
+function mostraFieraNelPannello(fiera, { daElenco = false } = {}) {
+  if (!daElenco) elencoNelPannello = null;
+  agganciaFiera(fiera);              // il pallino "acceso" della fiera, sopra a tutto
+  fieraNelPannello = fiera;
+  aggiornaEvidenza();
+  mostraPannello(inCorso(fiera) ? "Fiera in corso" : "Fiera", testoPopup(fiera), !!elencoNelPannello);
+}
+
+function spegniFieraNelPannello() {
+  if (!fieraNelPannello) return;
+  fieraNelPannello = null;
+  sganciaFiera();
+  aggiornaEvidenza();
+}
+
+function chiudiPannello() {
+  if (!pannello) return;
+  spegniFieraNelPannello();
+  elencoNelPannello = null;
+  pannello.classList.remove("aperto");
 }
 
 // Pallino dell'elenco cliccato: resta visibile SOLO quella riga (con il suo cartellino);
@@ -398,6 +493,7 @@ mappa.on("popupclose", (e) => {
 let cartellinoApertoAlClic = false;
 mappa.on("preclick", () => { cartellinoApertoAlClic = !!(mappa._popup && mappa.hasLayer(mappa._popup)); });
 mappa.on("click", () => {
+  if (TELEFONO) { chiudiPannello(); return; }     // telefono: un tocco sulla mappa chiude il pannello
   if (cartellinoApertoAlClic) { cartellinoApertoAlClic = false; return; }
   chiudiAlbero();
 });
@@ -461,11 +557,12 @@ function agganciaFiera(fiera, { daElenco = false } = {}) {
   const icona = pallino(fiera, true);
   if (daElenco) icona.options.className += " voce-scelta";   // resta visibile anche con l'elenco nascosto
   const segnaposto = ricordaFiera(L.marker([fiera.lat, fiera.lng],
-    { icon: icona, title: fiera.nome, zIndexOffset: 2000, fiera }))
-    .bindPopup(testoPopup(fiera), OPZIONI_CARTELLINO)
-    .addTo(stratoAgganciata);
+    { icon: icona, title: fiera.nome, zIndexOffset: 2000, fiera }));
+  // sul telefono la scheda della fiera sta nel pannello, non in un cartellino sulla mappa
+  if (!TELEFONO) segnaposto.bindPopup(testoPopup(fiera), OPZIONI_CARTELLINO);
+  segnaposto.addTo(stratoAgganciata);
   fieraAgganciata = { fiera, segnaposto, daElenco };
-  if (cartellinoAperto) segnaposto.openPopup();
+  if (cartellinoAperto && !TELEFONO) segnaposto.openPopup();
 }
 
 // La fiera resta agganciata finché il mouse resta "lì": entro RAGGIO_AGGANCIO pixel dal
@@ -483,12 +580,12 @@ function vicinoAllaFieraAgganciata(punto) {
 
 // Il mouse si allontana davvero (e il cartellino è chiuso): la fiera si sgancia
 mappa.getContainer().addEventListener("mousemove", (e) => {
-  if (!fieraAgganciata) return;
+  if (!fieraAgganciata || fieraNelPannello) return;   // fiera aperta nel pannello: resta accesa
   if (mappa._popup?._source === fieraAgganciata.segnaposto && mappa.hasLayer(mappa._popup)) return;
   if (!vicinoAllaFieraAgganciata(mappa.mouseEventToContainerPoint(e))) sganciaFiera();
 });
 mappa.getContainer().addEventListener("mouseleave", () => {
-  if (fieraAgganciata && !(mappa._popup?._source === fieraAgganciata.segnaposto && mappa.hasLayer(mappa._popup))) sganciaFiera();
+  if (fieraAgganciata && !fieraNelPannello &&!(mappa._popup?._source === fieraAgganciata.segnaposto && mappa.hasLayer(mappa._popup))) sganciaFiera();
 });
 
 // La rotellina: stessa "velocità" dello zoom normale di Leaflet (wheelPxPerZoomLevel)
@@ -549,7 +646,10 @@ const SPAZIO_TRA_BOLLE = 6;                 // pixel minimi tra una bolla e l'al
 //  - nella vista dell'Italia intera le bolle sono più piccole (l'Italia è piccola sullo
 //    schermo), da vicino sono più grandi
 function diametroBolla(n, vistaItalia = vistaPerRegioni()) {
-  const misure = vistaItalia ? [30, 35, 40, 46] : [38, 44, 50, 56];
+  // sul telefono più grandi: si toccano comodamente con il dito
+  const misure = TELEFONO
+    ? (vistaItalia ? [36, 40, 46, 52] : [44, 50, 56, 62])
+    : (vistaItalia ? [30, 35, 40, 46] : [38, 44, 50, 56]);
   return misure[n < 10 ? 0 : n < 30 ? 1 : n < 60 ? 2 : 3];
 }
 // La bolla con il numero: arancione per le fiere in corso, blu per le altre.
@@ -1045,7 +1145,7 @@ finestraInfo.addEventListener("click", (e) => {
 function pallino(fiera, inEvidenza = false) {
   return L.divIcon({
     className: (inCorso(fiera) ? "punto in-corso" : "punto") + (inEvidenza ? " in-evidenza" : ""),
-    iconSize: [26, 26],
+    iconSize: TELEFONO ? [32, 32] : [26, 26],      // sul telefono più grandi, per le dita
   });
 }
 
@@ -1072,6 +1172,7 @@ function schedaFiera(fiera, posizione) {
 
 function aggiorna({ spostaMappa = true, anima = true } = {}) {
   chiudiAlbero();             // se c'era un albero aperto, lo chiudiamo
+  chiudiPannello();           // (telefono) e anche il pannello dal basso
   sganciaFiera();             // e anche l'eventuale fiera "agganciata" dalla rotellina
   const visibili = tutteLeFiere.filter((f) => passaIFiltri(f));
   contaPerRegione();
@@ -1084,8 +1185,10 @@ function aggiorna({ spostaMappa = true, anima = true } = {}) {
   for (const fiera of visibili) {
     if (fiera.lat == null || fiera.lng == null) continue;
     // (la fiera è salvata nel pallino: serve all'albero quando si clicca una bolla)
-    const m = ricordaFiera(L.marker([fiera.lat, fiera.lng], { icon: pallino(fiera), title: fiera.nome, fiera }))
-      .bindPopup(testoPopup(fiera), OPZIONI_CARTELLINO);
+    const m = ricordaFiera(L.marker([fiera.lat, fiera.lng], { icon: pallino(fiera), title: fiera.nome, fiera }));
+    // computer: cartellino sulla mappa; telefono: la scheda della fiera sale nel pannello
+    if (TELEFONO) m.on("click", () => mostraFieraNelPannello(fiera));
+    else m.bindPopup(testoPopup(fiera), OPZIONI_CARTELLINO);
     segnapostoPerId.set(fiera.id, m);
     (inCorso(fiera) ? aperte : future).push(m);
   }
@@ -1158,6 +1261,17 @@ function mostraSullaMappa(id) {
   // Se la fiera è dentro una bolla (es. stesso quartiere fieristico di altre fiere),
   // apriamo l'albero di quella bolla e poi il cartellino della fiera.
   setTimeout(() => {
+    // Telefono: la mappa si avvicina alla fiera e la sua scheda sale nel pannello
+    if (TELEFONO) {
+      const fiera = m.options.fiera;
+      mostraFieraNelPannello(fiera);
+      // la fiera va nella parte di mappa NON coperta dal pannello (più in alto del centro)
+      const zoom = Math.max(mappa.getZoom(), SOGLIA_DETTAGLIO + 2);
+      const giu = Math.min(pannello.offsetHeight, mappa.getSize().y * 0.6) / 2;
+      const centro = mappa.unproject(mappa.project(m.getLatLng(), zoom).add([0, giu]), zoom);
+      mappa.setView(centro, zoom, { animate: !menoMovimento });
+      return;
+    }
     const arancione = gruppoInCorso.hasLayer(m);
     const gruppo = arancione ? gruppoInCorso : gruppoFiere;
     const apri = () => {

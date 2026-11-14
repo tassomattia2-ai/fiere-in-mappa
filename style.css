@@ -710,6 +710,68 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
 .voce-testo small { font-size: 0.74rem; color: var(--testo-tenue); }
 .voce-albero:hover .voce-testo { background: var(--accento-tenue); }
 
+/* --- Telefono: il PANNELLO che sale dal basso (elenco di una bolla / scheda di una fiera) --- */
+.pannello-fiere {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1500;                       /* sopra la mappa, sotto la finestrella "Info fiera" */
+  max-height: 55svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--superficie);
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(105%);         /* chiuso: nascosto sotto lo schermo */
+  transition: transform 0.25s ease-out;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.pannello-fiere.aperto { transform: none; }
+.pannello-testa {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px 6px;
+  border-bottom: 1px solid var(--bordo);
+}
+.pannello-titolo { flex: 1; margin: 0; font-weight: 800; color: var(--testo); }
+.pannello-indietro,
+.pannello-chiudi {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accento-tenue);
+  color: var(--testo);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.pannello-indietro[hidden] { display: none; }
+.pannello-corpo { overflow-y: auto; overscroll-behavior: contain; padding: 6px 16px 16px; }
+.pannello-corpo .popup h3 { font-size: 1.15rem; }
+.pannello-elenco { list-style: none; margin: 0; padding: 0; }
+.pannello-voce {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;                    /* righe alte: si toccano bene con il dito */
+  padding: 6px 4px;
+  border: none;
+  border-bottom: 1px solid var(--bordo);
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.pannello-voce .punto { position: relative; flex: none; width: 26px; height: 26px; }
+.pannello-voce .voce-testo { max-width: none; flex: 1; box-shadow: none; background: none; padding: 0; }
+.pannello-voce .voce-testo strong { font-size: 0.95rem; }
+.pannello-voce .voce-testo small { font-size: 0.82rem; }
+.pannello-voce:active .voce-testo { color: var(--accento); }
+
 /* Le "gambe" dell'albero e la linea verso la bolla vera (se l'albero è stato spostato) */
 .gamba-albero { stroke: var(--accento); stroke-opacity: 0.55; fill: none; }
 .gamba-albero.in-corso { stroke: var(--in-corso); }
@@ -1215,7 +1277,17 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
   .filtri { border-radius: 28px; }
   .filtri select { flex: 1 1 45%; }
 
-  .scheda-mappa { height: 70vh; min-height: 380px; border-radius: 28px; }
+  /* Mappa GRANDE sul telefono (richiesta dell'utente, 15 novembre): quasi da bordo a
+     bordo e alta quasi quanto lo schermo, così l'Italia si vede grande */
+  #esplora { padding-left: 4px; padding-right: 4px; }
+  #esplora .titolo-sezione { padding: 0 12px; }
+  /* altezza "su misura" per l'Italia (lunga e stretta): niente mare vuoto sopra e sotto */
+  .scheda-mappa { height: min(calc(100svh - 80px), 140vw); min-height: 420px; border-radius: 22px; }
+  /* pulsanti + e − più grandi, comodi per il dito */
+  .leaflet-bar a { width: 46px !important; height: 46px !important; line-height: 46px !important; font-size: 22px !important; }
+  /* bolle: numeri più grandi e leggibili */
+  .gruppo { font-size: 1.05rem; }
+  .gruppo.gruppo-piccolo { font-size: 0.98rem; }
   .intermezzo { margin: 24px 16px; padding: 90px 20px; border-radius: 36px; }
   .elenco { grid-template-columns: 1fr; }
 }
