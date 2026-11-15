@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-14T04:39:33+00:00",
+ "aggiornato": "2026-11-15T04:42:56+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -52,58 +52,6 @@
     "telefono": "+39 0721/79671",
     "email": "comune.acqualagna@provincia.ps.it",
     "sito": "http://www.comune.acqualagna.ps.it/"
-   }
-  },
-  {
-   "id": "futurity-country-christmas-2026-62508",
-   "nome": "REINING FUTURITY",
-   "inizio": "2026-11-04",
-   "fine": "2026-11-14",
-   "settore": "Sport Tempo Libero e Giochi",
-   "tipologia": "Regionale",
-   "quartiere": "CREMONA FIERE S.P.A.",
-   "citta": "Cremona",
-   "provincia": "CR",
-   "regione": "Lombardia",
-   "lat": 45.149765,
-   "lng": 10.03295,
-   "sito": "https://www.teamforyou.net/",
-   "fonte": "https://www.aefi.it/it/manifestazione/futurity-country-christmas-2026-62508",
-   "sito_fiera": null,
-   "riassunto": "Il grande appuntamento europeo del reining (monta western) organizzato da IRHA nell'arena ovale di CremonaFiere: gare per cavalli di 3 anni con montepremi tra i più alti d'Europa. Nel 2025 ha richiamato 35.000 visitatori da 25 Paesi.",
-   "fonte_riassunto": "https://www.cavallomagazine.it/en/equestrian-sports/reigning/Cremonafiere--the-home-of-great-reining",
-   "organizzatore": {
-    "nome": "TFY Srl",
-    "indirizzo": "Via XXV Aprile 115, Flero",
-    "telefono": "0421280235",
-    "email": "info@teamforyou.net",
-    "sito": "https://www.teamforyou.net/"
-   }
-  },
-  {
-   "id": "navigare-2026",
-   "nome": "NAVIGARE",
-   "inizio": "2026-11-07",
-   "fine": "2026-11-14",
-   "settore": "Nautica e Cantieristica",
-   "tipologia": "Internazionale",
-   "quartiere": null,
-   "citta": "Napoli",
-   "provincia": "NA",
-   "regione": "Campania",
-   "lat": 40.8358846,
-   "lng": 14.2487679,
-   "sito": "https://www.afina.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/navigare-2026",
-   "sito_fiera": "https://salonenauticonavigare.it/",
-   "riassunto": "Salone nautico internazionale di Napoli, sul Molo Luise a Mergellina: da oltre trent'anni permette di provare in mare le barche dei cantieri.",
-   "fonte_riassunto": "https://salonenauticonavigare.it/",
-   "organizzatore": {
-    "nome": "AFINA S.r.l.",
-    "indirizzo": "Viale A. Gramsci n. 26, Napoli",
-    "telefono": "08119465946",
-    "email": "segreteria@afina.it",
-    "sito": "https://www.afina.it/"
    }
   },
   {
@@ -182,32 +130,6 @@
    }
   },
   {
-   "id": "eima-international-2026",
-   "nome": "EIMA INTERNATIONAL",
-   "inizio": "2026-11-10",
-   "fine": "2026-11-14",
-   "settore": "Agricoltura Zootecnia Pesca e Relativi Macchinari",
-   "tipologia": "Internazionale",
-   "quartiere": "BOLOGNAFIERE S.P.A.",
-   "citta": "Bologna",
-   "provincia": "BO",
-   "regione": "Emilia-Romagna",
-   "lat": 44.509571,
-   "lng": 11.370032,
-   "sito": "https://www.federunacoma.it",
-   "fonte": "https://www.aefi.it/it/manifestazione/eima-international-2026",
-   "sito_fiera": null,
-   "riassunto": "La grande esposizione internazionale di BolognaFiere per le macchine agricole e da giardinaggio: trattori, attrezzature, componenti e tecnologie per l'agricoltura.",
-   "fonte_riassunto": "https://www.aefi.it/it/manifestazione/eima-international-2026",
-   "organizzatore": {
-    "nome": "FEDERUNACOMA SURL /EIMA international",
-    "indirizzo": "Viale della Fiera 20, 40128, Bologna",
-    "telefono": "+39 0516333957",
-    "email": "info@federunacoma.it",
-    "sito": "https://www.federunacoma.it"
-   }
-  },
-  {
    "id": "armart-antiquariato-a-milano-2026",
    "nome": "AMART ANTIQUARIATO A MILANO",
    "inizio": "2026-11-11",
@@ -234,32 +156,6 @@
    }
   },
   {
-   "id": "young-2026",
-   "nome": "YOUNG",
-   "inizio": "2026-11-12",
-   "fine": "2026-11-14",
-   "settore": "Cultura Formazione Scuola",
-   "tipologia": "Nazionale",
-   "quartiere": "LARIOFIERE COMO LECCO",
-   "citta": "Erba",
-   "provincia": "CO",
-   "regione": "Lombardia",
-   "lat": 45.814503,
-   "lng": 9.247656,
-   "sito": "http://www.lariofiere.com/",
-   "fonte": "https://www.aefi.it/it/manifestazione/young-2026",
-   "sito_fiera": null,
-   "riassunto": "Salone dell'orientamento a Lariofiere (Erba): scuole, corsi di formazione, università e mondo del lavoro per aiutare i ragazzi a scegliere il loro futuro.",
-   "fonte_riassunto": "https://www.aefi.it/it/manifestazione/young-2026",
-   "organizzatore": {
-    "nome": "Lario Fiere",
-    "indirizzo": "Viale Rasegone 20 - 22036, Erba",
-    "telefono": "031/6371",
-    "email": "info@lariofiere.com",
-    "sito": "http://www.lariofiere.com/"
-   }
-  },
-  {
    "id": "abilmente-primavera-2026-62081",
    "nome": "ABILMENTE",
    "inizio": "2026-11-12",
@@ -283,32 +179,6 @@
     "telefono": "+39 0444 969.111",
     "email": "info@iegexpo.it",
     "sito": "http://www.iegexpo.it/"
-   }
-  },
-  {
-   "id": "restructura-2026",
-   "nome": "RESTRUCTURA",
-   "inizio": "2026-11-12",
-   "fine": "2026-11-14",
-   "settore": "Edilizia Cantieri",
-   "tipologia": "Nazionale",
-   "quartiere": "LINGOTTO FIERE",
-   "citta": "Torino",
-   "provincia": "TO",
-   "regione": "Piemonte",
-   "lat": 45.036292,
-   "lng": 7.670259,
-   "sito": "http://www.gl-events.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/restructura-2026",
-   "sito_fiera": null,
-   "riassunto": "Salone di Torino dedicato a ristrutturare, recuperare e riqualificare gli edifici: materiali, impianti, efficienza energetica e servizi per privati e professionisti.",
-   "fonte_riassunto": "https://www.aefi.it/it/manifestazione/restructura-2026",
-   "organizzatore": {
-    "nome": "GL Events Italia SpA",
-    "indirizzo": "Via Nizza, 294 - 10126, Torino",
-    "telefono": "+39 011 6644111",
-    "email": "info@lingottofiere.it",
-    "sito": "http://www.gl-events.it/"
    }
   },
   {
@@ -847,32 +717,6 @@
     "telefono": "+39 051 70.00.16",
     "email": "info@kolosseobologna.com",
     "sito": "http://www.kolosseobologna.com/"
-   }
-  },
-  {
-   "id": "wow-la-fiera-con-piu-passioni-2026-63040",
-   "nome": "WOW BRIXIA La Fiera con più passioni",
-   "inizio": "2026-11-14",
-   "fine": "2026-11-14",
-   "settore": "Fiere Campionarie",
-   "tipologia": "Regionale",
-   "quartiere": "BOLOGNAFIERE S.P.A.",
-   "citta": "Bologna",
-   "provincia": "BO",
-   "regione": "Emilia-Romagna",
-   "lat": 44.509571,
-   "lng": 11.370032,
-   "sito": "http://www.multimediatre.com/",
-   "fonte": "https://www.aefi.it/it/manifestazione/wow-la-fiera-con-piu-passioni-2026-63040",
-   "sito_fiera": null,
-   "riassunto": "Fiera che riunisce più passioni sotto lo stesso tetto: collezionismo, hobby creativi, giochi e cultura pop, con espositori, laboratori ed eventi per tutte le età.",
-   "fonte_riassunto": "https://www.eventiesagre.it/Fiere_Altre/15264_Wow+a+Bologna+la+fiera+con+piE+passioni.html",
-   "organizzatore": {
-    "nome": "Multimedia Tre",
-    "indirizzo": "Via Veneto 49 - 30030, Vigonovo",
-    "telefono": "049-98.32.150",
-    "email": "info@multimediatre.com",
-    "sito": "http://www.multimediatre.com/"
    }
   },
   {
