@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-16T05:18:47+00:00",
+ "aggiornato": "2026-11-17T04:47:03+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -81,58 +81,6 @@
    }
   },
   {
-   "id": "arte-padova-2026",
-   "nome": "ARTE PADOVA",
-   "inizio": "2026-11-13",
-   "fine": "2026-11-16",
-   "settore": "Arte Antiquariato Filatelia e Numismatica",
-   "tipologia": "Nazionale",
-   "quartiere": "PADOVA HALL S.P.A.",
-   "citta": "Padova",
-   "provincia": "PD",
-   "regione": "Veneto",
-   "lat": 45.414087,
-   "lng": 11.887537,
-   "sito": "http://www.fierenef.com/",
-   "fonte": "https://www.aefi.it/it/manifestazione/arte-padova-2026",
-   "sito_fiera": "https://www.artepadova.com/",
-   "riassunto": "Fiera d'arte moderna e contemporanea a Padova, con gallerie, artisti indipendenti e collettivi.",
-   "fonte_riassunto": "https://www.artepadova.com/",
-   "organizzatore": {
-    "nome": "NEF | Nord Est Fair",
-    "indirizzo": "Via A. Costa, 19 - 35124, Padova",
-    "telefono": "049 8800305",
-    "email": "giulia@fierenef.com",
-    "sito": "http://www.fierenef.com/"
-   }
-  },
-  {
-   "id": "idea-natale-2026",
-   "nome": "IDEANATALE",
-   "inizio": "2026-11-13",
-   "fine": "2026-11-16",
-   "settore": "Articoli da Regalo Casalinghi Bigiotteria",
-   "tipologia": "Regionale",
-   "quartiere": "UDINE ESPOSIZIONI S.P.A.",
-   "citta": "Udine",
-   "provincia": "UD",
-   "regione": "Friuli-Venezia Giulia",
-   "lat": 46.099245,
-   "lng": 13.18574,
-   "sito": "http://www.udinesposizioni.it",
-   "fonte": "https://www.aefi.it/it/manifestazione/idea-natale-2026",
-   "sito_fiera": "https://www.ideanatale.it/",
-   "riassunto": "Fiera natalizia di Udine Esposizioni: idee regalo, decorazioni, artigianato e prodotti tipici per prepararsi alle feste.",
-   "fonte_riassunto": "https://www.ideanatale.it/",
-   "organizzatore": {
-    "nome": "Udine Esposizioni S.p.A.",
-    "indirizzo": "Via della Vecchia Filatura, 10, Martignacco",
-    "telefono": "04324951",
-    "email": "info@udinesposizioni.it",
-    "sito": "http://www.udinesposizioni.it"
-   }
-  },
-  {
    "id": "eurochocolate-2026",
    "nome": "EUROCHOCOLATE",
    "inizio": "2026-11-13",
@@ -153,32 +101,6 @@
    "organizzatore": {
     "nome": "Gioform s.r.l.",
     "indirizzo": "Via Ruggero D'Andreotto 19/E, Perugia"
-   }
-  },
-  {
-   "id": "fiera-dei-vini-2026-62559",
-   "nome": "FIERA DEI VINI",
-   "inizio": "2026-11-14",
-   "fine": "2026-11-16",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Nazionale",
-   "quartiere": "PIACENZA EXPO S.P.A.",
-   "citta": "Piacenza",
-   "provincia": "PC",
-   "regione": "Emilia-Romagna",
-   "lat": 45.0421,
-   "lng": 9.7542,
-   "sito": "http://www.piacenzaexpo.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/fiera-dei-vini-2026-62559",
-   "sito_fiera": null,
-   "riassunto": "Fiera del vino aperta al pubblico a Piacenza Expo, alla quarta edizione: circa 280 espositori, degustazioni e approfondimenti su sostenibilità, turismo del vino e mercati.",
-   "fonte_riassunto": "https://www.itinerarinelgusto.it/eventi/fiera-dei-vini-piacenza-expo-7420",
-   "organizzatore": {
-    "nome": "Piacenza Expo S.p.A.",
-    "indirizzo": "Via Tirotti n. 11 - Frazione Le Mose, Piacenza",
-    "telefono": "+39 0523 602.711",
-    "email": "commerciale@piacenzaexpo.it",
-    "sito": "http://www.piacenzaexpo.it/"
    }
   },
   {
@@ -205,31 +127,6 @@
     "telefono": "+39.081.7640032",
     "email": "info@progecta.org",
     "sito": "https://www.progecta.org/"
-   }
-  },
-  {
-   "id": "back-to-the-wine-2026",
-   "nome": "Back to the Wine",
-   "inizio": "2026-11-15",
-   "fine": "2026-11-16",
-   "settore": "Agricoltura Zootecnia Pesca e Relativi Macchinari",
-   "tipologia": "Locale",
-   "quartiere": "CESENA FIERA S.P.A.",
-   "citta": "Pievesestina di Cesena",
-   "provincia": "FC",
-   "regione": "Emilia-Romagna",
-   "lat": 44.187005,
-   "lng": 12.222118,
-   "sito": "http://www.provincia.forli-cesena.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/back-to-the-wine-2026",
-   "sito_fiera": null,
-   "riassunto": "Fiera dei vini artigianali, naturali e biologici: con un unico biglietto si degustano i vini dei produttori presenti e si possono acquistare direttamente da loro.",
-   "fonte_riassunto": "https://www.raisin.digital/it/scopri/fiere-vino-naturale-degustazioni-eventi/fiere/back-to-the-wine-2026-5177/",
-   "organizzatore": {
-    "nome": "Provincia di Forlì-Cesena",
-    "indirizzo": "Forlì, Forlì",
-    "telefono": "0543 714111",
-    "sito": "http://www.provincia.forli-cesena.it/"
    }
   },
   {
