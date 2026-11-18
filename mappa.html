@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
 
   <!-- Il nostro stile (il "?v=..." è il numero di versione, vedi index.html) -->
-  <link rel="stylesheet" href="style.css?v=2026-11-18-mappa-ruotata">
+  <link rel="stylesheet" href="style.css?v=2026-11-19-mappa-dritta">
 
   <!-- App per smartphone (vedi index.html) -->
   <link rel="manifest" href="manifest.json">
@@ -101,9 +101,9 @@
 
       <!-- Periodo: solo tre scelte (decise dall'utente). Il sito non mostra mai fiere oltre i 30 giorni -->
       <select id="filtro-periodo" aria-label="Periodo">
-        <option value="oggi" data-descrizione="in corso">In corso</option>
+        <option value="oggi" data-descrizione="in corso" selected>In corso</option>
         <option value="settimana" data-descrizione="nei prossimi 7 giorni">Prossimi 7 giorni</option>
-        <option value="" data-descrizione="nei prossimi 30 giorni" selected>Prossimi 30 giorni</option>
+        <option value="" data-descrizione="nei prossimi 30 giorni">Prossimi 30 giorni</option>
       </select>
 
       <button type="button" id="azzera" class="bottone-secondario">Azzera filtri</button>
@@ -168,11 +168,11 @@
       <p>Novità e anticipazioni sulle fiere in corso e dei prossimi 30 giorni.</p>
     </div>
 
-    <!-- Le stesse tre scelte del menu "Periodo" (si parte da "Prossimi 30 giorni") -->
+    <!-- Le stesse tre scelte del menu "Periodo" (si parte da "In corso") -->
     <div class="scelte-news rivela" role="group" aria-label="Periodo delle news">
-      <button type="button" data-periodo="oggi" aria-pressed="false">In corso</button>
+      <button type="button" data-periodo="oggi" aria-pressed="true">In corso</button>
       <button type="button" data-periodo="settimana" aria-pressed="false">Prossimi 7 giorni</button>
-      <button type="button" data-periodo="" aria-pressed="true">Prossimi 30 giorni</button>
+      <button type="button" data-periodo="" aria-pressed="false">Prossimi 30 giorni</button>
     </div>
 
     <ol class="elenco elenco-news" id="elenco-news"></ol>
@@ -223,9 +223,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
-  <script src="comune.js?v=2026-11-18-mappa-ruotata"></script>
-  <script src="app.js?v=2026-11-18-mappa-ruotata"></script>
-  <script src="news.js?v=2026-11-18-mappa-ruotata"></script>
-  <script src="banda.js?v=2026-11-18-mappa-ruotata"></script>
+  <script src="comune.js?v=2026-11-19-mappa-dritta"></script>
+  <script src="app.js?v=2026-11-19-mappa-dritta"></script>
+  <script src="news.js?v=2026-11-19-mappa-dritta"></script>
+  <script src="banda.js?v=2026-11-19-mappa-dritta"></script>
 </body>
 </html>

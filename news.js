@@ -20,7 +20,7 @@
   // Periodo scelto: "oggi" (In corso), "settimana" (Prossimi 7 giorni), "" (Prossimi 30 giorni).
   // Le news hanno le LORO tre pillole, slegate dal menu "Periodo" della pagina
   // (deciso dall'utente il 12/10/2026, dopo averle provate allineate).
-  let periodoScelto = "";
+  let periodoScelto = "oggi";   // si parte da "In corso" (vedi sotto)
 
   // Evita che un testo venga letto come codice HTML
   function pulito(testo) {
@@ -96,6 +96,12 @@
   scelte.forEach((bottone) => {
     bottone.addEventListener("click", () => {
       periodoScelto = bottone.dataset.periodo;
+      // Si parte sempre da "In corso" (richiesta dell'utente, 19 novembre); se oggi
+      // nessuna news riguarda una fiera in corso, dal primo periodo che ne ha
+      periodoScelto = ["oggi", "settimana", ""].find((p) => {
+        periodoScelto = p;
+        return tutteLeNews.some((n) => nelPeriodoScelto(n.fiera));
+      }) ?? "";
       disegnaNews();
     });
   });

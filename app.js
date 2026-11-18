@@ -47,23 +47,13 @@ const ITALIA = L.latLngBounds([[35.4, 6.6], [47.1, 18.6]]);
 // Sul computer resta tutto come prima.
 const TELEFONO = matchMedia("(max-width: 860px)").matches;
 
-// TELEFONO, seconda versione (richiesta dell'utente, 18 novembre):
-//  - la cartina è FERMA: non si trascina e non si ingrandisce (niente dita, niente + e −);
-//    scorrendo con il dito sopra la mappa si scorre la PAGINA;
-//  - la cartina è RUOTATA di qualche grado, così lo "stivale" sta in piedi e l'Italia
-//    riempie lo schermo in altezza (molto più grande che con il nord in alto);
+// TELEFONO, terza versione (richieste dell'utente, 18 e 19 novembre):
+//  - la cartina è DRITTA (nord in alto) e grande quanto la scheda;
+//  - con l'Italia intera la cartina è FERMA: un dito sopra la mappa fa scorrere la PAGINA;
+//  - con DUE DITA (allargando) o con un DOPPIO TOCCO ci si avvicina, come sul sito, fino
+//    alle strade; da vicino la cartina si trascina con un dito. Stringendo le dita si
+//    torna all'Italia intera e la cartina torna ferma;
 //  - nessun testo sopra la mappa: elenco e scheda delle fiere stanno SOTTO la mappa.
-// Per ruotarla, il riquadro di Leaflet è un QUADRATO più grande della scheda (così copre
-// la scheda a qualsiasi angolo), centrato e girato con il CSS (vedi .mappa-ruotata).
-function dimensionaMappaRuotata() {
-  const lato = Math.ceil(Math.hypot(schedaMappa.clientWidth, schedaMappa.clientHeight)) + 4;
-  const riquadro = document.getElementById("mappa");
-  riquadro.style.width = riquadro.style.height = `${lato}px`;
-}
-if (TELEFONO) {
-  document.getElementById("mappa").classList.add("mappa-ruotata");
-  dimensionaMappaRuotata();
-}
 
 const mappa = L.map("mappa", {
   zoomControl: false,
@@ -77,18 +67,19 @@ const mappa = L.map("mappa", {
   // Cartina "ferma" (deciso dall'utente): non si sposta MAI da sola (nemmeno per mostrare
   // un cartellino) e le frecce della tastiera non la muovono. Si sposta solo se l'utente
   // la trascina con il mouse (clic, tieni premuto, muovi). Lo zoom funziona come prima.
-  dragging: !TELEFONO,       // telefono: cartina ferma
+  dragging: !TELEFONO,       // telefono: ferma con l'Italia intera (si sblocca da vicino)
   // Dopo il trascinamento la mappa "scivola" ancora un poco (inerzia), ma con una
   // velocità massima: così un gesto rapido non la lancia lontano dall'Italia
   inertiaMaxSpeed: 1200,
   keyboardPanDelta: 0,       // le frecce non spostano la mappa (i tasti + e − zoomano ancora)
-  // telefono: niente zoom di nessun tipo (dita, doppio tocco, tastiera)
-  touchZoom: !TELEFONO,
-  doubleClickZoom: !TELEFONO,
+  // zoom con due dita e con il doppio tocco (anche sul telefono)
+  touchZoom: true,
+  doubleClickZoom: true,
+  bounceAtZoomLimits: false, // stringendo le dita oltre l'Italia intera non "rimbalza"
   boxZoom: !TELEFONO,
   keyboard: !TELEFONO,
-  // trascinando non ci si allontana dall'Italia (sul telefono non serve: è ferma, e con
-  // il riquadro ruotato più grande dell'Italia sposterebbe la vista)
+  // trascinando non ci si allontana dall'Italia (sul telefono il limite lo mette
+  // inquadraTelefono, sui confini veri delle regioni)
   maxBounds: TELEFONO ? null : ITALIA.pad(0.12),
   maxBoundsViscosity: 1,
   attributionControl: !TELEFONO,   // telefono: i crediti stanno sotto la mappa (dritti)
@@ -110,46 +101,37 @@ function adattaZoomMinimo() {
   mappa.setMinZoom(mappa.getBoundsZoom(ITALIA));
 }
 
-// Telefono: sceglie l'ANGOLO e lo ZOOM con cui l'Italia (isole comprese) riempie al
-// massimo la scheda. Prova gli angoli da −20° a +60° e tiene quello che fa l'Italia
-// più grande. Si chiama una volta all'avvio (quando ci sono i confini) e se lo schermo
-// cambia misura (es. telefono girato).
+// Telefono: lo ZOOM con cui l'Italia (isole comprese, sui confini veri delle regioni)
+// riempie al massimo la scheda. È anche lo zoom minimo: più lontano non si va.
+// Si chiama una volta all'avvio (quando ci sono i confini) e se lo schermo cambia
+// misura (es. telefono girato).
 let ultimaMisuraScheda = "";
 function inquadraTelefono() {
   if (!TELEFONO || !stratoRegioni) return;
-  const L0 = schedaMappa.clientWidth, A0 = schedaMappa.clientHeight;
-  ultimaMisuraScheda = `${L0}x${A0}`;
-  const margine = 14;                       // un po' di mare attorno all'Italia
-  // i punti dei confini, in pixel a zoom 6 (uno ogni 4, bastano e si fa prima)
-  const punti = [];
-  stratoRegioni.eachLayer((forma) => {
-    forma.getLatLngs().flat(3).forEach((ll, i) => { if (i % 4 === 0) punti.push(mappa.project(ll, 6)); });
-  });
-  let migliore = null;
-  for (let angolo = -20; angolo <= 60; angolo += 1) {
-    const r = (angolo * Math.PI) / 180, c = Math.cos(r), s = Math.sin(r);
-    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-    for (const p of punti) {               // il punto girato come lo gira il CSS
-      const x = p.x * c - p.y * s, y = p.x * s + p.y * c;
-      if (x < minX) minX = x; if (x > maxX) maxX = x;
-      if (y < minY) minY = y; if (y > maxY) maxY = y;
-    }
-    const scala = Math.min((L0 - 2 * margine) / (maxX - minX), (A0 - 2 * margine) / (maxY - minY));
-    if (!migliore || scala > migliore.scala) migliore = { angolo, scala, cx: (minX + maxX) / 2, cy: (minY + maxY) / 2 };
-  }
-  // il centro dell'Italia girata, riportato "dritto" e poi in coordinate geografiche
-  const r = (migliore.angolo * Math.PI) / 180, c = Math.cos(r), s = Math.sin(r);
-  const centro = mappa.unproject(L.point(migliore.cx * c + migliore.cy * s, -migliore.cx * s + migliore.cy * c), 6);
-  const zoom = 6 + Math.log2(migliore.scala);
-  document.getElementById("mappa").style.setProperty("--angolo", `${migliore.angolo}deg`);
-  mappa.options.minZoom = mappa.options.maxZoom = zoom;
-  mappa.setView(centro, zoom, { animate: false });
+  ultimaMisuraScheda = `${schedaMappa.clientWidth}x${schedaMappa.clientHeight}`;
+  const confini = stratoRegioni.getBounds();
+  const zoom = mappa.getBoundsZoom(confini, false, L.point(20, 20));   // 10 px di mare per lato
+  mappa.setMinZoom(zoom);
+  mappa.setMaxBounds(confini.pad(0.04));     // da vicino non si scappa dall'Italia
+  mappa.setView(confini.getCenter(), zoom, { animate: false });
+  bloccaOSbloccaCartina();
   if (vistaPerRegioni()) disegnaBolleRegioni();
 }
+
+// Telefono: con l'Italia intera la cartina è ferma (un dito fa scorrere la pagina);
+// appena ci si avvicina, si trascina con un dito per guardare le strade.
+// (Leaflet stesso, senza trascinamento, lascia scorrere la pagina con un dito e tiene
+// per sé solo i gesti a due dita.)
+function bloccaOSbloccaCartina() {
+  if (!TELEFONO) return;
+  const vicino = mappa.getZoom() > mappa.getMinZoom() + 0.05;
+  if (vicino) mappa.dragging.enable();
+  else mappa.dragging.disable();
+}
 if (TELEFONO) {
+  mappa.on("zoomend", bloccaOSbloccaCartina);
   addEventListener("resize", () => {
     if (`${schedaMappa.clientWidth}x${schedaMappa.clientHeight}` === ultimaMisuraScheda) return;
-    dimensionaMappaRuotata();
     mappa.invalidateSize({ pan: false });
     inquadraTelefono();
   });
@@ -557,6 +539,8 @@ function mostraFieraNelPannello(fiera, { daElenco = false } = {}) {
   fieraNelPannello = fiera;
   aggiornaEvidenza();
   mostraPannello(inCorso(fiera) ? "Fiera in corso" : "Fiera", testoPopup(fiera), !!elencoNelPannello);
+  // se ci si era avvicinati altrove e la fiera è fuori vista, la cartina va da lei
+  if (fiera.lat != null && !mappa.getBounds().contains([fiera.lat, fiera.lng])) mappa.panTo([fiera.lat, fiera.lng]);
   scorriAllaMappa();
 }
 
@@ -1086,14 +1070,24 @@ function salvaFiltriNellIndirizzo() {
   for (const [nome, campo] of Object.entries(campi)) {
     if (campo.value) parametri.set(nome, campo.value);
   }
+  // "Prossimi 30 giorni" (valore vuoto) va scritto: si parte da "In corso", non da lì
+  if (!campi.periodo.value) parametri.set("periodo", "30");
   history.replaceState(null, "", parametri.toString() ? `#${parametri}` : location.pathname);
 }
 
 function leggiFiltriDallIndirizzo() {
   const parametri = new URLSearchParams(location.hash.slice(1));
   for (const [nome, campo] of Object.entries(campi)) {
-    if (parametri.has(nome)) campo.value = parametri.get(nome);
+    // ("periodo=30" è "Prossimi 30 giorni", che nel menu ha valore vuoto)
+    if (parametri.has(nome)) campo.value = nome === "periodo" && parametri.get(nome) === "30" ? "" : parametri.get(nome);
   }
+}
+
+// Il periodo da cui si parte: sempre "In corso" (richiesta dell'utente, 19 novembre).
+// Se oggi non c'è nessuna fiera in corso, il primo periodo che ne ha (7 giorni, poi 30),
+// così la mappa non si apre vuota.
+function periodoIniziale() {
+  return ["oggi", "settimana", ""].find((p) => tutteLeFiere.some((f) => nelPeriodo(f, p))) ?? "";
 }
 
 
@@ -1252,7 +1246,21 @@ function apriInfoFiera(id) {
 
   finestraInfo.showModal();
   finestraInfo.scrollTop = 0;
+  // Tasto "indietro" del telefono (richiesta dell'utente, 19 novembre): deve chiudere
+  // questa finestrella, non tornare alla pagina iniziale. Per questo, aprendola,
+  // aggiungiamo un "passo" nella cronologia: "indietro" consuma quel passo.
+  if (!history.state?.infoFiera) history.pushState({ infoFiera: true }, "", location.href);
 }
+
+// "Indietro" premuto con la finestrella aperta: la chiudiamo e restiamo sulla mappa
+addEventListener("popstate", () => {
+  if (finestraInfo.open) finestraInfo.close();
+});
+// Chiusa in un altro modo (×, Esc, tocco fuori): togliamo il passo aggiunto, così il
+// prossimo "indietro" fa quello che ci si aspetta
+finestraInfo.addEventListener("close", () => {
+  if (history.state?.infoFiera) history.back();
+});
 
 // Il link "Info fiera" sta dentro i cartellini della mappa, che vengono creati e
 // distrutti di continuo: ascoltiamo i clic su tutta la pagina e controlliamo se
@@ -1435,6 +1443,7 @@ for (const campo of Object.values(campi)) {
 
 document.getElementById("azzera").addEventListener("click", () => {
   for (const campo of Object.values(campi)) campo.value = "";
+  campi.periodo.value = periodoIniziale();      // azzerando si torna a "In corso"
   salvaFiltriNellIndirizzo();
   aggiorna();
 });
@@ -1472,14 +1481,15 @@ Promise.all([caricaJSON("data/regioni-dettaglio.geojson"), caricaFiere()])
     document.getElementById("aggiornamento").textContent = testoAggiornamento(dati);
 
     disegnaRegioni(regioni);
-    inquadraTelefono();          // (solo telefono) angolo e zoom per l'Italia più grande possibile
+    inquadraTelefono();          // (solo telefono) zoom per l'Italia più grande possibile
     creaMaschera(regioni);
     // Nel menu mettiamo tutte e 20 le regioni (anche quelle senza fiere), come sulla mappa
     riempiMenu(campi.regione, regioni.features.map((r) => r.properties.nome).sort((a, b) => a.localeCompare(b, "it")));
     riempiMenu(campi.settore, valoriUnici(tutteLeFiere, "settore"));
     riempiMenu(campi.tipologia, valoriUnici(tutteLeFiere, "tipologia"));
     contaPerPeriodo();
-    leggiFiltriDallIndirizzo();
+    campi.periodo.value = periodoIniziale();    // si parte da "In corso"
+    leggiFiltriDallIndirizzo();                 // (salvo filtri scritti nell'indirizzo)
     aggiorna({ anima: false });
   })
   .catch((errore) => {
