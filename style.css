@@ -917,6 +917,25 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
 }
 .leaflet-top.leaflet-right { margin: 8px; }
 
+/* Telefono: pulsante "torna all'Italia intera" (compare solo da vicino, vedi app.js) */
+.torna-italia {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: var(--superficie);
+  color: var(--accento);
+  box-shadow: var(--ombra);
+  cursor: pointer;
+  animation: compare-bottone 0.25s ease-out;
+}
+.torna-italia[hidden] { display: none; }
+.torna-italia:active { transform: scale(0.92); }
+@keyframes compare-bottone { from { opacity: 0; transform: scale(0.6); } }
+@media (prefers-reduced-motion: reduce) { .torna-italia { animation: none; } }
+
 /* Finestrelle (popup) e suggerimenti (tooltip) arrotondati */
 .leaflet-popup-content-wrapper,
 .leaflet-tooltip {

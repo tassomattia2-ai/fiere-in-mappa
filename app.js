@@ -113,7 +113,8 @@ function inquadraTelefono() {
   const zoom = mappa.getBoundsZoom(confini, false, L.point(20, 20));   // 10 px di mare per lato
   mappa.setMinZoom(zoom);
   mappa.setMaxBounds(confini.pad(0.04));     // da vicino non si scappa dall'Italia
-  mappa.setView(confini.getCenter(), zoom, { animate: false });
+  vistaIniziale = { centro: confini.getCenter(), zoom };
+  mappa.setView(vistaIniziale.centro, zoom, { animate: false });
   bloccaOSbloccaCartina();
   if (vistaPerRegioni()) disegnaBolleRegioni();
 }
@@ -127,7 +128,33 @@ function bloccaOSbloccaCartina() {
   const vicino = mappa.getZoom() > mappa.getMinZoom() + 0.05;
   if (vicino) mappa.dragging.enable();
   else mappa.dragging.disable();
+  // il pulsante "torna all'Italia intera" c'è solo quando ci si è avvicinati
+  bottoneItalia.hidden = !vicino;
 }
+
+// Telefono: pulsante in ALTO A DESTRA della mappa (richiesta dell'utente, 19 novembre):
+// compare solo da vicino e con un tocco riporta subito alla mappa iniziale (Italia intera).
+const bottoneItalia = L.DomUtil.create("button", "torna-italia");
+bottoneItalia.type = "button";
+bottoneItalia.hidden = true;
+bottoneItalia.title = "Torna all'Italia intera";
+bottoneItalia.setAttribute("aria-label", "Torna all'Italia intera");
+// icona: quattro frecce che "rientrano" (rimpicciolisci)
+bottoneItalia.innerHTML = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none"
+  stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 3v6H3M15 3v6h6M9 21v-6H3M15 21v-6h6"/></svg>`;
+if (TELEFONO) {
+  const controllo = L.control({ position: "topright" });
+  controllo.onAdd = () => {
+    L.DomEvent.disableClickPropagation(bottoneItalia);   // il tocco non arriva alla mappa
+    return bottoneItalia;
+  };
+  controllo.addTo(mappa);
+  bottoneItalia.addEventListener("click", () => {
+    mappa.setView(vistaIniziale.centro, vistaIniziale.zoom, { animate: !menoMovimento });
+  });
+}
+let vistaIniziale = null;   // centro e zoom dell'Italia intera (li calcola inquadraTelefono)
 if (TELEFONO) {
   mappa.on("zoomend", bloccaOSbloccaCartina);
   addEventListener("resize", () => {
