@@ -36,9 +36,13 @@
   --strato-3: #5f8fea;
 
   /* Mappa */
-  --mare-1: #e3edfb;
-  --mare-2: #c9dcf6;
-  --mare-piatto: #d7e5f7;                  /* il mare intorno all'Italia */
+  /* Mare BLU NOTTE (richiesta dell'utente, 18 novembre: niente azzurrino): l'Italia
+     chiara risalta come "illuminata" su un mare profondo */
+  --mare-1: #1d2d63;
+  --mare-2: #0d1636;
+  --mare-piatto: #15224a;                  /* il mare intorno all'Italia */
+  --mare-luce-costa: rgba(120, 165, 255, 0.85);   /* alone luminoso lungo le coste */
+  --mare-bordo: rgba(4, 8, 24, 0.55);      /* ombra morbida lungo i bordi della scheda */
   --velo: #f3f6fb;                         /* "velo" sulle regioni non scelte */
   --terra: #ffffff;
   --terra-vuota: #eef2f8;                  /* regioni senza fiere nel periodo */
@@ -77,9 +81,11 @@
     --strato-2: #1e2f4f;
     --strato-3: #253a62;
 
-    --mare-1: #101a2c;
-    --mare-2: #0b1322;
-    --mare-piatto: #0d1522;
+    --mare-1: #13204a;
+    --mare-2: #070c1d;
+    --mare-piatto: #0c1430;
+    --mare-luce-costa: rgba(110, 150, 255, 0.6);
+    --mare-bordo: rgba(0, 0, 0, 0.6);
     --velo: #0d1320;
     --terra: #22304a;
     --terra-vuota: #1a2539;
@@ -625,9 +631,22 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
   min-height: 520px;
   border-radius: 36px;
   overflow: hidden;
-  background: radial-gradient(ellipse at 30% 20%, var(--mare-1), var(--mare-2) 75%);
+  background: radial-gradient(ellipse at 50% 40%, var(--mare-1), var(--mare-2) 80%);
   box-shadow: var(--ombra-forte);
 }
+/* Profondità: un'ombra morbida lungo i bordi della scheda, come una lente
+   (non si tocca: i tocchi passano sotto, alla mappa) */
+.scheda-mappa::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 60px var(--mare-bordo), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+/* Le coste "si illuminano" sul mare blu notte: un alone azzurro attorno ai confini */
+.scheda-mappa .leaflet-overlay-pane svg { filter: drop-shadow(0 0 5px var(--mare-luce-costa)); }
 .scheda-mappa .cerchio-deco.c1 { top: -80px; left: -80px; }
 .scheda-mappa .cerchio-deco.c2 { bottom: -120px; right: -100px; }
 
@@ -710,24 +729,19 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
 .voce-testo small { font-size: 0.74rem; color: var(--testo-tenue); }
 .voce-albero:hover .voce-testo { background: var(--accento-tenue); }
 
-/* --- Telefono: il PANNELLO che sale dal basso (elenco di una bolla / scheda di una fiera) --- */
+/* --- Telefono: l'ELENCO SOTTO LA MAPPA (elenco di una bolla / scheda di una fiera) ---
+   Sta nella pagina, subito sotto la mappa: non copre mai la mappa (richiesta dell'utente) */
 .pannello-fiere {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1500;                       /* sopra la mappa, sotto la finestrella "Info fiera" */
-  max-height: 55svh;
-  display: flex;
-  flex-direction: column;
+  display: none;
+  margin: 14px 0 0;
   background: var(--superficie);
-  border-radius: 24px 24px 0 0;
-  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
-  transform: translateY(105%);         /* chiuso: nascosto sotto lo schermo */
-  transition: transform 0.25s ease-out;
-  padding-bottom: env(safe-area-inset-bottom);
+  border-radius: 22px;
+  box-shadow: var(--ombra);
+  overflow: hidden;
 }
-.pannello-fiere.aperto { transform: none; }
+.pannello-fiere.aperto { display: block; animation: pannello-entra 0.25s ease-out; }
+@keyframes pannello-entra { from { opacity: 0; transform: translateY(10px); } }
+.pannello-vuoto { margin: 8px 0; color: var(--testo-tenue); }
 .pannello-testa {
   display: flex;
   align-items: center;
@@ -749,9 +763,35 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
   cursor: pointer;
 }
 .pannello-indietro[hidden] { display: none; }
-.pannello-corpo { overflow-y: auto; overscroll-behavior: contain; padding: 6px 16px 16px; }
+.pannello-corpo { padding: 6px 16px 16px; }
 .pannello-corpo .popup h3 { font-size: 1.15rem; }
-.pannello-elenco { list-style: none; margin: 0; padding: 0; }
+/* L'elenco disegnato come l'"albero" del sito: una linea verticale (la "spina") e un
+   rametto verso il pallino di ogni fiera; le righe compaiono una dopo l'altra */
+.pannello-elenco { --colore-albero: var(--accento); list-style: none; margin: 0; padding: 0 0 0 22px; position: relative; }
+.pannello-elenco.in-corso { --colore-albero: var(--in-corso); }
+.pannello-elenco li { position: relative; animation: voce-compare 0.3s ease-out both; animation-delay: calc(var(--i) * 60ms); }
+.pannello-elenco li::before {                 /* pezzo di spina accanto alla riga */
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 0;
+  bottom: 0;
+  border-left: 2.5px solid var(--colore-albero);
+  opacity: 0.55;
+}
+.pannello-elenco li:first-child::before { top: 50%; }
+.pannello-elenco li:last-child::before { bottom: 50%; }
+.pannello-elenco li:only-child::before { display: none; }
+.pannello-elenco li::after {                  /* rametto dalla spina al pallino */
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  width: 18px;
+  border-top: 2.5px solid var(--colore-albero);
+  opacity: 0.55;
+}
+@keyframes voce-compare { from { opacity: 0; transform: translateX(-10px); } }
 .pannello-voce {
   display: flex;
   align-items: center;
@@ -1281,10 +1321,23 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
      bordo e alta quasi quanto lo schermo, così l'Italia si vede grande */
   #esplora { padding-left: 4px; padding-right: 4px; }
   #esplora .titolo-sezione { padding: 0 12px; }
-  /* altezza "su misura" per l'Italia (lunga e stretta): niente mare vuoto sopra e sotto */
-  .scheda-mappa { height: min(calc(100svh - 80px), 140vw); min-height: 420px; border-radius: 22px; }
-  /* pulsanti + e − più grandi, comodi per il dito */
-  .leaflet-bar a { width: 46px !important; height: 46px !important; line-height: 46px !important; font-size: 22px !important; }
+  /* Seconda versione (18 novembre): la mappa è alta quasi tutto lo schermo; resta sotto
+     uno spazio di circa 130px dove si vede l'inizio della scheda della fiera scelta */
+  .scheda-mappa { height: calc(100svh - 190px); min-height: 460px; border-radius: 22px; }
+  /* la cartina RUOTATA (vedi app.js, "dimensionaMappaRuotata"): un quadrato più grande
+     della scheda, centrato e girato dell'angolo che fa l'Italia più grande */
+  .mappa.mappa-ruotata {
+    inset: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(var(--angolo, 0deg));
+  }
+  /* cartina ferma: il dito sopra la mappa fa scorrere la PAGINA */
+  .mappa-ruotata, .mappa-ruotata * { touch-action: pan-x pan-y !important; }
+  /* i numeri delle bolle restano DRITTI anche con la cartina girata */
+  .mappa-ruotata .gruppo span { display: inline-block; transform: rotate(calc(-1 * var(--angolo, 0deg))); }
+  .crediti-mappa { margin: 8px 12px 0; font-size: 0.72rem; color: var(--testo-tenue); text-align: right; }
+  .crediti-mappa a { color: inherit; }
   /* bolle: numeri più grandi e leggibili */
   .gruppo { font-size: 1.05rem; }
   .gruppo.gruppo-piccolo { font-size: 0.98rem; }
@@ -1309,5 +1362,6 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .rivela { opacity: 1; transform: none; transition: none; }
-  .nuvola, .scorri span, .italia-galleggiante svg, .punto.in-corso::after { animation: none; }
+  .nuvola, .scorri span, .italia-galleggiante svg, .punto.in-corso::after,
+  .pannello-fiere.aperto, .pannello-elenco li { animation: none; }
 }

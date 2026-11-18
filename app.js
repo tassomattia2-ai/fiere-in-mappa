@@ -47,11 +47,29 @@ const ITALIA = L.latLngBounds([[35.4, 6.6], [47.1, 18.6]]);
 // Sul computer resta tutto come prima.
 const TELEFONO = matchMedia("(max-width: 860px)").matches;
 
+// TELEFONO, seconda versione (richiesta dell'utente, 18 novembre):
+//  - la cartina è FERMA: non si trascina e non si ingrandisce (niente dita, niente + e −);
+//    scorrendo con il dito sopra la mappa si scorre la PAGINA;
+//  - la cartina è RUOTATA di qualche grado, così lo "stivale" sta in piedi e l'Italia
+//    riempie lo schermo in altezza (molto più grande che con il nord in alto);
+//  - nessun testo sopra la mappa: elenco e scheda delle fiere stanno SOTTO la mappa.
+// Per ruotarla, il riquadro di Leaflet è un QUADRATO più grande della scheda (così copre
+// la scheda a qualsiasi angolo), centrato e girato con il CSS (vedi .mappa-ruotata).
+function dimensionaMappaRuotata() {
+  const lato = Math.ceil(Math.hypot(schedaMappa.clientWidth, schedaMappa.clientHeight)) + 4;
+  const riquadro = document.getElementById("mappa");
+  riquadro.style.width = riquadro.style.height = `${lato}px`;
+}
+if (TELEFONO) {
+  document.getElementById("mappa").classList.add("mappa-ruotata");
+  dimensionaMappaRuotata();
+}
+
 const mappa = L.map("mappa", {
   zoomControl: false,
-  // passi fini: l'Italia intera riempie bene la scheda (sul telefono passi finissimi,
-  // così l'Italia riempie tutta la larghezza dello schermo)
-  zoomSnap: TELEFONO ? 0.05 : 0.25,
+  // passi fini: l'Italia intera riempie bene la scheda (sul telefono nessun passo:
+  // lo zoom è calcolato al millimetro per riempire lo schermo, vedi inquadraTelefono)
+  zoomSnap: TELEFONO ? 0 : 0.25,
   zoomDelta: 1.5,            // scatti ampi: ogni clic su + o − cambia di un livello e mezzo
   wheelPxPerZoomLevel: 50,   // la rotellina avvicina in fretta
   scrollWheelZoom: true,     // la rotellina ingrandisce subito, senza dover cliccare
@@ -59,23 +77,82 @@ const mappa = L.map("mappa", {
   // Cartina "ferma" (deciso dall'utente): non si sposta MAI da sola (nemmeno per mostrare
   // un cartellino) e le frecce della tastiera non la muovono. Si sposta solo se l'utente
   // la trascina con il mouse (clic, tieni premuto, muovi). Lo zoom funziona come prima.
-  dragging: true,
+  dragging: !TELEFONO,       // telefono: cartina ferma
   // Dopo il trascinamento la mappa "scivola" ancora un poco (inerzia), ma con una
   // velocità massima: così un gesto rapido non la lancia lontano dall'Italia
   inertiaMaxSpeed: 1200,
   keyboardPanDelta: 0,       // le frecce non spostano la mappa (i tasti + e − zoomano ancora)
-  maxBounds: ITALIA.pad(0.12),   // trascinando non ci si allontana dall'Italia
+  // telefono: niente zoom di nessun tipo (dita, doppio tocco, tastiera)
+  touchZoom: !TELEFONO,
+  doubleClickZoom: !TELEFONO,
+  boxZoom: !TELEFONO,
+  keyboard: !TELEFONO,
+  // trascinando non ci si allontana dall'Italia (sul telefono non serve: è ferma, e con
+  // il riquadro ruotato più grande dell'Italia sposterebbe la vista)
+  maxBounds: TELEFONO ? null : ITALIA.pad(0.12),
   maxBoundsViscosity: 1,
+  attributionControl: !TELEFONO,   // telefono: i crediti stanno sotto la mappa (dritti)
 });
-L.control.zoom({ position: "topright", zoomInTitle: "Avvicina", zoomOutTitle: "Allontana" }).addTo(mappa);
-mappa.attributionControl.setPrefix(false);
-mappa.attributionControl.addAttribution(
+if (TELEFONO) mappa.scrollWheelZoom.disable();
+else L.control.zoom({ position: "topright", zoomInTitle: "Avvicina", zoomOutTitle: "Allontana" }).addTo(mappa);
+const CREDITI_CONFINI =
   'Confini: <a href="https://www.istat.it" target="_blank" rel="noopener">ISTAT</a> / ' +
-  '<a href="https://github.com/openpolis/geojson-italy" target="_blank" rel="noopener">openpolis</a>');
+  '<a href="https://github.com/openpolis/geojson-italy" target="_blank" rel="noopener">openpolis</a>';
+if (!TELEFONO) {
+  mappa.attributionControl.setPrefix(false);
+  mappa.attributionControl.addAttribution(CREDITI_CONFINI);
+}
 
 // Lo zoom minimo è quello che mostra l'Italia intera: non ci si può allontanare di più
+// (sul telefono lo zoom è fisso, lo decide inquadraTelefono)
 function adattaZoomMinimo() {
+  if (TELEFONO) return;
   mappa.setMinZoom(mappa.getBoundsZoom(ITALIA));
+}
+
+// Telefono: sceglie l'ANGOLO e lo ZOOM con cui l'Italia (isole comprese) riempie al
+// massimo la scheda. Prova gli angoli da −20° a +60° e tiene quello che fa l'Italia
+// più grande. Si chiama una volta all'avvio (quando ci sono i confini) e se lo schermo
+// cambia misura (es. telefono girato).
+let ultimaMisuraScheda = "";
+function inquadraTelefono() {
+  if (!TELEFONO || !stratoRegioni) return;
+  const L0 = schedaMappa.clientWidth, A0 = schedaMappa.clientHeight;
+  ultimaMisuraScheda = `${L0}x${A0}`;
+  const margine = 14;                       // un po' di mare attorno all'Italia
+  // i punti dei confini, in pixel a zoom 6 (uno ogni 4, bastano e si fa prima)
+  const punti = [];
+  stratoRegioni.eachLayer((forma) => {
+    forma.getLatLngs().flat(3).forEach((ll, i) => { if (i % 4 === 0) punti.push(mappa.project(ll, 6)); });
+  });
+  let migliore = null;
+  for (let angolo = -20; angolo <= 60; angolo += 1) {
+    const r = (angolo * Math.PI) / 180, c = Math.cos(r), s = Math.sin(r);
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (const p of punti) {               // il punto girato come lo gira il CSS
+      const x = p.x * c - p.y * s, y = p.x * s + p.y * c;
+      if (x < minX) minX = x; if (x > maxX) maxX = x;
+      if (y < minY) minY = y; if (y > maxY) maxY = y;
+    }
+    const scala = Math.min((L0 - 2 * margine) / (maxX - minX), (A0 - 2 * margine) / (maxY - minY));
+    if (!migliore || scala > migliore.scala) migliore = { angolo, scala, cx: (minX + maxX) / 2, cy: (minY + maxY) / 2 };
+  }
+  // il centro dell'Italia girata, riportato "dritto" e poi in coordinate geografiche
+  const r = (migliore.angolo * Math.PI) / 180, c = Math.cos(r), s = Math.sin(r);
+  const centro = mappa.unproject(L.point(migliore.cx * c + migliore.cy * s, -migliore.cx * s + migliore.cy * c), 6);
+  const zoom = 6 + Math.log2(migliore.scala);
+  document.getElementById("mappa").style.setProperty("--angolo", `${migliore.angolo}deg`);
+  mappa.options.minZoom = mappa.options.maxZoom = zoom;
+  mappa.setView(centro, zoom, { animate: false });
+  if (vistaPerRegioni()) disegnaBolleRegioni();
+}
+if (TELEFONO) {
+  addEventListener("resize", () => {
+    if (`${schedaMappa.clientWidth}x${schedaMappa.clientHeight}` === ultimaMisuraScheda) return;
+    dimensionaMappaRuotata();
+    mappa.invalidateSize({ pan: false });
+    inquadraTelefono();
+  });
 }
 mappa.fitBounds(ITALIA);
 adattaZoomMinimo();
@@ -159,6 +236,22 @@ function disegnaRegioni(geojson) {
     style: stileRegione,
     onEachFeature: (regione, forma) => {
       const nome = regione.properties.nome;
+      centriRegioni.set(nome, puntoInterno(regione.geometry.coordinates));
+
+      // Telefono: nessun suggerimento scritto sopra la mappa. Toccando una regione, SOTTO
+      // la mappa compare l'elenco delle sue fiere (richiesta dell'utente, 18 novembre)
+      if (TELEFONO) {
+        forma.on("click", (e) => {
+          L.DomEvent.stopPropagation(e);     // il tocco non arriva alla mappa (che chiuderebbe l'elenco)
+          const fiere = tutteLeFiere.filter((f) => f.regione === nome && f.lat != null && passaIFiltri(f, true))
+            .sort((a, b) => a.inizio.localeCompare(b.inizio));
+          regioneSottoIlMouse = nome;        // la regione toccata si colora appena
+          aggiornaRegioni();
+          apriPannelloElenco(fiere, false, nome);
+        });
+        return;
+      }
+
       // Suggerimento che segue il mouse: "Lombardia · 26 fiere nei prossimi 30 giorni".
       // Il numero rispetta i filtri scelti, quindi coincide con l'elenco di quella regione
       // Se ci sono sia fiere in corso sia fiere future, diciamo come si dividono
@@ -176,9 +269,7 @@ function disegnaRegioni(geojson) {
 
       // NB: il clic su una regione NON la sceglie (deciso dall'utente): in una regione
       // si entra solo scegliendola dal menu a tendina "Regione".
-
-      // Il punto "centrale" della regione, dove mettere la sua bolla
-      centriRegioni.set(nome, puntoInterno(regione.geometry.coordinates));
+      // (Il punto "centrale" della regione, dove mettere la sua bolla, è calcolato sopra.)
     },
   }).addTo(mappa);
 }
@@ -280,11 +371,12 @@ function areaVisibileMappa() {
 let alberoCorrente = null;           // { dove, fiere, arancione }
 
 // Apre l'albero di un gruppo di fiere attorno al punto "dove" (la bolla cliccata)
-function apriAlbero(dove, fiere, arancione) {
+// (nome = la regione della bolla, se c'è: serve al titolo dell'elenco sul telefono)
+function apriAlbero(dove, fiere, arancione, nome = "") {
   chiudiAlbero();
   sganciaFiera();
   if (!fiere.length) return;
-  if (TELEFONO) { apriPannelloElenco(fiere, arancione); return; }   // telefono: pannello dal basso
+  if (TELEFONO) { apriPannelloElenco(fiere, arancione, nome); return; }   // telefono: elenco sotto la mappa
   alberoCorrente = { dove, fiere, arancione };
   disegnaAlbero(alberoCorrente);
   alberoAperto = true;
@@ -373,19 +465,21 @@ function aggiornaEvidenza() {
 
 
 // =========================================================
-// Telefono: il PANNELLO che sale dal basso
+// Telefono: l'ELENCO SOTTO LA MAPPA
 // =========================================================
-// Toccando una bolla, il pannello mostra l'elenco delle sue fiere (pallino + nome, date,
-// città). Toccando una fiera, il pannello mostra la sua scheda (gli stessi tre link del
-// cartellino: Sito organizzatore, Scheda AEFI, Info fiera) e sulla mappa resta acceso
-// SOLO il pallino di quella fiera, al suo posto vero. Niente salta: quello che tocchi
-// è quello che si apre.
-let pannello = null;                 // l'elemento del pannello (creato al primo uso)
-let elencoNelPannello = null;        // { fiere, arancione } dell'elenco aperto (per "← Indietro")
-let fieraNelPannello = null;         // la fiera mostrata adesso nel pannello
+// (seconda versione, richiesta dell'utente del 18 novembre: nessun testo deve mai stare
+// SOPRA la mappa). Toccando una bolla o una regione, SOTTO la mappa compare l'elenco delle
+// sue fiere, disegnato come l'"albero" del sito: una linea verticale con un rametto verso
+// il pallino di ogni fiera; le righe compaiono una dopo l'altra, in sequenza.
+// Toccando una fiera, la pagina risale alla mappa: sulla mappa resta acceso SOLO il
+// pallino di quella fiera, al suo posto vero, e subito sotto la mappa c'è la sua scheda
+// (gli stessi tre link del cartellino: Sito organizzatore, Scheda AEFI, Info fiera).
+let pannello = null;                 // l'elemento dell'elenco/scheda (creato al primo uso)
+let elencoNelPannello = null;        // { fiere, arancione, nome } dell'elenco aperto (per "← Indietro")
+let fieraNelPannello = null;         // la fiera mostrata adesso nella scheda
 
 function creaPannello() {
-  pannello = document.createElement("aside");
+  pannello = document.createElement("section");
   pannello.className = "pannello-fiere";
   pannello.setAttribute("aria-live", "polite");
   pannello.innerHTML = `
@@ -395,10 +489,11 @@ function creaPannello() {
       <button type="button" class="pannello-chiudi" aria-label="Chiudi">×</button>
     </div>
     <div class="pannello-corpo"></div>`;
-  document.body.append(pannello);
+  // subito sotto la mappa (prima dei crediti della cartina)
+  schedaMappa.after(pannello);
   pannello.querySelector(".pannello-chiudi").addEventListener("click", chiudiPannello);
   pannello.querySelector(".pannello-indietro").addEventListener("click", () => {
-    if (elencoNelPannello) apriPannelloElenco(elencoNelPannello.fiere, elencoNelPannello.arancione);
+    if (elencoNelPannello) apriPannelloElenco(elencoNelPannello.fiere, elencoNelPannello.arancione, elencoNelPannello.nome);
   });
   // Tocco su una fiera dell'elenco: si apre la sua scheda
   pannello.querySelector(".pannello-corpo").addEventListener("click", (e) => {
@@ -413,24 +508,46 @@ function mostraPannello(titolo, html, conIndietro) {
   if (!pannello) creaPannello();
   pannello.querySelector(".pannello-titolo").textContent = titolo;
   pannello.querySelector(".pannello-indietro").hidden = !conIndietro;
-  const corpo = pannello.querySelector(".pannello-corpo");
-  corpo.innerHTML = html;
-  corpo.scrollTop = 0;
+  pannello.querySelector(".pannello-corpo").innerHTML = html;
   pannello.classList.add("aperto");
 }
 
-// L'elenco delle fiere di una bolla
-function apriPannelloElenco(fiere, arancione) {
+// L'altezza della barra in alto (la pagina scorre sotto di lei)
+function altezzaBarra() {
+  return (document.getElementById("barra-alta")?.offsetHeight || 56) + 8;
+}
+
+// La pagina scende quanto basta per vedere l'inizio dell'elenco (circa a metà schermo)
+function scorriAllElenco() {
+  const alto = pannello.getBoundingClientRect().top;
+  const desiderato = innerHeight * 0.45;
+  if (alto > desiderato) scrollBy({ top: alto - desiderato, behavior: menoMovimento ? "auto" : "smooth" });
+}
+
+// La pagina risale: la mappa intera sotto la barra in alto, e sotto la mappa la scheda
+function scorriAllaMappa() {
+  scrollTo({
+    top: schedaMappa.getBoundingClientRect().top + scrollY - altezzaBarra(),
+    behavior: menoMovimento ? "auto" : "smooth",
+  });
+}
+
+// L'elenco delle fiere di una bolla (o di una regione toccata)
+function apriPannelloElenco(fiere, arancione, nome = "") {
   spegniFieraNelPannello();
-  elencoNelPannello = { fiere, arancione };
-  const titolo = `${fiere.length} ${fiere.length === 1 ? "fiera" : "fiere"}${arancione ? " in corso" : ""}`;
-  const righe = fiere.map((f) => `
-    <li><button type="button" class="pannello-voce" data-fiera="${sicuro(f.id)}">
+  elencoNelPannello = { fiere, arancione, nome };
+  const quante = `${fiere.length} ${fiere.length === 1 ? "fiera" : "fiere"}${arancione ? " in corso" : ""}`;
+  const titolo = nome ? `${nome} · ${quante}` : quante;
+  const righe = fiere.map((f, i) => `
+    <li style="--i: ${Math.min(i, 20)}"><button type="button" class="pannello-voce" data-fiera="${sicuro(f.id)}">
       <span class="punto${inCorso(f) ? " in-corso" : ""}" aria-hidden="true"></span>
       <span class="voce-testo"><strong>${sicuro(f.nome)}</strong>
         <small>${sicuro(`${formattaDate(f.inizio, f.fine)} · ${luogo(f)}`)}</small></span>
     </button></li>`).join("");
-  mostraPannello(titolo, `<ul class="pannello-elenco">${righe}</ul>`, false);
+  mostraPannello(titolo, fiere.length
+    ? `<ul class="pannello-elenco${arancione ? " in-corso" : ""}">${righe}</ul>`
+    : '<p class="pannello-vuoto">Nessuna fiera con i filtri scelti.</p>', false);
+  scorriAllElenco();
 }
 
 // La scheda di una fiera; sulla mappa resta acceso solo il suo pallino (al suo posto vero)
@@ -440,6 +557,7 @@ function mostraFieraNelPannello(fiera, { daElenco = false } = {}) {
   fieraNelPannello = fiera;
   aggiornaEvidenza();
   mostraPannello(inCorso(fiera) ? "Fiera in corso" : "Fiera", testoPopup(fiera), !!elencoNelPannello);
+  scorriAllaMappa();
 }
 
 function spegniFieraNelPannello() {
@@ -450,10 +568,19 @@ function spegniFieraNelPannello() {
 }
 
 function chiudiPannello() {
+  if (regioneSottoIlMouse && TELEFONO) { regioneSottoIlMouse = null; aggiornaRegioni(); }
   if (!pannello) return;
   spegniFieraNelPannello();
   elencoNelPannello = null;
   pannello.classList.remove("aperto");
+}
+
+// Telefono: i crediti della cartina, dritti e SOTTO la mappa (non sopra)
+if (TELEFONO) {
+  const crediti = document.createElement("p");
+  crediti.className = "crediti-mappa";
+  crediti.innerHTML = `${CREDITI_CONFINI} · © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>`;
+  schedaMappa.after(crediti);
 }
 
 // Pallino dell'elenco cliccato: resta visibile SOLO quella riga (con il suo cartellino);
@@ -591,6 +718,7 @@ mappa.getContainer().addEventListener("mouseleave", () => {
 // La rotellina: stessa "velocità" dello zoom normale di Leaflet (wheelPxPerZoomLevel)
 let rotellaAccumulata = 0, rotellaTimer = null, rotellaFiera = null, rotellaPunto = null;
 mappa.getContainer().addEventListener("wheel", (e) => {
+  if (TELEFONO) return;                          // telefono: la cartina non si ingrandisce
   const punto = mappa.mouseEventToContainerPoint(e);
   let fiera = fieraSottoIlPuntatore(e.target);
   // il cursore è scivolato di poco fuori dal pallino: è ancora la fiera agganciata
@@ -748,7 +876,8 @@ function disegnaBolleRegioni() {
     const bolla = L.marker(posizione, { icon: iconaBolla(b.n, b.arancione), title: titolo });
     // Clic sulla bolla: si apre l'albero con le fiere della regione (senza entrarci)
     bolla.on("click", () => apriAlbero(posizione, tutteLeFiere.filter((f) =>
-      f.regione === b.nome && f.lat != null && passaIFiltri(f, true) && inCorso(f) === b.arancione), b.arancione));
+      f.regione === b.nome && f.lat != null && passaIFiltri(f, true) && inCorso(f) === b.arancione)
+      .sort((x, y) => x.inizio.localeCompare(y.inizio)), b.arancione, b.nome));
     bolla.addTo(stratoBolleRegioni);
   }
 }
@@ -1198,7 +1327,8 @@ function aggiorna({ spostaMappa = true, anima = true } = {}) {
   aggiornaRegioni();
 
   // --- Movimento della mappa: regione scelta oppure Italia intera ---
-  if (spostaMappa) {
+  // (sul telefono la cartina è ferma: resta sempre l'Italia intera)
+  if (spostaMappa && !TELEFONO) {
     const forma = campi.regione.value && stratoRegioni?.getLayers()
       .find((l) => l.feature.properties.nome === campi.regione.value);
     if (forma) voloSu(forma.getBounds(), 10, anima);
@@ -1261,17 +1391,9 @@ function mostraSullaMappa(id) {
   // Se la fiera è dentro una bolla (es. stesso quartiere fieristico di altre fiere),
   // apriamo l'albero di quella bolla e poi il cartellino della fiera.
   setTimeout(() => {
-    // Telefono: la mappa si avvicina alla fiera e la sua scheda sale nel pannello
-    if (TELEFONO) {
-      const fiera = m.options.fiera;
-      mostraFieraNelPannello(fiera);
-      // la fiera va nella parte di mappa NON coperta dal pannello (più in alto del centro)
-      const zoom = Math.max(mappa.getZoom(), SOGLIA_DETTAGLIO + 2);
-      const giu = Math.min(pannello.offsetHeight, mappa.getSize().y * 0.6) / 2;
-      const centro = mappa.unproject(mappa.project(m.getLatLng(), zoom).add([0, giu]), zoom);
-      mappa.setView(centro, zoom, { animate: !menoMovimento });
-      return;
-    }
+    // Telefono: la cartina è ferma; si accende il pallino della fiera al suo posto e la
+    // sua scheda compare sotto la mappa
+    if (TELEFONO) { mostraFieraNelPannello(m.options.fiera); return; }
     const arancione = gruppoInCorso.hasLayer(m);
     const gruppo = arancione ? gruppoInCorso : gruppoFiere;
     const apri = () => {
@@ -1350,6 +1472,7 @@ Promise.all([caricaJSON("data/regioni-dettaglio.geojson"), caricaFiere()])
     document.getElementById("aggiornamento").textContent = testoAggiornamento(dati);
 
     disegnaRegioni(regioni);
+    inquadraTelefono();          // (solo telefono) angolo e zoom per l'Italia più grande possibile
     creaMaschera(regioni);
     // Nel menu mettiamo tutte e 20 le regioni (anche quelle senza fiere), come sulla mappa
     riempiMenu(campi.regione, regioni.features.map((r) => r.properties.nome).sort((a, b) => a.localeCompare(b, "it")));
