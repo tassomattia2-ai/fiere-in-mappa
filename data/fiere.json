@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-17T04:47:03+00:00",
+ "aggiornato": "2026-11-18T04:49:00+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -101,32 +101,6 @@
    "organizzatore": {
     "nome": "Gioform s.r.l.",
     "indirizzo": "Via Ruggero D'Andreotto 19/E, Perugia"
-   }
-  },
-  {
-   "id": "gustus-2026",
-   "nome": "GUSTUS",
-   "inizio": "2026-11-15",
-   "fine": "2026-11-17",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Internazionale",
-   "quartiere": "MOSTRA D'OLTREMARE S.P.A.",
-   "citta": "Napoli",
-   "provincia": "NA",
-   "regione": "Campania",
-   "lat": 40.824862,
-   "lng": 14.193145,
-   "sito": "https://www.progecta.org/",
-   "fonte": "https://www.aefi.it/it/manifestazione/gustus-2026",
-   "sito_fiera": null,
-   "riassunto": "Fiera napoletana dei sapori mediterranei: prodotti alimentari, attrezzature e servizi per la ristorazione e il settore agroalimentare.",
-   "fonte_riassunto": "https://www.aefi.it/it/manifestazione/gustus-2026",
-   "organizzatore": {
-    "nome": "PROGECTA srl",
-    "indirizzo": "Via Vannella Gaetani n. 27, Napoli",
-    "telefono": "+39.081.7640032",
-    "email": "info@progecta.org",
-    "sito": "https://www.progecta.org/"
    }
   },
   {
