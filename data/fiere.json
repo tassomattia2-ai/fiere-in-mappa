@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-18T04:49:00+00:00",
+ "aggiornato": "2026-11-19T04:52:23+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -101,32 +101,6 @@
    "organizzatore": {
     "nome": "Gioform s.r.l.",
     "indirizzo": "Via Ruggero D'Andreotto 19/E, Perugia"
-   }
-  },
-  {
-   "id": "big-buyer-2026",
-   "nome": "BIG BUYER",
-   "inizio": "2026-11-16",
-   "fine": "2026-11-18",
-   "settore": "Arredi oggetti decori per la casa, giardinaggio, hobbistica, tempo libero",
-   "tipologia": "Internazionale",
-   "quartiere": "MiCo – Milano Convention Centre",
-   "citta": "Milano",
-   "provincia": "MI",
-   "regione": "Lombardia",
-   "lat": 45.4814282,
-   "lng": 9.1535377,
-   "sito": "http://www.edinova.com/",
-   "fonte": "https://www.aefi.it/it/manifestazione/big-buyer-2026",
-   "sito_fiera": "https://www.bigbuyer.info/",
-   "riassunto": "Incontro annuale riservato agli operatori a Milano, alla 30ª edizione: chi acquista per negozi in Italia e all'estero trova cartoleria, articoli per ufficio, per le feste e per la creatività.",
-   "fonte_riassunto": "https://www.bigbuyer.info/",
-   "organizzatore": {
-    "nome": "Edinova S.r.l.",
-    "indirizzo": "Via Pordenone, 13 - 20132, Milano",
-    "telefono": "+39 02 215.80.21",
-    "email": "edinova@edinova.com",
-    "sito": "http://www.edinova.com/"
    }
   },
   {
