@@ -15,7 +15,7 @@
    ============================================================ */
 
 // Quando cambia l'elenco qui sotto, cambia anche questo nome: le copie vecchie vengono buttate
-const NOME_CACHE = "fiere-in-mappa-v10";
+const NOME_CACHE = "fiere-in-mappa-v11";
 
 // I file da tenere pronti fin dall'installazione
 const FILE_DEL_SITO = [

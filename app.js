@@ -1357,7 +1357,10 @@ function schedaFiera(fiera, posizione) {
   const inizio = new Date(fiera.inizio + "T12:00:00");
   const mese = inizio.toLocaleDateString("it-IT", { month: "short" }).replace(".", "");
   return `
+    <!-- tutta la scheda è cliccabile: porta la fiera sulla mappa (il pulsante "Vedi sulla
+         mappa" lo fa capire, richiesta dell'utente 19/11) -->
     <li class="scheda-fiera rivela${inCorso(fiera) ? " in-corso" : ""}" tabindex="0"
+        ${fiera.lat == null ? "" : `role="button" aria-label="${sicuro(fiera.nome)}: vedi sulla mappa"`}
         data-id="${sicuro(fiera.id)}" style="--ritardo: ${(posizione % 3) * 80}ms">
       <div class="data-tonda" aria-hidden="true"><strong>${inizio.getDate()}</strong><span>${mese}</span></div>
       <div class="scheda-testo">
@@ -1369,6 +1372,11 @@ function schedaFiera(fiera, posizione) {
           ${fiera.tipologia ? `<span class="etichetta">${sicuro(fiera.tipologia)}</span>` : ""}
           ${fiera.lat == null ? '<span class="etichetta tenue">Non sulla mappa</span>' : ""}
         </p>
+        ${fiera.lat == null ? "" : `<span class="vai-mappa" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/>
+            <circle cx="12" cy="9.5" r="2.5"/></svg>
+          Vedi sulla mappa <span class="freccia">→</span></span>`}
       </div>
     </li>`;
 }

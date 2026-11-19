@@ -1124,6 +1124,32 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
 .scheda-fiera .settore { margin-top: 2px; }
 .scheda-fiera .etichette { margin-top: 8px; }
 
+/* "Vedi sulla mappa": fa capire che toccando la scheda si va alla fiera sulla mappa
+   (richiesta dell'utente, 19 novembre). È solo un'indicazione: è tutta la scheda a
+   essere cliccabile. */
+.vai-mappa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--accento-tenue);
+  color: var(--accento);
+  font-size: 0.86rem;
+  font-weight: 800;
+  transition: background 0.25s, color 0.25s;
+}
+.vai-mappa .freccia { transition: transform 0.25s; }
+.scheda-fiera.in-corso .vai-mappa { background: color-mix(in srgb, var(--in-corso) 16%, transparent); color: var(--in-corso); }
+.scheda-fiera:hover .vai-mappa,
+.scheda-fiera:focus .vai-mappa,
+.scheda-fiera:active .vai-mappa { background: var(--accento); color: #fff; }
+.scheda-fiera.in-corso:hover .vai-mappa,
+.scheda-fiera.in-corso:focus .vai-mappa,
+.scheda-fiera.in-corso:active .vai-mappa { background: var(--in-corso); color: #fff; }
+.scheda-fiera:hover .vai-mappa .freccia { transform: translateX(3px); }
+
 /* La data d'inizio dentro un cerchio */
 .data-tonda {
   flex: none;
