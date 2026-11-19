@@ -72,9 +72,10 @@ const mappa = L.map("mappa", {
   // velocità massima: così un gesto rapido non la lancia lontano dall'Italia
   inertiaMaxSpeed: 1200,
   keyboardPanDelta: 0,       // le frecce non spostano la mappa (i tasti + e − zoomano ancora)
-  // zoom con due dita e con il doppio tocco (anche sul telefono)
+  // zoom con due dita (anche sul telefono). Il doppio tocco sul telefono NO (richiesta
+  // dell'utente, 20 novembre: confonde, ci sono già dita, + e − e la freccia indietro)
   touchZoom: true,
-  doubleClickZoom: true,
+  doubleClickZoom: !TELEFONO,
   bounceAtZoomLimits: false, // stringendo le dita oltre l'Italia intera non "rimbalza"
   boxZoom: !TELEFONO,
   keyboard: !TELEFONO,
@@ -282,6 +283,9 @@ function disegnaRegioni(geojson) {
       if (TELEFONO) {
         forma.on("click", (e) => {
           L.DomEvent.stopPropagation(e);     // il tocco non arriva alla mappa (che chiuderebbe l'elenco)
+          // fiera selezionata: toccare la mappa (anche dentro una regione) non la perde;
+          // si chiude solo con la × o con "indietro" (richiesta dell'utente, 20 novembre)
+          if (fieraNelPannello) return;
           const fiere = tutteLeFiere.filter((f) => f.regione === nome && f.lat != null && passaIFiltri(f, true))
             .sort((a, b) => a.inizio.localeCompare(b.inizio));
           regioneSottoIlMouse = nome;        // la regione toccata si colora appena
@@ -603,6 +607,9 @@ function mostraFieraNelPannello(fiera, { daElenco = false } = {}) {
   if (!daElenco) elencoNelPannello = null;
   agganciaFiera(fiera);              // il pallino "acceso" della fiera, sopra a tutto
   fieraNelPannello = fiera;
+  // Tasto "indietro" del telefono: deve chiudere la fiera selezionata, non uscire dalla
+  // mappa. Aggiungiamo un "passo" nella cronologia (uno solo, anche cambiando fiera)
+  if (!history.state?.fieraScelta) history.pushState({ fieraScelta: true }, "", location.href);
   aggiornaEvidenza();
   mostraPannello(inCorso(fiera) ? "Fiera in corso" : "Fiera", testoPopup(fiera), !!elencoNelPannello);
   // se ci si era avvicinati altrove e la fiera è fuori vista, la cartina va da lei
@@ -615,6 +622,8 @@ function spegniFieraNelPannello() {
   fieraNelPannello = null;
   sganciaFiera();
   aggiornaEvidenza();
+  // chiusa con la × (o con "← Torna all'elenco"): togliamo il passo aggiunto
+  if (history.state?.fieraScelta) history.back();
 }
 
 function chiudiPannello() {
@@ -670,7 +679,9 @@ mappa.on("popupclose", (e) => {
 let cartellinoApertoAlClic = false;
 mappa.on("preclick", () => { cartellinoApertoAlClic = !!(mappa._popup && mappa.hasLayer(mappa._popup)); });
 mappa.on("click", () => {
-  if (TELEFONO) { chiudiPannello(); return; }     // telefono: un tocco sulla mappa chiude il pannello
+  // telefono: un tocco sulla mappa chiude l'elenco; ma se c'è una fiera selezionata
+  // resta lì (si chiude solo con la × o con "indietro")
+  if (TELEFONO) { if (!fieraNelPannello) chiudiPannello(); return; }
   if (cartellinoApertoAlClic) { cartellinoApertoAlClic = false; return; }
   chiudiAlbero();
 });
@@ -1320,7 +1331,13 @@ function apriInfoFiera(id) {
 
 // "Indietro" premuto con la finestrella aperta: la chiudiamo e restiamo sulla mappa
 addEventListener("popstate", () => {
-  if (finestraInfo.open) finestraInfo.close();
+  if (finestraInfo.open) { finestraInfo.close(); return; }
+  // "Indietro" con una fiera selezionata (e Info fiera chiusa): la fiera si chiude e,
+  // se veniva da un elenco, ricompare l'elenco (come con "←" nella scheda)
+  if (fieraNelPannello && !history.state?.fieraScelta) {
+    if (elencoNelPannello) apriPannelloElenco(elencoNelPannello.fiere, elencoNelPannello.arancione, elencoNelPannello.nome);
+    else chiudiPannello();
+  }
 });
 // Chiusa in un altro modo (×, Esc, tocco fuori): togliamo il passo aggiunto, così il
 // prossimo "indietro" fa quello che ci si aspetta
