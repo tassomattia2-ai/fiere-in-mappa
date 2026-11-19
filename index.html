@@ -13,7 +13,7 @@
 
   <!-- Il nostro stile. Il "?v=..." è il numero di versione: quando cambiamo il file
        lo aggiorniamo, così il browser scarica la versione nuova invece di quella vecchia -->
-  <link rel="stylesheet" href="style.css?v=2026-11-19-piu-meno">
+  <link rel="stylesheet" href="style.css?v=2026-11-19-home">
 
   <!-- App per smartphone: "carta d'identità" dell'app, icone e colore della barra del telefono -->
   <link rel="manifest" href="manifest.json">
@@ -29,7 +29,8 @@
     <a class="logo" href="#inizio">Fiere in Mappa</a>
     <nav class="menu" aria-label="Sezioni">
       <a href="#cosa-offre">Cosa offre</a>
-      <a href="mappa.html" class="menu-evidenza">Apri la mappa</a>
+      <!-- Tolto "Apri la mappa" in alto a destra (19/11/2026, deciso dall'utente):
+           resta il pulsante grande nella testata -->
       <!-- Compare solo quando il telefono permette di installare il sito come app (vedi comune.js) -->
       <button type="button" id="installa-app" class="installa-app" hidden><span class="solo-schermo-largo">Installa l'app</span><span class="solo-telefono">📲 App</span></button>
     </nav>
@@ -198,7 +199,7 @@
     <p class="avviso-non-ufficiale">Sito amatoriale e non ufficiale, non collegato ad AEFI né agli organizzatori delle fiere. Verifica sempre sui siti ufficiali.</p>
   </footer>
 
-  <script src="comune.js?v=2026-11-19-piu-meno"></script>
-  <script src="home.js?v=2026-11-19-piu-meno"></script>
+  <script src="comune.js?v=2026-11-19-home"></script>
+  <script src="home.js?v=2026-11-19-home"></script>
 </body>
 </html>
