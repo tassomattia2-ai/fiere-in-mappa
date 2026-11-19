@@ -85,7 +85,35 @@ const mappa = L.map("mappa", {
   attributionControl: !TELEFONO,   // telefono: i crediti stanno sotto la mappa (dritti)
 });
 if (TELEFONO) mappa.scrollWheelZoom.disable();
-else L.control.zoom({ position: "topright", zoomInTitle: "Avvicina", zoomOutTitle: "Allontana" }).addTo(mappa);
+// + e − in alto a destra (sul telefono rimessi su richiesta dell'utente, 19 novembre;
+// sotto di loro, da vicino, compare la freccia "torna all'Italia intera")
+const controlloZoom = L.control.zoom({ position: "topright", zoomInTitle: "Avvicina", zoomOutTitle: "Allontana" });
+// + e − (richiesta dell'utente, 19 novembre): se c'è una fiera selezionata, si ingrandisce
+// e rimpicciolisce attorno al SUO pallino (il pallino resta fermo dov'è); altrimenti
+// attorno al centro della parte di mappa che si sta guardando.
+controlloZoom._zoomIn = function (e) { zoomaConIPulsanti(+1, e, this); };
+controlloZoom._zoomOut = function (e) { zoomaConIPulsanti(-1, e, this); };
+controlloZoom.addTo(mappa);
+
+// La fiera selezionata in questo momento (telefono: quella nella scheda sotto la mappa;
+// computer: quella con il cartellino aperto), se ha un posto sulla mappa
+function puntoFieraSelezionata() {
+  let fiera = null;
+  if (TELEFONO) fiera = fieraNelPannello;
+  else if (mappa._popup && mappa.hasLayer(mappa._popup)) fiera = mappa._popup._source?.options?.fiera;
+  return fiera && fiera.lat != null ? L.latLng(fiera.lat, fiera.lng) : null;
+}
+
+function zoomaConIPulsanti(verso, e, controllo) {
+  if (controllo._disabled) return;
+  const passo = mappa.options.zoomDelta * (e?.shiftKey ? 3 : 1);
+  const nuovo = Math.max(mappa.getMinZoom(), Math.min(mappa.getMaxZoom(), mappa.getZoom() + verso * passo));
+  if (nuovo === mappa.getZoom()) return;
+  const punto = puntoFieraSelezionata();
+  if (!punto) mappa.setZoom(nuovo);                                         // centro della vista
+  else if (mappa.getBounds().contains(punto)) mappa.setZoomAround(punto, nuovo);   // pallino fermo
+  else mappa.setView(punto, nuovo);                     // pallino fuori vista: la mappa va da lui
+}
 const CREDITI_CONFINI =
   'Confini: <a href="https://www.istat.it" target="_blank" rel="noopener">ISTAT</a> / ' +
   '<a href="https://github.com/openpolis/geojson-italy" target="_blank" rel="noopener">openpolis</a>';
@@ -132,17 +160,18 @@ function bloccaOSbloccaCartina() {
   bottoneItalia.hidden = !vicino;
 }
 
-// Telefono: pulsante in ALTO A DESTRA della mappa (richiesta dell'utente, 19 novembre):
-// compare solo da vicino e con un tocco riporta subito alla mappa iniziale (Italia intera).
+// Telefono: pulsante in ALTO A DESTRA della mappa, sotto + e − (richiesta dell'utente,
+// 19 novembre): compare solo da vicino e con un tocco riporta subito alla mappa iniziale
+// (Italia intera). Il simbolo è una freccia all'indietro, come in Esplora file di Windows.
 const bottoneItalia = L.DomUtil.create("button", "torna-italia");
 bottoneItalia.type = "button";
 bottoneItalia.hidden = true;
 bottoneItalia.title = "Torna all'Italia intera";
 bottoneItalia.setAttribute("aria-label", "Torna all'Italia intera");
-// icona: quattro frecce che "rientrano" (rimpicciolisci)
+// icona: freccia verso sinistra (indietro)
 bottoneItalia.innerHTML = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none"
-  stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M9 3v6H3M15 3v6h6M9 21v-6H3M15 21v-6h6"/></svg>`;
+  stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M19 12H5M11 6l-6 6 6 6"/></svg>`;
 if (TELEFONO) {
   const controllo = L.control({ position: "topright" });
   controllo.onAdd = () => {
@@ -151,7 +180,8 @@ if (TELEFONO) {
   };
   controllo.addTo(mappa);
   bottoneItalia.addEventListener("click", () => {
-    mappa.setView(vistaIniziale.centro, vistaIniziale.zoom, { animate: !menoMovimento });
+    // subito, senza animazione: anche da molto vicino si torna in un attimo
+    mappa.setView(vistaIniziale.centro, vistaIniziale.zoom, { animate: false });
   });
 }
 let vistaIniziale = null;   // centro e zoom dell'Italia intera (li calcola inquadraTelefono)

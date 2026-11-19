@@ -911,6 +911,7 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
   background: var(--superficie) !important;
   color: var(--testo) !important;
   border-color: var(--bordo) !important;
+  text-decoration: none !important;   /* toccato, il "+" sottolineato sembrava "±" */
   width: 40px !important;
   height: 40px !important;
   line-height: 40px !important;
@@ -918,15 +919,17 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
 .leaflet-top.leaflet-right { margin: 8px; }
 
 /* Telefono: pulsante "torna all'Italia intera" (compare solo da vicino, vedi app.js) */
+/* stesso aspetto dei pulsanti + e − (stessa larghezza, stessi angoli arrotondati) */
 .torna-italia {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border: none;
-  border-radius: 50%;
+  border-radius: 16px;
   background: var(--superficie);
-  color: var(--accento);
+  color: var(--testo);
   box-shadow: var(--ombra);
   cursor: pointer;
   animation: compare-bottone 0.25s ease-out;
@@ -1345,6 +1348,8 @@ svg.strato { left: 0; bottom: 0; width: 100%; height: 58%; }
   /* Terza versione (19 novembre): cartina DRITTA. L'Italia dritta è alta circa 1,3 volte
      la sua larghezza: la scheda non è più alta di così (sarebbe solo mare vuoto) */
   .scheda-mappa { height: min(calc(100svh - 190px), 132vw); min-height: 400px; border-radius: 22px; }
+  /* + e − un po' più grandi, comodi per le dita (come la freccia sotto di loro) */
+  .leaflet-bar a { width: 44px !important; height: 44px !important; line-height: 44px !important; font-size: 22px !important; }
   .crediti-mappa { margin: 8px 12px 0; font-size: 0.72rem; color: var(--testo-tenue); text-align: right; }
   .crediti-mappa a { color: inherit; }
   /* bolle: numeri più grandi e leggibili */
