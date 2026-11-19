@@ -96,12 +96,6 @@
   scelte.forEach((bottone) => {
     bottone.addEventListener("click", () => {
       periodoScelto = bottone.dataset.periodo;
-      // Si parte sempre da "In corso" (richiesta dell'utente, 19 novembre); se oggi
-      // nessuna news riguarda una fiera in corso, dal primo periodo che ne ha
-      periodoScelto = ["oggi", "settimana", ""].find((p) => {
-        periodoScelto = p;
-        return tutteLeNews.some((n) => nelPeriodoScelto(n.fiera));
-      }) ?? "";
       disegnaNews();
     });
   });
@@ -121,6 +115,14 @@
         .filter((n) => n.fiera)                                   // fiera finita o lontana: niente news
         .sort((a, b) => a.fiera.inizio.localeCompare(b.fiera.inizio) || a.fiera.nome.localeCompare(b.fiera.nome, "it"));
 
+      // Si parte sempre da "In corso" (richiesta dell'utente, 19 novembre); se oggi
+      // nessuna news riguarda una fiera in corso, dal primo periodo che ne ha.
+      // (Corretto il 19/11: prima questa regola era finita per sbaglio nel clic sulle
+      // pillole, e cliccando "In corso" si tornava sempre a "Prossimi 30 giorni".)
+      periodoScelto = ["oggi", "settimana", ""].find((p) => {
+        periodoScelto = p;
+        return tutteLeNews.some((n) => nelPeriodoScelto(n.fiera));
+      }) ?? "oggi";
       disegnaNews();
     })
     .catch((errore) => {

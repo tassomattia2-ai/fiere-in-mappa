@@ -294,13 +294,15 @@ function disegnaRegioni(geojson) {
       // Suggerimento che segue il mouse: "Lombardia · 26 fiere nei prossimi 30 giorni".
       // Il numero rispetta i filtri scelti, quindi coincide con l'elenco di quella regione
       // Se ci sono sia fiere in corso sia fiere future, diciamo come si dividono
-      // (es. "Lombardia · 27 fiere nei prossimi 30 giorni: 25 da iniziare, 2 in corso")
+      // (es. "Lombardia · 27 fiere nei prossimi 30 giorni: 25 in programma, 2 in corso")
       forma.bindTooltip(() => {
         const n = fierePerRegione[nome] || 0;
         const nInCorso = inCorsoPerRegione[nome] || 0;
         const periodo = campi.periodo.selectedOptions[0]?.dataset.descrizione ?? "";
-        const divisione = nInCorso && nInCorso < n ? `: ${n - nInCorso} da iniziare, ${nInCorso} in corso` : "";
-        return `${nome} · ${n} ${n === 1 ? "fiera" : "fiere"} ${periodo}${divisione}`;
+        const divisione = nInCorso && nInCorso < n ? `: ${n - nInCorso} in programma, ${nInCorso} in corso` : "";
+        // fiere tutte NON in corso: "in programma" (richiesta dell'utente, 19 novembre)
+        const inProgramma = n && !nInCorso ? " in programma" : "";
+        return `${nome} · ${n} ${n === 1 ? "fiera" : "fiere"}${inProgramma} ${periodo}${divisione}`;
       }, { sticky: true, direction: "top", offset: [0, -10] });
 
       forma.on("mouseover", () => { regioneSottoIlMouse = nome; aggiornaRegioni(); });
@@ -575,7 +577,14 @@ function scorriAllaMappa() {
 function apriPannelloElenco(fiere, arancione, nome = "") {
   spegniFieraNelPannello();
   elencoNelPannello = { fiere, arancione, nome };
-  const quante = `${fiere.length} ${fiere.length === 1 ? "fiera" : "fiere"}${arancione ? " in corso" : ""}`;
+  // "Lazio · 4 fiere in programma" (non ancora iniziate), "· 1 fiera in corso", oppure
+  // tutte e due se la regione toccata ha fiere di entrambi i tipi (richiesta dell'utente, 19/11)
+  const parola = (n) => (n === 1 ? "fiera" : "fiere");
+  const nInCorso = fiere.filter(inCorso).length, nInProgramma = fiere.length - nInCorso;
+  const quante = [
+    nInProgramma ? `${nInProgramma} ${parola(nInProgramma)} in programma` : "",
+    nInCorso ? `${nInCorso} ${parola(nInCorso)} in corso` : "",
+  ].filter(Boolean).join(" · ") || "nessuna fiera";
   const titolo = nome ? `${nome} · ${quante}` : quante;
   const righe = fiere.map((f, i) => `
     <li style="--i: ${Math.min(i, 20)}"><button type="button" class="pannello-voce" data-fiera="${sicuro(f.id)}">
@@ -913,7 +922,7 @@ function disegnaBolleRegioni() {
     }
     const titolo = b.arancione
       ? `${b.nome}: ${b.n} ${b.n === 1 ? "fiera" : "fiere"} in corso`
-      : `${b.nome}: ${b.n} ${b.n === 1 ? "fiera" : "fiere"} ${periodo} (non ancora iniziate)`;
+      : `${b.nome}: ${b.n} ${b.n === 1 ? "fiera" : "fiere"} in programma ${periodo}`;
     const bolla = L.marker(posizione, { icon: iconaBolla(b.n, b.arancione), title: titolo });
     // Clic sulla bolla: si apre l'albero con le fiere della regione (senza entrarci)
     bolla.on("click", () => apriAlbero(posizione, tutteLeFiere.filter((f) =>
