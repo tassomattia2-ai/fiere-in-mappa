@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-19T04:52:23+00:00",
+ "aggiornato": "2026-11-20T12:21:01+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -179,84 +179,6 @@
     "telefono": "+39.02.319109",
     "email": "ipackima@ipackima.it",
     "sito": "https://www.pharmintech.it/"
-   }
-  },
-  {
-   "id": "rebuild-2026",
-   "nome": "REMODULA EXPO",
-   "inizio": "2026-11-17",
-   "fine": "2026-11-19",
-   "settore": "Edilizia Cantieri",
-   "tipologia": "Regionale",
-   "quartiere": "ITALIAN EXHIBITION GROUP S.P.A. - RIMINI",
-   "citta": "Rimini",
-   "provincia": "RN",
-   "regione": "Emilia-Romagna",
-   "lat": 44.069734,
-   "lng": 12.526671,
-   "sito": "http://www.iegexpo.it",
-   "fonte": "https://www.aefi.it/it/manifestazione/rebuild-2026",
-   "sito_fiera": null,
-   "riassunto": "Prima edizione italiana del salone europeo sulle costruzioni innovative: edilizia industrializzata, prefabbricazione fuori cantiere (offsite) e digitalizzazione, con oltre 250 aziende espositrici attese.",
-   "fonte_riassunto": "https://www.infobuild.it/eventi/remodula-expo-rimini-prima-edizione-fiera-dedicata-costruzioni/",
-   "organizzatore": {
-    "nome": "NEBEXT",
-    "indirizzo": "Poeta Joan Maragall, 23, Planta 1a, Madrid",
-    "telefono": "+34 919 551 551",
-    "email": "info@nebext.com",
-    "sito": "http://www.iegexpo.it"
-   }
-  },
-  {
-   "id": "smart-building-levante-2026",
-   "nome": "SMART BUILDING LEVANTE",
-   "inizio": "2026-11-18",
-   "fine": "2026-11-19",
-   "settore": "Edilizia Cantieri",
-   "tipologia": "Internazionale",
-   "quartiere": "NUOVA FIERA DEL LEVANTE S.R.L.",
-   "citta": "Bari",
-   "provincia": "BA",
-   "regione": "Puglia",
-   "lat": 41.11176,
-   "lng": 16.92083,
-   "sito": "http://www.smartbuildingexpo.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/smart-building-levante-2026",
-   "sito_fiera": null,
-   "riassunto": "Fiera alla Nuova Fiera del Levante di Bari sulla transizione energetica e digitale degli edifici: automazione di case e palazzi, impianti elettrici, energie rinnovabili e sicurezza, con corsi per i professionisti.",
-   "fonte_riassunto": "https://transition-pathways.europa.eu/construction/events/smart-building-levante-2026-mediterranean-energy-and-digital-transition-fair",
-   "organizzatore": {
-    "nome": "PENTASTUDIO Srl",
-    "indirizzo": "Via Contrà Pedemuro San Biagio 83, Vicenza",
-    "telefono": "0444543133",
-    "email": "info@smartbuildingexpo.it",
-    "sito": "http://www.smartbuildingexpo.it/"
-   }
-  },
-  {
-   "id": "megawatt-exhibition-conference-2026",
-   "nome": "MEGAWATT Exhibition & Conference",
-   "inizio": "2026-11-18",
-   "fine": "2026-11-19",
-   "settore": "Minerali Idrocarburi Chimica e Relativi Macchinari ed Attrezzature",
-   "tipologia": "Nazionale",
-   "quartiere": "BERGAMO FIERA NUOVA S.P.A.",
-   "citta": "Bergamo",
-   "provincia": "BG",
-   "regione": "Lombardia",
-   "lat": 45.679073,
-   "lng": 9.702109,
-   "sito": "http://www.bergamofieranuova.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/megawatt-exhibition-conference-2026",
-   "sito_fiera": null,
-   "riassunto": "Mostra e convegno sull'energia: turbomacchine, produzione di elettricità e nuove tecnologie come l'idrogeno e la cattura della CO2, per tecnici e aziende del settore.",
-   "fonte_riassunto": "https://en.jufair.com/exhibition/20030/",
-   "organizzatore": {
-    "nome": "MEGAWATT SRL",
-    "indirizzo": "Via Papa Giovanni XXIII, Orio al Serio",
-    "telefono": "0354400205",
-    "email": "sales@megawattexpo.com",
-    "sito": "http://www.bergamofieranuova.it/"
    }
   },
   {
