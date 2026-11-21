@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-20T12:21:01+00:00",
+ "aggiornato": "2026-11-21T11:55:11+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -101,84 +101,6 @@
    "organizzatore": {
     "nome": "Gioform s.r.l.",
     "indirizzo": "Via Ruggero D'Andreotto 19/E, Perugia"
-   }
-  },
-  {
-   "id": "enovitis-2026",
-   "nome": "ENOVITIS",
-   "inizio": "2026-11-17",
-   "fine": "2026-11-20",
-   "settore": "Agricoltura Zootecnia Pesca e Relativi Macchinari",
-   "tipologia": "Internazionale",
-   "quartiere": "FIERA MILANO S.P.A.",
-   "citta": "Milano",
-   "provincia": "MI",
-   "regione": "Lombardia",
-   "lat": 45.520698,
-   "lng": 9.079041,
-   "sito": "http://www.uiv.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/enovitis-2026",
-   "sito_fiera": null,
-   "riassunto": "Salone internazionale a Milano per le tecniche di viticoltura e olivicoltura: macchine, attrezzature e soluzioni per vigneti e oliveti.",
-   "fonte_riassunto": "https://www.aefi.it/it/manifestazione/enovitis-2026",
-   "organizzatore": {
-    "nome": "UNIONE ITALIANA VINI SOC. COOP.",
-    "indirizzo": "Via San Vittore al Teatro, 3, Milano",
-    "telefono": "027222281",
-    "email": "info@uiv.it",
-    "sito": "http://www.uiv.it/"
-   }
-  },
-  {
-   "id": "simei-2026",
-   "nome": "SIMEI",
-   "inizio": "2026-11-17",
-   "fine": "2026-11-20",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Internazionale",
-   "quartiere": "FIERA MILANO S.P.A.",
-   "citta": "Milano",
-   "provincia": "MI",
-   "regione": "Lombardia",
-   "lat": 45.520698,
-   "lng": 9.079041,
-   "sito": "http://www.uiv.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/simei-2026",
-   "sito_fiera": null,
-   "riassunto": "Salone internazionale a Fiera Milano delle macchine per fare il vino e per l'imbottigliamento, organizzato da Unione Italiana Vini.",
-   "fonte_riassunto": "https://www.aefi.it/it/manifestazione/simei-2026",
-   "organizzatore": {
-    "nome": "UNIONE ITALIANA VINI SOC. COOP.",
-    "indirizzo": "Via San Vittore al Teatro, 3, Milano",
-    "telefono": "027222281",
-    "email": "info@uiv.it",
-    "sito": "http://www.uiv.it/"
-   }
-  },
-  {
-   "id": "bevertech-2026",
-   "nome": "BEVERTECH",
-   "inizio": "2026-11-17",
-   "fine": "2026-11-20",
-   "settore": "Meccanica Strumentale Macchinari e Tecnologie per l'industria",
-   "tipologia": "Internazionale",
-   "quartiere": "FIERA MILANO S.P.A.",
-   "citta": "Milano",
-   "provincia": "MI",
-   "regione": "Lombardia",
-   "lat": 45.520698,
-   "lng": 9.079041,
-   "sito": "https://www.pharmintech.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/bevertech-2026",
-   "sito_fiera": null,
-   "riassunto": "Nuova fiera a Fiera Milano, organizzata da Ipack-Ima insieme al SIMEI: tecnologie per produrre, confezionare e distribuire bevande e alimenti liquidi.",
-   "fonte_riassunto": "https://packmedia.net/node/11809",
-   "organizzatore": {
-    "nome": "Ipack Ima srl",
-    "indirizzo": "Strada Statale del Sempione 28, 20017, Rho (MI)",
-    "telefono": "+39.02.319109",
-    "email": "ipackima@ipackima.it",
-    "sito": "https://www.pharmintech.it/"
    }
   },
   {
