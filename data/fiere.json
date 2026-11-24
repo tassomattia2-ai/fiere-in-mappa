@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-23T13:52:12+00:00",
+ "aggiornato": "2026-11-24T14:25:50+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -26,32 +26,6 @@
     "telefono": "+39 0173 29.22.44",
     "email": "alba@comune.alba.cn.it",
     "sito": "http://www.comune.alba.cn.it/"
-   }
-  },
-  {
-   "id": "fiera-nazionale-del-tartufo-bianco-2026",
-   "nome": "FIERA NAZIONALE DEL TARTUFO BIANCO",
-   "inizio": "2026-11-01",
-   "fine": "2026-11-23",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Nazionale",
-   "quartiere": null,
-   "citta": "Acqualagna",
-   "provincia": "PU",
-   "regione": "Marche",
-   "lat": 43.6258843,
-   "lng": 12.6759738,
-   "sito": "http://www.comune.acqualagna.ps.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/fiera-nazionale-del-tartufo-bianco-2026",
-   "sito_fiera": null,
-   "riassunto": "La storica fiera di Acqualagna, \"capitale del tartufo\", nata nel 1966: nei fine settimana mercato del tartufo bianco, cooking show, corsi di cucina, degustazioni guidate, racconti e concerti.",
-   "fonte_riassunto": "https://www.idealista.it/en/news/lifestyle-in-italy/2026/09/22/275285-italy-s-truffle-season-2026-best-fairs-for-trying-truffles",
-   "organizzatore": {
-    "nome": "Comune di Acqualagna (PU)",
-    "indirizzo": "Piazza Mattei n° 9 61041, Acqualagna",
-    "telefono": "+39 0721/79671",
-    "email": "comune.acqualagna@provincia.ps.it",
-    "sito": "http://www.comune.acqualagna.ps.it/"
    }
   },
   {
@@ -104,57 +78,6 @@
     "telefono": "+39 030 96.11.48",
     "email": "info@centrofiera.it",
     "sito": "http://www.centrofiera.it/"
-   }
-  },
-  {
-   "id": "gustofair-2026",
-   "nome": "GUSTOFAIR",
-   "inizio": "2026-11-21",
-   "fine": "2026-11-23",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Regionale",
-   "quartiere": "PADOVA HALL S.P.A.",
-   "citta": "Padova",
-   "provincia": "PD",
-   "regione": "Veneto",
-   "lat": 45.414087,
-   "lng": 11.887537,
-   "sito": "https://padovahall.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/gustofair-2026",
-   "sito_fiera": null,
-   "riassunto": "Fiera enogastronomica alla Fiera di Padova: prodotti alimentari locali e artigianali, degustazioni, dimostrazioni di cucina e incontri su temi del settore.",
-   "fonte_riassunto": "https://gustofair.it/",
-   "organizzatore": {
-    "nome": "Padova Hall S.p.A.",
-    "indirizzo": "Via Tommaseo, 59, Padova",
-    "email": "padovahall@legalmail.it",
-    "sito": "https://padovahall.it/"
-   }
-  },
-  {
-   "id": "mercato-dei-vini-dei-vignaioli-indipendenti-2026",
-   "nome": "MERCATO DEI VINI DEI VIGNAIOLI INDIPENDENTI FIVI",
-   "inizio": "2026-11-21",
-   "fine": "2026-11-23",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Nazionale",
-   "quartiere": "BOLOGNAFIERE S.P.A.",
-   "citta": "Bologna",
-   "provincia": "BO",
-   "regione": "Emilia-Romagna",
-   "lat": 44.509571,
-   "lng": 11.370032,
-   "sito": "https://fivi.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/mercato-dei-vini-dei-vignaioli-indipendenti-2026",
-   "sito_fiera": null,
-   "riassunto": "Il grande mercato dei vignaioli indipendenti della FIVI: centinaia di piccoli produttori che fanno il vino con le proprie uve lo presentano e lo vendono direttamente al pubblico.",
-   "fonte_riassunto": "https://fivi.it/",
-   "organizzatore": {
-    "nome": "FIVI - Federazione Italiana Vignaioli indipendenti",
-    "indirizzo": "Via Roma n. 35, Aldeno",
-    "telefono": "0461 842534",
-    "email": "segreteria@fivi.it",
-    "sito": "https://fivi.it/"
    }
   },
   {
