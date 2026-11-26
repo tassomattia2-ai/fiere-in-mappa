@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-25T13:44:04+00:00",
+ "aggiornato": "2026-11-26T13:22:59+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -1663,6 +1663,32 @@
     "telefono": "031/6371",
     "email": "info@lariofiere.com",
     "sito": "http://www.lariofiere.com/"
+   }
+  },
+  {
+   "id": "prowinter-2027",
+   "nome": "PROWINTER",
+   "inizio": "2027-01-10",
+   "fine": "2027-01-12",
+   "settore": "Sport Tempo Libero e Giochi",
+   "tipologia": "Internazionale",
+   "quartiere": "FIERA BOLZANO S.P.A. - MESSE BOZEN AG",
+   "citta": "Bolzano",
+   "provincia": "BZ",
+   "regione": "Trentino-Alto Adige",
+   "lat": 46.473345,
+   "lng": 11.325551,
+   "sito": "http://www.fierabolzano.it/",
+   "fonte": "https://www.aefi.it/it/manifestazione/prowinter-2027",
+   "sito_fiera": "https://www.fierabolzano.it/it/prowinter",
+   "riassunto": null,
+   "fonte_riassunto": null,
+   "organizzatore": {
+    "nome": "Fiera Bolzano S.p.A. - Messe Bozen Ag",
+    "indirizzo": "Piazza Fiera 1 - MessePlatz 1, 39100, Bolzano",
+    "telefono": "+39 0471 516.000",
+    "email": "info@fierabolzano.it",
+    "sito": "http://www.fierabolzano.it/"
    }
   }
  ]
