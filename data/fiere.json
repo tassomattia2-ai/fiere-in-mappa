@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-26T13:22:59+00:00",
+ "aggiornato": "2026-11-27T13:19:58+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -81,32 +81,6 @@
    }
   },
   {
-   "id": "ibe-intermobility-future-ways-2026",
-   "nome": "IBE Intermobility Future Ways",
-   "inizio": "2026-11-24",
-   "fine": "2026-11-26",
-   "settore": "Veicoli Trasporti e Relative Attrezzature",
-   "tipologia": "Internazionale",
-   "quartiere": "ITALIAN EXHIBITION GROUP S.P.A. - RIMINI",
-   "citta": "Rimini",
-   "provincia": "RN",
-   "regione": "Emilia-Romagna",
-   "lat": 44.069734,
-   "lng": 12.526671,
-   "sito": "www.iegexpo.it",
-   "fonte": "https://www.aefi.it/it/manifestazione/ibe-intermobility-future-ways-2026",
-   "sito_fiera": null,
-   "riassunto": "Alla Fiera di Rimini il punto d'incontro del trasporto pubblico e della mobilità condivisa: autobus, rinnovo delle flotte, transizione energetica, pagamenti digitali e servizi a chiamata, con convegni, rapporti di settore e il premio \"Bus of the Year\".",
-   "fonte_riassunto": "https://en.ilsole24ore.com/art/transport-24-26-november-rimini-ibe-intermobility-future-ways-the-european-hub-for-shared-mobility-AIdg30KD",
-   "organizzatore": {
-    "nome": "ITALIAN EXHIBITION GROUP SpA",
-    "indirizzo": "Via Emilia 155, Rimini",
-    "telefono": "0541 744111",
-    "email": "info@iegexpo.it",
-    "sito": "www.iegexpo.it"
-   }
-  },
-  {
    "id": "nse-new-space-economy-2026",
    "nome": "NSE - New Space Economy",
    "inizio": "2026-11-25",
@@ -130,32 +104,6 @@
     "telefono": "06.65074200",
     "email": "info@fieraroma.it",
     "sito": "http://www.fieraroma.it/"
-   }
-  },
-  {
-   "id": "bitesp-2026",
-   "nome": "BITESP",
-   "inizio": "2026-11-25",
-   "fine": "2026-11-26",
-   "settore": "Turismo e Campeggio",
-   "tipologia": "Internazionale",
-   "quartiere": "VENEZIA - EXPO VENICE S.P.A.",
-   "citta": "Venezia",
-   "provincia": "VE",
-   "regione": "Veneto",
-   "lat": 45.439182,
-   "lng": 12.312144,
-   "sito": "http://www.expovenice.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/bitesp-2026",
-   "sito_fiera": "https://bitesp.it/",
-   "riassunto": "Borsa del turismo esperienziale a Venezia: due giornate di incontri su appuntamento tra chi offre esperienze di viaggio in Italia e acquirenti stranieri, solo per operatori.",
-   "fonte_riassunto": "https://tno.camcom.it/sites/default/files/allegati/Uffici%20Promozione/Turismo/2026-Circolare-Bitesp.pdf",
-   "organizzatore": {
-    "nome": "INTERNATIONAL GROUP SRL",
-    "indirizzo": "Corso Milano 54, Padova",
-    "telefono": "049/8766730",
-    "email": "internationalgroupsrl@mypec.eu",
-    "sito": "http://www.expovenice.it/"
    }
   },
   {
@@ -237,32 +185,6 @@
    }
   },
   {
-   "id": "salone-dello-studente-2026",
-   "nome": "Salone dello Studente",
-   "inizio": "2026-11-25",
-   "fine": "2026-11-26",
-   "settore": "Cultura Formazione Scuola",
-   "tipologia": "Nazionale",
-   "quartiere": "MOSTRA D'OLTREMARE S.P.A.",
-   "citta": "Napoli",
-   "provincia": "NA",
-   "regione": "Campania",
-   "lat": 40.824862,
-   "lng": 14.193145,
-   "sito": "http://www.salonedellostudente.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/salone-dello-studente-2026",
-   "sito_fiera": null,
-   "riassunto": "Tappa a Napoli (Mostra d'Oltremare) del salone di orientamento per chi finisce le superiori: università, corsi e lavoro, colloqui di orientamento. Gratuito per gli studenti.",
-   "fonte_riassunto": "https://www.tecnicadellascuola.it/salone-dello-studente-al-via-il-tour-di-indire-le-date-e-le-citta-che-tocchera",
-   "organizzatore": {
-    "nome": "Campus Editori Srl",
-    "indirizzo": "Via Marco Burigozzo 5 - 20122 Milano, Milano",
-    "telefono": "02 582191",
-    "email": "salonedellostudente@class.it",
-    "sito": "http://www.salonedellostudente.it/"
-   }
-  },
-  {
    "id": "fiere-zootecniche-internazionali-di-cremona-2026",
    "nome": "FIERE ZOOTECNICHE INTERNAZIONALI DI CREMONA",
    "inizio": "2026-11-26",
@@ -286,28 +208,6 @@
     "telefono": "+39 0372 598.011",
     "email": "info@cremonafiere.it",
     "sito": "http://www.cremonafiere.it/"
-   }
-  },
-  {
-   "id": "career-day-2026-62487",
-   "nome": "CAREER DAY",
-   "inizio": "2026-11-26",
-   "fine": "2026-11-26",
-   "settore": "Cultura Formazione Scuola",
-   "tipologia": "Regionale",
-   "quartiere": "BERGAMO FIERA NUOVA S.P.A.",
-   "citta": "Bergamo",
-   "provincia": "BG",
-   "regione": "Lombardia",
-   "lat": 45.679073,
-   "lng": 9.702109,
-   "sito": "http://www.bergamofieranuova.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/career-day-2026-62487",
-   "sito_fiera": null,
-   "riassunto": "Giornata in fiera a Bergamo organizzata dall'Università di Bergamo: studenti e laureati incontrano le aziende per lavoro, tirocini e tesi, con colloqui e CV da consegnare.",
-   "fonte_riassunto": "https://www.unibg.it/terza-missione/collaborazioni-enti-e-imprese/career-day/eventi-career-day",
-   "organizzatore": {
-    "sito": "http://www.bergamofieranuova.it/"
    }
   },
   {
