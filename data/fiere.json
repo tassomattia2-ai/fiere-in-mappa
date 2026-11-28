@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-27T13:19:58+00:00",
+ "aggiornato": "2026-11-28T12:34:51+00:00",
  "fonte": "AEFI - Associazione Esposizioni e Fiere Italiane (www.aefi.it)",
  "fiere": [
   {
@@ -81,58 +81,6 @@
    }
   },
   {
-   "id": "nse-new-space-economy-2026",
-   "nome": "NSE - New Space Economy",
-   "inizio": "2026-11-25",
-   "fine": "2026-11-27",
-   "settore": "Meccanica Strumentale Macchinari e Tecnologie per l'industria",
-   "tipologia": "Internazionale",
-   "quartiere": "FIERA ROMA S.R.L.",
-   "citta": "Roma",
-   "provincia": "RM",
-   "regione": "Lazio",
-   "lat": 41.811852,
-   "lng": 12.331032,
-   "sito": "http://www.fieraroma.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/nse-new-space-economy-2026",
-   "sito_fiera": "https://www.nseexpoforum.com/",
-   "riassunto": "Fiera e convegno sull'economia dello spazio a Fiera Roma: area espositiva, dibattiti, incontri B2B, gara per startup e spazio formazione, con agenzie, imprese e università.",
-   "fonte_riassunto": "https://turismoroma.it/it/node/175288",
-   "organizzatore": {
-    "nome": "FIERA ROMA S.r.l.",
-    "indirizzo": "Via Portuense 1645 - 1647, Roma",
-    "telefono": "06.65074200",
-    "email": "info@fieraroma.it",
-    "sito": "http://www.fieraroma.it/"
-   }
-  },
-  {
-   "id": "interpoma-2026",
-   "nome": "INTERPOMA",
-   "inizio": "2026-11-25",
-   "fine": "2026-11-27",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Internazionale",
-   "quartiere": "FIERA BOLZANO S.P.A. - MESSE BOZEN AG",
-   "citta": "Bolzano",
-   "provincia": "BZ",
-   "regione": "Trentino-Alto Adige",
-   "lat": 46.473345,
-   "lng": 11.325551,
-   "sito": "http://www.fierabolzano.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/interpoma-2026",
-   "sito_fiera": null,
-   "riassunto": "Fiera di Bolzano tutta dedicata alla mela: coltivazione, conservazione e vendita, con un congresso tecnico. Si tiene ogni due anni in Alto Adige, la più grande zona di meleti d'Europa.",
-   "fonte_riassunto": "https://www.fruitnet.com/eurofruit/interpoma-announces-details-of-2026-congress/270443.article",
-   "organizzatore": {
-    "nome": "Fiera Bolzano S.p.A. - Messe Bozen Ag",
-    "indirizzo": "Piazza Fiera 1 - MessePlatz 1, 39100, Bolzano",
-    "telefono": "+39 0471 516.000",
-    "email": "info@fierabolzano.it",
-    "sito": "http://www.fierabolzano.it/"
-   }
-  },
-  {
    "id": "job-orienta-2026",
    "nome": "JOB & ORIENTA",
    "inizio": "2026-11-25",
@@ -156,32 +104,6 @@
     "telefono": "045/8298111",
     "email": "info@veronafiere.it",
     "sito": "http://www.veronafiere.it/"
-   }
-  },
-  {
-   "id": "frutech-2026",
-   "nome": "FRUTECH",
-   "inizio": "2026-11-25",
-   "fine": "2026-11-27",
-   "settore": "Alimenti Bevande e Relative Tecnologie",
-   "tipologia": "Internazionale",
-   "quartiere": "SICILIA FIERA",
-   "citta": "Misterbianco",
-   "provincia": "CT",
-   "regione": "Sicilia",
-   "lat": 37.5137356,
-   "lng": 15.0326494,
-   "sito": "https://www.siciliafiera.it/",
-   "fonte": "https://www.aefi.it/it/manifestazione/frutech-2026",
-   "sito_fiera": "https://www.frutech.it/",
-   "riassunto": "Fiera dell'ortofrutta mediterranea a SiciliaFiera (Catania), alla terza edizione: agricoltura di precisione, difesa sostenibile delle colture e incontri d'affari per le aziende del settore.",
-   "fonte_riassunto": "https://www.farmersguide.co.uk/?p=129436",
-   "organizzatore": {
-    "nome": "Sicily Hub s.b.p.a",
-    "indirizzo": "Corso Carlo Marx 19, Misterbianco",
-    "telefono": "0953288151",
-    "email": "info@siciliafiera.it",
-    "sito": "https://www.siciliafiera.it/"
    }
   },
   {
@@ -234,32 +156,6 @@
     "telefono": "049-98.32.150",
     "email": "info@multimediatre.com",
     "sito": "http://www.multimediatre.com/"
-   }
-  },
-  {
-   "id": "h2o-accadueo-2026",
-   "nome": "ACCADUEO",
-   "inizio": "2026-11-26",
-   "fine": "2026-11-27",
-   "settore": "Meccanica Strumentale Macchinari e Tecnologie per l'industria",
-   "tipologia": "Internazionale",
-   "quartiere": "NUOVA FIERA DEL LEVANTE S.R.L.",
-   "citta": "Bari",
-   "provincia": "BA",
-   "regione": "Puglia",
-   "lat": 41.11176,
-   "lng": 16.92083,
-   "sito": "https://nuovafieradellevante.it",
-   "fonte": "https://www.aefi.it/it/manifestazione/h2o-accadueo-2026",
-   "sito_fiera": "https://www.accadueo.com/it/",
-   "riassunto": "Appuntamento dedicato al mondo dell'acqua: reti idriche, depurazione, riuso, dissalazione e digitale contro le perdite. Si alterna tra Bologna e Bari; nel 2026 è alla Fiera del Levante.",
-   "fonte_riassunto": "https://www.waternewseurope.com/accadueo-returns-to-bari-on-26-and-27-november-the-key-event-for-the-water-sector/",
-   "organizzatore": {
-    "nome": "BolognaFiere Water&Energy srl (BFWE)",
-    "indirizzo": "Viale della Fiera 20, Bologna",
-    "telefono": "-",
-    "email": "bfwe@pec.bolognafiere.it",
-    "sito": "https://nuovafieradellevante.it"
    }
   },
   {
@@ -1589,6 +1485,32 @@
     "telefono": "+39 0471 516.000",
     "email": "info@fierabolzano.it",
     "sito": "http://www.fierabolzano.it/"
+   }
+  },
+  {
+   "id": "pitti-immagine-uomo-2027",
+   "nome": "PITTI IMMAGINE UOMO",
+   "inizio": "2027-01-12",
+   "fine": "2027-01-15",
+   "settore": "Abbigliamento e Pelliceria",
+   "tipologia": "Internazionale",
+   "quartiere": "FIRENZE FIERA S.P.A.",
+   "citta": "Firenze",
+   "provincia": "FI",
+   "regione": "Toscana",
+   "lat": 43.777803,
+   "lng": 11.249289,
+   "sito": "http://www.pittimmagine.com/",
+   "fonte": "https://www.aefi.it/it/manifestazione/pitti-immagine-uomo-2027",
+   "sito_fiera": "https://uomo.pittimmagine.com/",
+   "riassunto": null,
+   "fonte_riassunto": null,
+   "organizzatore": {
+    "nome": "Pitti Immagine S.r.l.",
+    "indirizzo": "Via Faenza, 111 - 50123, Firenze",
+    "telefono": "+39 055 369.31",
+    "email": "dir.generale@pittimmagine.com",
+    "sito": "http://www.pittimmagine.com/"
    }
   }
  ]
